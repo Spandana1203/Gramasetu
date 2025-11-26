@@ -375,7 +375,7 @@ app.post('/api/cb-clear', (req, res) => {
 
 // -------------------- DEFAULT FRONTEND ROUTE --------------------
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirnameFull, 'home.html'));
+  res.sendFile(path.join(__dirnameFull, 'log.html'));
 });
 
 
@@ -384,4 +384,5 @@ const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
+
 
