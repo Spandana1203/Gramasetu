@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMGDISHA - Gramasetu</title>
+    <link rel="stylesheet" href="scheme.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="actions">
+        <button class="toggle-btn" onclick="window.location.href='../home.html'">Home</button>
+        <button class="toggle-btn" id="langToggle">ಕನ್ನಡ</button>
+    </div>
+</div>
+
+<!-- ✅ Voice Assistant Button -->
+<button class="voice-btn" id="voiceAssistantBtn">🎤 Voice Assistant</button>
+
+<!-- Content -->
+<div class="content">
+
+<!-- English -->
+<div class="lang en">
+    <h2>Pradhan Mantri Jan Dhan Yojana (PMJDY)</h2>
+    <p><b>Description:</b> PMJDY is a financial inclusion program that provides banking services to every household. It ensures that even rural families have access to savings accounts, insurance, and direct benefit transfers.</p>
+
+    <h3>Benefits</h3>
+    <ul>
+        <li>Zero-balance savings account.</li>
+        <li>Free RuPay debit card with accident insurance cover of ₹1 lakh.</li>
+        <li>Overdraft facility up to ₹10,000 after six months.</li>
+        <li>Direct credit of government subsidies into the account.</li>
+    </ul>
+
+    <h3>Eligibility</h3>
+    <ul>
+        <li>Any Indian citizen without a bank account.</li>
+        <li>Priority to rural and low-income families.</li>
+        <li>Minors above 10 years can open accounts with guardians.</li>
+    </ul>
+
+    <h3>Documents Required</h3>
+    <ul>
+        <li>Aadhaar Card / Voter ID / PAN</li>
+        <li>Address Proof (Ration Card, Driving License, etc.)</li>
+        <li>2 Passport-size Photographs</li>
+    </ul>
+
+    <h3>How to Apply</h3>
+    <ol>
+        <li>Visit your nearest bank branch.</li>
+        <li>Fill the PMJDY account opening form.</li>
+        <li>Submit Aadhaar, passport-size photo, and address proof.</li>
+        <li>Get the account opened with zero balance and receive a RuPay card.</li>
+    </ol>
+</div>
+
+<!-- Kannada -->
+<div class="lang kn" style="display: none;">
+    <h2>ಪ್ರಧಾನಮಂತ್ರಿ ಜನಧನ್ ಯೋಜನೆ (PMJDY)</h2>
+    <p><b>ವಿವರಣೆ:</b> ಈ ಯೋಜನೆಯ ಉದ್ದೇಶ ಪ್ರತಿ ಮನೆಯಿಗೂ ಬ್ಯಾಂಕಿಂಗ್ ಸೇವೆಗಳನ್ನು ತಲುಪಿಸುವುದು. ಗ್ರಾಮೀಣ ಹಾಗೂ ಬಡ ಕುಟುಂಬಗಳಿಗೂ ಉಳಿತಾಯ ಖಾತೆ, ವಿಮೆ ಹಾಗೂ ನೇರ ಸಬ್ಸಿಡಿ (DBT) ಸೌಲಭ್ಯ ದೊರೆಯುವಂತೆ ಸರ್ಕಾರ ಪ್ರಾರಂಭಿಸಿರುವ ಯೋಜನೆ.</p>
+
+    <h3>ಲಾಭಗಳು</h3>
+    <ul>
+        <li>ಶೂನ್ಯ ಬಾಕಿ (Zero Balance) ಉಳಿತಾಯ ಖಾತೆ ತೆರೆಯುವ ಅವಕಾಶ.</li>
+        <li>ಉಚಿತ ರೂಪೇ ಡೆಬಿಟ್ ಕಾರ್ಡ್ ಹಾಗೂ ₹1 ಲಕ್ಷದ ಅಪಘಾತ ವಿಮೆ.</li>
+        <li>6 ತಿಂಗಳ ಬಳಿಕ ₹10,000 ವರೆಗೆ ಓವರ್‌ಡ್ರಾಫ್ಟ್ ಸೌಲಭ್ಯ.</li>
+        <li>ಸರ್ಕಾರ ನೀಡುವ ಸಬ್ಸಿಡಿಗಳು ನೇರವಾಗಿ ಖಾತೆಗೆ ಜಮಾ ಆಗುತ್ತವೆ.</li>
+    </ul>
+
+    <h3>ಅರ್ಹತೆ</h3>
+    <ul>
+        <li>ಯಾವುದೇ ಭಾರತೀಯ ಪ್ರಜೆ, ಬ್ಯಾಂಕ್ ಖಾತೆ ಇಲ್ಲದವರು.</li>
+        <li>ಆದ್ಯತೆ ಗ್ರಾಮೀಣ ಹಾಗೂ ಕಡಿಮೆ ಆದಾಯದ ಕುಟುಂಬಗಳಿಗೆ.</li>
+        <li>10 ವರ್ಷ ಮೇಲ್ಪಟ್ಟ ಅಪ್ರಾಪ್ತರು ಕೂಡ ಪಾಲಕರ ಮೂಲಕ ಖಾತೆ ತೆರೆಯಬಹುದು.</li>
+    </ul>
+
+    <h3>ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</h3>
+    <ul>
+        <li>ಆಧಾರ್ ಕಾರ್ಡ್ / ಮತದಾರರ ಗುರುತಿನ ಚೀಟಿ / ಪ್ಯಾನ್ ಕಾರ್ಡ್</li>
+        <li>ವಿಳಾಸದ ಪುರಾವೆ (ರೇಷನ್ ಕಾರ್ಡ್, ಲೈಸೆನ್ಸ್ ಇತ್ಯಾದಿ)</li>
+        <li>2 ಪಾಸ್‌ಪೋರ್ಟ್ ಗಾತ್ರದ ಫೋಟೋಗಳು</li>
+    </ul>
+
+    <h3>ಅರ್ಜಿಯ ಪ್ರಕ್ರಿಯೆ</h3>
+    <ol>
+        <li>ಹತ್ತಿರದ ಬ್ಯಾಂಕ್ ಶಾಖೆಗೆ ಭೇಟಿ ನೀಡಿ.</li>
+        <li>PMJDY ಖಾತೆ ತೆರೆಯುವ ಅರ್ಜಿ ಫಾರ್ಮ್ ಭರ್ತಿ ಮಾಡಿ.</li>
+        <li>ಆಧಾರ್, ವಿಳಾಸ ಪುರಾವೆ ಹಾಗೂ ಫೋಟೋಗಳನ್ನು ಸಲ್ಲಿಸಿ.</li>
+        <li>ಶೂನ್ಯ ಬಾಕಿ ಉಳಿತಾಯ ಖಾತೆ ತೆರೆದು ರೂಪೇ ಡೆಬಿಟ್ ಕಾರ್ಡ್ ಪಡೆಯಿರಿ.</li>
+    </ol>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer style="background-color: #4b2e2e; color: white; text-align: center; padding: 12px 0; margin-top: 30px;">
+    © Gramasetu
+</footer>
+
+<!-- Scripts -->
+<script src="../va.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguageDisplay() {
+            document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+            const active = document.querySelector('.' + currentLang);
+            if (active) active.style.display = 'block';
+            if (langToggleBtn) langToggleBtn.textContent = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+        }
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'kn' : 'en';
+                localStorage.setItem('lang', currentLang);
+                updateLanguageDisplay();
+            });
+        }
+        updateLanguageDisplay();
+    } catch (e) {}
+
+    try {
+        const vaBtn = document.getElementById('voiceAssistantBtn');
+        if (vaBtn) {
+            vaBtn.addEventListener('click', function () {
+                if (typeof startVoiceAssistant === 'function') {
+                    startVoiceAssistant(localStorage.getItem('lang') || 'en');
+                }
+            });
+        }
+    } catch (e) {}
+
+    try {
+        const icon = document.getElementById('open-chatbot');
+        const frameContainer = document.getElementById('chatbot-frame-container');
+        if (icon && frameContainer) {
+            icon.addEventListener('click', () => {
+                frameContainer.style.display = frameContainer.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+    } catch (e) {}
+});
+</script>
+
+<!-- Chatbot Icon -->
+<div id="open-chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(120% 120% at 80% 20%, #c6a94c 0%, #c6a94c 100%); color: #4b2e2e; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 99999;">💬</div>
+
+<!-- Chatbot Frame -->
+<div id="chatbot-frame-container" style="position: fixed; bottom: 90px; right: 20px; width: 380px; height: 560px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden; z-index: 99999;">
+    <iframe src="../cb-standalone.html" style="width:100%;height:100%;border:none;" allow="microphone; autoplay; clipboard-read" title="Chatbot"></iframe>
+</div>
+
+</body>
+</html>

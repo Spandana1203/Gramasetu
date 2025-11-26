@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMGDISHA - Gramasetu</title>
+    <link rel="stylesheet" href="scheme.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="actions">
+        <button class="toggle-btn" onclick="window.location.href='../home.html'">Home</button>
+        <button class="toggle-btn" id="langToggle">ಕನ್ನಡ</button>
+    </div>
+</div>
+
+<!-- ✅ Voice Assistant Button -->
+<button class="voice-btn" id="voiceAssistantBtn">🎤 Voice Assistant</button>
+
+<!-- Content -->
+<div class="content">
+
+<!-- English -->
+<div class="lang en">
+    <h2>Stree Shakti Groups – Empowerment of Women</h2>
+    <p><b>Description:</b> Karnataka Government flagship initiative empowering women via Self-Help Groups (SHGs). Focuses on financial self-reliance, skill upgradation, and social empowerment.</p>
+
+    <h3>Eligibility</h3>
+    <ul>
+        <li>All women residents of Karnataka.</li>
+        <li>Must join or establish a Self-Help Group (SHG).</li>
+        <li>Priority to BPL women, widows, single mothers, and backward-class women.</li>
+        <li>SHG members to make small regular savings toward group fund.</li>
+    </ul>
+
+    <h3>Benefits</h3>
+    <ul>
+        <li>Access to micro-credit: low-interest loans for self-employment and small enterprises.</li>
+        <li>Income generation: activities like tailoring, dairy farming, handicrafts, food processing.</li>
+        <li>Skill development: training on entrepreneurship, financial literacy, digital skills, vocational trades.</li>
+        <li>Empowerment in decision-making: confidence in family and community decisions.</li>
+        <li>Government linkages: priority access to welfare schemes, subsidies, and grants.</li>
+        <li>Social development: awareness on health, education, child rights, women’s rights.</li>
+        <li>Collective strength: solidarity, networking, and leadership among women.</li>
+    </ul>
+
+    <h3>Documents Required</h3>
+    <ul>
+        <li>Aadhaar card for each member</li>
+        <li>Residence proof (voter ID, electricity bill, ration card, etc.)</li>
+        <li>BPL card (if applicable)</li>
+        <li>Passport-sized photographs</li>
+        <li>Bank account information (Aadhaar-linked)</li>
+        <li>SHG registration documents (for group certification)</li>
+    </ul>
+
+    <h3>How to Apply</h3>
+    <ol>
+        <li>Join or form a SHG in your locality (ward/village).</li>
+        <li>Register the SHG with Department of Women & Child Development or NGO facilitators.</li>
+        <li>Open joint bank account in the name of the SHG for savings and credit transactions.</li>
+        <li>Enroll under the scheme via local Stree Shakti Coordinator or Women & Child Development Office.</li>
+        <li>Apply for loans, subsidies, and training programs via SHG network.</li>
+        <li>Attend monthly meetings, workshops, and training sessions conducted under the scheme.</li>
+        <li>Official portal: <a href="https://dwcd.karnataka.gov.in/english">Department of Women & Child Development</a></li>
+    </ol>
+
+    <h3>Importance</h3>
+    <ul>
+        <li>Transforms homemakers into entrepreneurs.</li>
+        <li>Makes women financially independent.</li>
+        <li>Builds confidence and leadership in rural and urban women.</li>
+        <li>Promotes grassroots social reform via women empowerment initiatives.</li>
+        <li>Beyond savings and loans, creates a movement enabling women as agents of change.</li>
+    </ul>
+</div>
+
+<!-- Kannada -->
+<div class="lang kn" style="display: none;">
+    <h2>ಸ್ತ್ರೀ ಶಕ್ತಿ ಗುಂಪುಗಳು – ಮಹಿಳೆಯರ ಸಬಲೀಕರಣ</h2>
+    <p><b>ವಿವರಣೆ:</b> ಕರ್ನಾಟಕ ಸರ್ಕಾರದ ಪ್ರಮುಖ ಮಹಿಳಾ ಸಬಲೀಕರಣ ಯೋಜನೆ, ಮಹಿಳೆಯರನ್ನು ಸ್ವ-ಸಹಾಯ ಗುಂಪುಗಳ (SHGs) ಮೂಲಕ ಸಬಲೀಕರಣ ಮಾಡಲು ಉದ್ದೇಶ.</p>
+
+    <h3>ಅರ್ಹತೆ</h3>
+    <ul>
+        <li>ಕರ್ನಾಟಕದ ಎಲ್ಲಾ ಮಹಿಳೆಯರಿಗೆ ಲಭ್ಯ.</li>
+        <li>ಮಹಿಳೆಯರು ಸ್ವ-ಸಹಾಯ ಗುಂಪಿಗೆ ಸೇರಬೇಕು ಅಥವಾ ಸ್ಥಾಪಿಸಬೇಕು.</li>
+        <li>ಆದ್ಯತೆ: BPL ಮಹಿಳೆಯರು, ವಿಧವೆಯರು, ಏಕಕಾಲೀನ ತಾಯಿಯರು, ಹಿಂದುಳಿದ ವರ್ಗದ ಮಹಿಳೆಯರು.</li>
+        <li>SHG ಸದಸ್ಯರು ಗುಂಪು ನಿಧಿಗೆ ಚಿಕ್ಕ ನಿತ್ಯ ಉಳಿತಾಯ ಮಾಡಬೇಕು.</li>
+    </ul>
+
+    <h3>ಲಾಭಗಳು</h3>
+    <ul>
+        <li>ಮೈಕ್ರೋ ಕ್ರೆಡಿಟ್: ಕಡಿಮೆ ಬಡ್ಡಿದರ ಸಾಲಗಳು ಸ್ವ-ಉದ್ಯೋಗ ಮತ್ತು ಸಣ್ಣ ಉದ್ಯಮಗಳಿಗೆ.</li>
+        <li>ಆದಾಯ ಉತ್ಪಾದನೆ: ಟೇಲರಿಂಗ್, ಹಸು-ಹಸು ಪಾಳು, ಕೈಗಾರಿಕೆಗಳು, ಆಹಾರ ಪ್ರಕ್ರಿಯೆ.</li>
+        <li>ಕೌಶಲ್ಯಾಭಿವೃದ್ಧಿ: ಉದ್ಯಮಶೀಲತೆ, ಹಣಕಾಸು ಸಾಕ್ಷರತೆ, ಡಿಜಿಟಲ್ ಕೌಶಲ್ಯ, ವ್ಯವಸಾಯ ತರಬೇತಿಗಳು.</li>
+        <li>ನಿರ್ಧಾರಮಾಡುವಲ್ಲಿ ಸಬಲೀಕರಣ: ಕುಟುಂಬ ಮತ್ತು ಸಮುದಾಯ ಮಟ್ಟದಲ್ಲಿ ನಿರ್ಧಾರಗಳಿಗೆ ಆತ್ಮವಿಶ್ವಾಸ.</li>
+        <li>ಸರ್ಕಾರಿ ಸಂಪರ್ಕಗಳು: ಕಲ್ಯಾಣ ಯೋಜನೆಗಳು, ಅನುದಾನಗಳು, ಮತ್ತು ಸಹಾಯಕ್ಕೆ ಆದ್ಯತೆ.</li>
+        <li>ಸಾಮಾಜಿಕ ಅಭಿವೃದ್ಧಿ: ಆರೋಗ್ಯ, ಶಿಕ್ಷಣ, ಮಕ್ಕಳ ಹಕ್ಕುಗಳು, ಮಹಿಳಾ ಹಕ್ಕುಗಳು.</li>
+        <li>ಸಾಮೂಹಿಕ ಶಕ್ತಿ: ಒಕ್ಕೂಟ, ನೆಟ್ವರ್ಕಿಂಗ್, ನೇತೃತ್ವ ವೃದ್ಧಿ.</li>
+    </ul>
+
+    <h3>ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</h3>
+    <ul>
+        <li>ಪ್ರತಿಯೊಂದು ಸದಸ್ಯರಿಗೆ ಆಧಾರ್ ಕಾರ್ಡ್</li>
+        <li>ನಿವಾಸದ ದಾಖಲೆ (ಮತದಾರರ ID, ವಿದ್ಯುತ್ ಬಿಲ್, ರೇಷನ್ ಕಾರ್ಡ್)</li>
+        <li>BPL ಕಾರ್ಡ್ (ಅಗತ್ಯವಿದ್ದಲ್ಲಿ)</li>
+        <li>ಪಾಸ್‌ಪೋರ್ಟ್ ಗಾತ್ರದ ಫೋಟೋಗಳು</li>
+        <li>ಬ್ಯಾಂಕ್ ಖಾತೆ ವಿವರಗಳು (ಆಧಾರ್ ಲಿಂಕ್)</li>
+        <li>SHG ನೋಂದಣಿ ದಾಖಲೆಗಳು (ಗುಂಪು ಪ್ರಮಾಣಪತ್ರ)</li>
+    </ul>
+
+    <h3>ಅರ್ಜಿಯ ಪ್ರಕ್ರಿಯೆ</h3>
+    <ol>
+        <li>ಸ್ಥಳೀಯ ಸ್ಥಳದಲ್ಲಿ (ವಾರ್ಡ್/ಗ್ರಾಮ) SHG ಸೇರಿ ಅಥವಾ ಸ್ಥಾಪಿಸಿ.</li>
+        <li>SHG ಅನ್ನು ಮಹಿಳಾ ಮತ್ತು ಮಕ್ಕಳ ಅಭಿವೃದ್ಧಿ ಇಲಾಖೆ ಅಥವಾ NGO ಮೂಲಕ ನೋಂದಣಿ ಮಾಡಿ.</li>
+        <li>SHG ಹೆಸರು ಮೇಲೆ ಸಾಮೂಹಿಕ ಬ್ಯಾಂಕ್ ಖಾತೆ ತೆರೆಯಿರಿ.</li>
+        <li>ಸ್ಥಳೀಯ ಸ್ತ್ರೀ ಶಕ್ತಿ ಕೋ-ಆರ್ಡಿನೇಟರ್ ಅಥವಾ ಮಹಿಳಾ ಮತ್ತು ಮಕ್ಕಳ ಅಭಿವೃದ್ಧಿ ಕಚೇರಿ ಮೂಲಕ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ.</li>
+        <li>SHG ಮೂಲಕ ಸಾಲ, ಅನುದಾನ, ತರಬೇತಿ ಯೋಜನೆಗಳಿಗೆ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ.</li>
+        <li>ನಿಯಮಿತ ಮಾಸಿಕ ಸಭೆ, ಕಾರ್ಯಾಗಾರ, ತರಬೇತಿಗಳಲ್ಲಿ ಭಾಗವಹಿಸಿ.</li>
+        <li>ಅಧಿಕೃತ ಪೋರ್ಟಲ್: <a href="https://dwcd.karnataka.gov.in/english">Mahila & Bal Vikas</a></li>
+    </ol>
+
+    <h3>ಪ್ರಮುಖತೆ</h3>
+    <ul>
+        <li>ಮನೆಯವಳರನ್ನು ಉದ್ಯಮಿಗಳಾಗಿ ರೂಪಿಸುತ್ತದೆ.</li>
+        <li>ಮಹಿಳೆಯರನ್ನು ಆರ್ಥಿಕವಾಗಿ ಸ್ವಾವಲಂಬಿ ಮಾಡುತ್ತದೆ.</li>
+        <li>ಗ್ರಾಮೀಣ ಮತ್ತು ನಗರ ಮಹಿಳೆಯರಲ್ಲಿ ಆತ್ಮವಿಶ್ವಾಸ ಮತ್ತು ನೇತೃತ್ವ ಬೆಳೆಸುತ್ತದೆ.</li>
+        <li>ಮಹಿಳಾ ಸಬಲೀಕರಣ ಮೂಲಕ ಸಾಮಾಜಿಕ ಸುಧಾರಣೆ.</li>
+        <li>ಉಳಿತಾಯ-ಸಾಲಕ್ಕೂ ಮೀರಿದ, ಮಹಿಳೆಯರನ್ನು ಬದಲಾವಣೆಯ ಏಜೆಂಟ್ಗಳಾಗಿ ರೂಪಿಸುವ ಚಳುವಳಿ.</li>
+    </ul>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer style="background-color: #4b2e2e; color: white; text-align: center; padding: 12px 0; margin-top: 30px;">
+    © Gramasetu
+</footer>
+
+<!-- Scripts -->
+<script src="../va.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguageDisplay() {
+            document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+            const active = document.querySelector('.' + currentLang);
+            if (active) active.style.display = 'block';
+            if (langToggleBtn) langToggleBtn.textContent = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+        }
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'kn' : 'en';
+                localStorage.setItem('lang', currentLang);
+                updateLanguageDisplay();
+            });
+        }
+        updateLanguageDisplay();
+    } catch (e) {}
+
+    try {
+        const vaBtn = document.getElementById('voiceAssistantBtn');
+        if (vaBtn) {
+            vaBtn.addEventListener('click', function () {
+                if (typeof startVoiceAssistant === 'function') {
+                    startVoiceAssistant(localStorage.getItem('lang') || 'en');
+                }
+            });
+        }
+    } catch (e) {}
+
+    try {
+        const icon = document.getElementById('open-chatbot');
+        const frameContainer = document.getElementById('chatbot-frame-container');
+        if (icon && frameContainer) {
+            icon.addEventListener('click', () => {
+                frameContainer.style.display = frameContainer.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+    } catch (e) {}
+});
+</script>
+
+<!-- Chatbot Icon -->
+<div id="open-chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(120% 120% at 80% 20%, #c6a94c 0%, #c6a94c 100%); color: #4b2e2e; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 99999;">💬</div>
+
+<!-- Chatbot Frame -->
+<div id="chatbot-frame-container" style="position: fixed; bottom: 90px; right: 20px; width: 380px; height: 560px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden; z-index: 99999;">
+    <iframe src="../cb-standalone.html" style="width:100%;height:100%;border:none;" allow="microphone; autoplay; clipboard-read" title="Chatbot"></iframe>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMGDISHA - Gramasetu</title>
+    <link rel="stylesheet" href="scheme.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="actions">
+        <button class="toggle-btn" onclick="window.location.href='../home.html'">Home</button>
+        <button class="toggle-btn" id="langToggle">ಕನ್ನಡ</button>
+    </div>
+</div>
+
+<!-- ✅ Voice Assistant Button -->
+<button class="voice-btn" id="voiceAssistantBtn">🎤 Voice Assistant</button>
+
+<!-- Content -->
+<div class="content">
+
+<!-- English -->
+<div class="lang en">
+    <h2>SC/ST Self Employment Scheme</h2>
+    <p><b>Description:</b> Karnataka Government’s flagship program to promote entrepreneurship among SC/ST communities. Provides financial assistance, subsidies, and training to start self-employment ventures or small-scale businesses, reducing unemployment and enabling sustainable livelihoods.</p>
+
+    <h3>Eligibility</h3>
+    <ul>
+        <li>Must belong to SC or ST community (valid caste certificate required).</li>
+        <li>Permanent resident of Karnataka.</li>
+        <li>Age between 18–55 years (relaxable as per guidelines).</li>
+        <li>Family income within government-prescribed limit.</li>
+        <li>No default in any financial institution.</li>
+        <li>Must submit a viable business/project plan.</li>
+    </ul>
+
+    <h3>Benefits</h3>
+    <ul>
+        <li>Subsidized loans through banks and cooperatives.</li>
+        <li>Capital subsidy from Social Welfare Department.</li>
+        <li>Financial assistance for machinery, tools, or raw materials.</li>
+        <li>Skill development and entrepreneurship training.</li>
+        <li>Encourages starting businesses instead of wage employment.</li>
+        <li>Empowers SC/ST youth and women to be self-reliant.</li>
+    </ul>
+
+    <h3>Documents Required</h3>
+    <ul>
+        <li>Aadhaar card (linked with bank account).</li>
+        <li>Caste certificate and income certificate.</li>
+        <li>Residence proof (ration card, voter ID, etc.).</li>
+        <li>Passport-size photographs.</li>
+        <li>Bank passbook copy (Aadhaar-seeded).</li>
+        <li>Simple business plan/project report.</li>
+        <li>Educational qualification certificate (if applicable).</li>
+    </ul>
+
+    <h3>How to Apply</h3>
+    <ol>
+        <li>Visit Seva Sindhu Portal → <a href="https://sevasindhugs.karnataka.gov.in" target="_blank">https://sevasindhugs.karnataka.gov.in</a></li>
+        <li>Register or log in.</li>
+        <li>Select “Apply for Services” → SC/ST Self Employment Scheme.</li>
+        <li>Fill applicant details, income, caste, and business/project info.</li>
+        <li>Upload required documents.</li>
+        <li>Verify Aadhaar OTP and submit.</li>
+        <li>District committee reviews and recommends eligible cases.</li>
+        <li>Approved applicants linked with banks for loan sanction and subsidy release.</li>
+    </ol>
+
+    <h3>Importance</h3>
+    <ul>
+        <li>Promotes economic justice and social equity.</li>
+        <li>Creates new opportunities for marginalized communities.</li>
+        <li>Reduces dependency on wage labor and encourages entrepreneurship.</li>
+        <li>Provides financial freedom and self-reliance.</li>
+        <li>Helps bridge socio-economic gaps and contributes to inclusive rural development.</li>
+    </ul>
+</div>
+
+<!-- Kannada -->
+<div class="lang kn" style="display: none;">
+    <h2>ಎಸ್‌ಸಿ/ಎಸ್‌ಟಿ ಸ್ವ-ಉದ್ಯೋಗ ಯೋಜನೆ</h2>
+    <p><b>ವಿವರಣೆ:</b> ಕರ್ನಾಟಕ ಸರ್ಕಾರದ ಪ್ರಮುಖ ಆರ್ಥಿಕ ಸಬಲೀಕರಣ ಯೋಜನೆ, SC/ST ಸಮುದಾಯದ ಉದ್ಯಮಶೀಲತೆಯನ್ನು ಉತ್ತೇಜಿಸಲು. ಸ್ವ-ಉದ್ಯೋಗ ಅಥವಾ ಸಣ್ಣ ವ್ಯಾಪಾರ ಆರಂಭಿಸಲು ಆರ್ಥಿಕ ನೆರವು, ಸಬ್ಸಿಡಿ ಮತ್ತು ತರಬೇತಿ ನೀಡುತ್ತದೆ. बेरಗುತನ ಕಡಿಮೆ ಮಾಡುತ್ತೆ ಮತ್ತು ಸ್ವಾವಲಂಬಿ ಜೀವನೋಪಾಯವನ್ನು ಉತ್ತೇಜಿಸುತ್ತದೆ.</p>
+
+    <h3>ಅರ್ಹತೆ</h3>
+    <ul>
+        <li>SC ಅಥವಾ ST ಸಮುದಾಯದವರು (ಮಾನ್ಯ ಜಾತಿ ಪ್ರಮಾಣಪತ್ರ ಅಗತ್ಯ).</li>
+        <li>ಕರ್ನಾಟಕದ ಶಾಶ್ವತ ನಿವಾಸಿ.</li>
+        <li>ವಯಸ್ಸು 18–55 ವರ್ಷ (ನಿಯಮಾನುಸಾರ ವಿನಾಯಿತಿ).</li>
+        <li>ಕುಟುಂಬದ ಆದಾಯ ಸರ್ಕಾರ ನಿಗದಿಪಡಿಸಿದ ಮಿತಿಯ ಒಳಗೆ ಇರಬೇಕು.</li>
+        <li>ಯಾವುದೇ ಹಣಕಾಸು ಸಂಸ್ಥೆಯಲ್ಲಿ ಡಿಫಾಲ್ಟರ್ ಅಲ್ಲ.</li>
+        <li>ಜವಾಬ್ದಾರಿಯುತ ವ್ಯಾಪಾರ/ಪ್ರಾಜೆಕ್ಟ್ ಯೋಜನೆ ಸಲ್ಲಿಸಬೇಕು.</li>
+    </ul>
+
+    <h3>ಲಾಭಗಳು</h3>
+    <ul>
+        <li>ಬ್ಯಾಂಕುಗಳು ಮತ್ತು ಸಹಕಾರ ಸಂಸ್ಥೆಗಳ ಮೂಲಕ ಸಬ್ಸಿಡಿ ಲೋನ್.</li>
+        <li>ಸಾಮಾಜಿಕ ಕಲ್ಯಾಣ ಇಲಾಖೆ ನೀಡುವ ಮೂಲಧನ ಸಬ್ಸಿಡಿ.</li>
+        <li>ಯಂತ್ರೋಪಕರಣ, ಸಾಧನಗಳು ಅಥವಾ ಕಚ್ಚಾ ಸಾಮಗ್ರಿ ಖರೀದಿಗೆ ನೆರವು.</li>
+        <li>ಕೌಶಲ್ಯ ಅಭಿವೃದ್ಧಿ ಮತ್ತು ಉದ್ಯಮಶೀಲತೆ ತರಬೇತಿ.</li>
+        <li>ವೇತನ ಉದ್ಯೋಗಕ್ಕೆ ಬದಲು ವ್ಯವಹಾರ ಆರಂಭಿಸಲು ಉತ್ತೇಜನ.</li>
+        <li>SC/ST ಯುವಕರು ಮತ್ತು ಮಹಿಳೆಯರು ಸ್ವಾವಲಂಬಿ ಆಗಲು ಶಕ್ತಿಗೊಳ್ಳುತ್ತಾರೆ.</li>
+    </ul>
+
+    <h3>ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</h3>
+    <ul>
+        <li>ಆಧಾರ್ ಕಾರ್ಡ್ (ಬ್ಯಾಂಕ್ ಖಾತೆಗೆ ಲಿಂಕ್).</li>
+        <li>ಜಾತಿ ಪ್ರಮಾಣಪತ್ರ ಮತ್ತು ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ.</li>
+        <li>ನಿವಾಸದ ದಾಖಲೆ (ರೇಷನ್ ಕಾರ್ಡ್, ಮತದಾರ ID, ಇತ್ಯಾದಿ).</li>
+        <li>ಪಾಸ್‌ಪೋರ್ಟ್ ಗಾತ್ರದ ಫೋಟೋಗಳು.</li>
+        <li>ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್ ನ ನಕಲಿ (ಆಧಾರ್-ಸೀಡ್).</li>
+        <li>ಸರಳ ವ್ಯಾಪಾರ ಯೋಜನೆ/ಪ್ರಾಜೆಕ್ಟ್ ವರದಿ.</li>
+        <li>ಶೈಕ್ಷಣಿಕ ಅರ್ಹತಾ ಪ್ರಮಾಣ ಪತ್ರ (ಅನ್ವಯಿಸಿದರೆ).</li>
+    </ul>
+
+    <h3>ಅರ್ಜಿಯ ಪ್ರಕ್ರಿಯೆ</h3>
+    <ol>
+        <li>ಸೇವಾ ಸಿಂಧು ಪೋರ್ಟಲ್ → <a href="https://sevasindhugs.karnataka.gov.in" target="_blank">https://sevasindhugs.karnataka.gov.in</a></li>
+        <li>ನೋಂದಣಿ ಮಾಡಿ ಅಥವಾ ಲಾಗಿನ್ ಮಾಡಿ.</li>
+        <li>“Apply for Services” ಆಯ್ಕೆ ಮಾಡಿ → SC/ST Self Employment Scheme.</li>
+        <li>ಅರ್ಜಿದಾರ ವಿವರಗಳು, ಆದಾಯ, ಜಾತಿ ಮತ್ತು ವ್ಯವಹಾರ/ಪ್ರಾಜೆಕ್ಟ್ ವಿವರಗಳನ್ನು ಭರ್ತಿ ಮಾಡಿ.</li>
+        <li>ಅಗತ್ಯ ದಾಖಲೆಗಳನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ.</li>
+        <li>ಆಧಾರ್ OTP ಪರಿಶೀಲಿಸಿ ಸಲ್ಲಿಸಿ.</li>
+        <li>ಜಿಲ್ಲೆ ಮಟ್ಟದ ಸಮಿತಿ ಅರ್ಹ ಪ್ರಕರಣಗಳನ್ನು ಪರಿಶೀಲಿಸುತ್ತದೆ.</li>
+        <li>ಅನುಮೋದಿತ ಅರ್ಜಿದಾರರು ಬ್ಯಾಂಕ್ ಸಂಪರ್ಕ ಮೂಲಕ ಸಾಲ ಮಂಜೂರು ಮತ್ತು ಸಬ್ಸಿಡಿ ಪಡೆಯುತ್ತಾರೆ.</li>
+    </ol>
+
+    <h3>ಪ್ರಮುಖತೆ / ಆಕರ್ಷಣೆ</h3>
+    <ul>
+        <li>ಆರ್ಥಿಕ ನ್ಯಾಯ ಮತ್ತು ಸಾಮಾಜಿಕ ಸಮಾನತೆಯನ್ನು ಉತ್ತೇಜಿಸುತ್ತದೆ.</li>
+        <li>ಅಸಮುದಾಯಗಳಿಗೆ ಹೊಸ ಅವಕಾಶಗಳನ್ನು ಸೃಷ್ಟಿ.</li>
+        <li>ವೇತನ ಉದ್ಯೋಗದ ಅವಲಂಬನೆ ಕಡಿಮೆ ಮಾಡುವುದು, ಉದ್ಯಮಶೀಲತೆಯನ್ನು ಉತ್ತೇಜಿಸುತ್ತದೆ.</li>
+        <li>ಆರ್ಥಿಕ ಸ್ವಾತಂತ್ರ್ಯ ಮತ್ತು ಸ್ವಾವಲಂಬನೆ ಒದಗಿಸುತ್ತದೆ.</li>
+        <li>ಸಮುದಾಯಗಳ ಸಾಮಾಜಿಕ-ಆರ್ಥಿಕ ಅಂತರವನ್ನು ಹತ್ತಿರಗೊಳಿಸುತ್ತದೆ ಮತ್ತು ಗ್ರಾಮೀಣ ಅಭಿವೃದ್ಧಿಗೆ ಕೊಡುಗೆ.</li>
+    </ul>
+</div>
+
+</div>
+
+<!-- Footer -->
+<footer style="background-color: #4b2e2e; color: white; text-align: center; padding: 12px 0; margin-top: 30px;">
+    © Gramasetu
+</footer>
+
+<!-- Scripts -->
+<script src="../va.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguageDisplay() {
+            document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+            const active = document.querySelector('.' + currentLang);
+            if (active) active.style.display = 'block';
+            if (langToggleBtn) langToggleBtn.textContent = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+        }
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'kn' : 'en';
+                localStorage.setItem('lang', currentLang);
+                updateLanguageDisplay();
+            });
+        }
+        updateLanguageDisplay();
+    } catch (e) {}
+
+    try {
+        const vaBtn = document.getElementById('voiceAssistantBtn');
+        if (vaBtn) {
+            vaBtn.addEventListener('click', function () {
+                if (typeof startVoiceAssistant === 'function') {
+                    startVoiceAssistant(localStorage.getItem('lang') || 'en');
+                }
+            });
+        }
+    } catch (e) {}
+
+    try {
+        const icon = document.getElementById('open-chatbot');
+        const frameContainer = document.getElementById('chatbot-frame-container');
+        if (icon && frameContainer) {
+            icon.addEventListener('click', () => {
+                frameContainer.style.display = frameContainer.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+    } catch (e) {}
+});
+</script>
+
+<!-- Chatbot Icon -->
+<div id="open-chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(120% 120% at 80% 20%, #c6a94c 0%, #c6a94c 100%); color: #4b2e2e; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 99999;">💬</div>
+
+<!-- Chatbot Frame -->
+<div id="chatbot-frame-container" style="position: fixed; bottom: 90px; right: 20px; width: 380px; height: 560px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden; z-index: 99999;">
+    <iframe src="../cb-standalone.html" style="width:100%;height:100%;border:none;" allow="microphone; autoplay; clipboard-read" title="Chatbot"></iframe>
+</div>
+
+</body>
+</html>

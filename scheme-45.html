@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMGDISHA - Gramasetu</title>
+    <link rel="stylesheet" href="scheme.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="actions">
+        <button class="toggle-btn" onclick="window.location.href='../home.html'">Home</button>
+        <button class="toggle-btn" id="langToggle">ಕನ್ನಡ</button>
+    </div>
+</div>
+
+<!-- ✅ Voice Assistant Button -->
+<button class="voice-btn" id="voiceAssistantBtn">🎤 Voice Assistant</button>
+
+<!-- Content -->
+<div class="content">
+
+<!-- English -->
+<div class="lang en">
+    <h2>Udyoga Mitra</h2>
+    <p><b>Description:</b> Karnataka Udyoga Mitra provides a platform for entrepreneurs to set up industries by offering clearances, approvals, and incentives under a single-window system.</p>
+
+    <h3>Benefits</h3>
+    <ul>
+        <li>Assistance in obtaining approvals and licenses.</li>
+        <li>Subsidies on land, electricity, and taxes depending on project size.</li>
+        <li>Handholding support for start-ups and investors.</li>
+        <li>Online application tracking and grievance redressal.</li>
+    </ul>
+
+    <h3>Eligibility</h3>
+    <ul>
+        <li>Any entrepreneur or company looking to establish a new business in Karnataka.</li>
+        <li>Must comply with government norms and submit a project report.</li>
+        <li>Special benefits for SC/ST, women, and MSME entrepreneurs.</li>
+    </ul>
+
+    <h3>Documents Required</h3>
+    <ul>
+        <li>Aadhaar Card</li>
+        <li>PAN Card</li>
+        <li>Project report (for business applicants)</li>
+        <li>Bank account details</li>
+        <li>Address proof</li>
+    </ul>
+
+    <h3>How to Apply</h3>
+    <ol>
+        <li>Visit <a href="https://ebiz.karnataka.gov.in" target="_blank">https://ebiz.karnataka.gov.in</a>.</li>
+        <li>Create an account and log in.</li>
+        <li>Fill Single Window Clearance form for business.</li>
+        <li>Upload documents and submit.</li>
+    </ol>
+</div>
+
+<!-- Kannada -->
+<div class="lang kn" style="display: none;">
+    <h2>ಉದ್ಯೋಗ ಮಿತ್ರ (Udyoga Mitra)</h2>
+    <p><b>ವಿವರಣೆ:</b> ಕರ್ನಾಟಕ ಉದ್ಯೋಗ ಮಿತ್ರವು ಉದ್ಯಮಿಗಳಿಗೆ ಸಿಂಗಲ್ ವಿಂಡೋ ವ್ಯವಸ್ಥೆ ಮೂಲಕ ಕೈಗಾರಿಕೆ ಆರಂಭಿಸಲು ಅಗತ್ಯವಾದ ಅನುಮತಿಗಳು, ಪರವಾನಗಿಗಳು ಹಾಗೂ ಸಬ್ಸಿಡಿಗಳು ಪಡೆಯಲು ಸಹಾಯ ಮಾಡುವ ವೇದಿಕೆಯಾಗಿದೆ. ಇದು ಹೂಡಿಕೆದಾರರಿಗೆ ಮತ್ತು ಸ್ಟಾರ್ಟ್‌ಅಪ್‌ಗಳಿಗೆ ಸರ್ಕಾರದ ಬೆಂಬಲ ಒದಗಿಸುತ್ತದೆ.</p>
+
+    <h3>ಲಾಭಗಳು</h3>
+    <ul>
+        <li>ಕೈಗಾರಿಕೆ ಆರಂಭಿಸಲು ಅಗತ್ಯವಿರುವ ಅನುಮತಿ ಮತ್ತು ಪರವಾನಗಿಗಳನ್ನು ಪಡೆಯಲು ನೆರವು.</li>
+        <li>ಯೋಜನೆಯ ಗಾತ್ರಕ್ಕೆ ಅನುಗುಣವಾಗಿ ಭೂಮಿ, ವಿದ್ಯುತ್ ಹಾಗೂ ತೆರಿಗೆ ಸಬ್ಸಿಡಿಗಳು.</li>
+        <li>ಸ್ಟಾರ್ಟ್‌ಅಪ್‌ಗಳು ಹಾಗೂ ಹೂಡಿಕೆದಾರರಿಗೆ ಮಾರ್ಗದರ್ಶನ (Handholding support).</li>
+        <li>ಆನ್‌ಲೈನ್ ಅರ್ಜಿ ಹಂತಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡುವ ಸೌಲಭ್ಯ ಹಾಗೂ ದೂರು ಪರಿಹಾರ ವ್ಯವಸ್ಥೆ.</li>
+    </ul>
+
+    <h3>ಅರ್ಹತೆ</h3>
+    <ul>
+        <li>ಕರ್ನಾಟಕದಲ್ಲಿ ಹೊಸ ಉದ್ಯಮ/ಕೈಗಾರಿಕೆ ಆರಂಭಿಸಲು ಬಯಸುವ ಯಾವುದೇ ಉದ್ಯಮಿ ಅಥವಾ ಕಂಪನಿ.</li>
+        <li>ಸರ್ಕಾರದ ನಿಯಮಾವಳಿಗಳನ್ನು ಪಾಲಿಸಬೇಕು ಹಾಗೂ ಯೋಜನೆ ವರದಿ ಸಲ್ಲಿಸಬೇಕು.</li>
+        <li>SC/ST, ಮಹಿಳೆಯರು ಮತ್ತು MSME ಉದ್ಯಮಿಗಳಿಗೆ ವಿಶೇಷ ಸೌಲಭ್ಯಗಳು.</li>
+    </ul>
+
+    <h3>ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</h3>
+    <ul>
+        <li>ಆಧಾರ್ ಕಾರ್ಡ್</li>
+        <li>ಪಾನ್ ಕಾರ್ಡ್</li>
+        <li>ಯೋಜನೆ ವರದಿ (Project Report)</li>
+        <li>ಬ್ಯಾಂಕ್ ಖಾತೆ ವಿವರಗಳು</li>
+        <li>ವಿಳಾಸದ ಪ್ರಮಾಣ ಪತ್ರ</li>
+    </ul>
+
+    <h3>ಅರ್ಜಿಯ ಪ್ರಕ್ರಿಯೆ</h3>
+    <ol>
+        <li><a href="https://ebiz.karnataka.gov.in" target="_blank">https://ebiz.karnataka.gov.in</a> ಗೆ ಭೇಟಿ ನೀಡಿ.</li>
+        <li>ಖಾತೆ (Account) ತೆರೆದು Login ಮಾಡಿ.</li>
+        <li>Single Window Clearance ಫಾರ್ಮ್ ಭರ್ತಿ ಮಾಡಿ.</li>
+        <li>ಅಗತ್ಯ ದಾಖಲೆಗಳನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ ಹಾಗೂ ಸಲ್ಲಿಸಿ.</li>
+    </ol>
+</div>
+
+</div>
+
+
+<!-- Footer -->
+<footer style="background-color: #4b2e2e; color: white; text-align: center; padding: 12px 0; margin-top: 30px;">
+    © Gramasetu
+</footer>
+
+<!-- Scripts -->
+<script src="../va.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguageDisplay() {
+            document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+            const active = document.querySelector('.' + currentLang);
+            if (active) active.style.display = 'block';
+            if (langToggleBtn) langToggleBtn.textContent = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+        }
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'kn' : 'en';
+                localStorage.setItem('lang', currentLang);
+                updateLanguageDisplay();
+            });
+        }
+        updateLanguageDisplay();
+    } catch (e) {}
+
+    try {
+        const vaBtn = document.getElementById('voiceAssistantBtn');
+        if (vaBtn) {
+            vaBtn.addEventListener('click', function () {
+                if (typeof startVoiceAssistant === 'function') {
+                    startVoiceAssistant(localStorage.getItem('lang') || 'en');
+                }
+            });
+        }
+    } catch (e) {}
+
+    try {
+        const icon = document.getElementById('open-chatbot');
+        const frameContainer = document.getElementById('chatbot-frame-container');
+        if (icon && frameContainer) {
+            icon.addEventListener('click', () => {
+                frameContainer.style.display = frameContainer.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+    } catch (e) {}
+});
+</script>
+
+<!-- Chatbot Icon -->
+<div id="open-chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(120% 120% at 80% 20%, #c6a94c 0%, #c6a94c 100%); color: #4b2e2e; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 99999;">💬</div>
+
+<!-- Chatbot Frame -->
+<div id="chatbot-frame-container" style="position: fixed; bottom: 90px; right: 20px; width: 380px; height: 560px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden; z-index: 99999;">
+    <iframe src="../cb-standalone.html" style="width:100%;height:100%;border:none;" allow="microphone; autoplay; clipboard-read" title="Chatbot"></iframe>
+</div>
+
+</body>
+</html>

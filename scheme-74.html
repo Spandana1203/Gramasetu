@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMGDISHA - Gramasetu</title>
+    <link rel="stylesheet" href="scheme.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="actions">
+        <button class="toggle-btn" onclick="window.location.href='../home.html'">Home</button>
+        <button class="toggle-btn" id="langToggle">ಕನ್ನಡ</button>
+    </div>
+</div>
+
+<!-- ✅ Voice Assistant Button -->
+<button class="voice-btn" id="voiceAssistantBtn">🎤 Voice Assistant</button>
+
+<!-- Content -->
+<div class="content">
+
+<!-- English -->
+<div class="lang en">
+    <h2>Swachh Bharat Gramin Karnataka</h2>
+    <p><b>Description:</b> Part of the national Swachh Bharat Mission aimed at improving sanitation and hygiene in rural Karnataka. Supports construction of household toilets, solid & liquid waste management, and awareness campaigns for ODF villages.</p>
+
+    <h3>Eligibility</h3>
+    <ul>
+        <li>Rural households in Karnataka without individual toilets.</li>
+        <li>Priority: BPL families, SC/ST households, women-headed families.</li>
+        <li>Villages and Gram Panchayats for community sanitation projects.</li>
+    </ul>
+
+    <h3>Benefits</h3>
+    <ul>
+        <li>Financial assistance for individual household toilets.</li>
+        <li>Improved sanitation in schools, Anganwadis, and Panchayat buildings.</li>
+        <li>Village-level solid and liquid waste management systems.</li>
+        <li>Health benefits through reduced waterborne diseases.</li>
+        <li>Behavioral change towards cleanliness and hygiene.</li>
+    </ul>
+
+    <h3>How to Apply</h3>
+    <ol>
+        <li>Visit <a href="https://sbm.gov.in" target="_blank">Swachh Bharat Gramin Portal</a>.</li>
+        <li>Register using Aadhaar and select Karnataka (Rural) as your state.</li>
+        <li>Fill household or Gram Panchayat details and sanitation requirements.</li>
+        <li>Upload documents: Aadhaar, residence proof, and BPL card (if applicable).</li>
+        <li>Submit application for verification by local Panchayat and Rural Development Department.</li>
+    </ol>
+
+    <h3>Additional Details</h3>
+    <ul>
+        <li>Implemented by Ministry of Jal Shakti in coordination with Karnataka Rural Development & Panchayat Raj Department.</li>
+        <li>Community-led awareness campaigns and Swachhagrahis support behavioral change.</li>
+        <li>Incentives provided via Direct Benefit Transfer (DBT) to bank accounts.</li>
+        <li>Regular monitoring and ODF certification at village level.</li>
+    </ul>
+
+    <h3>Importance</h3>
+    <p>Enhances rural health, sanitation, and water management, promoting social development by achieving Open Defecation Free villages.</p>
+</div>
+
+<!-- Kannada -->
+<div class="lang kn" style="display: none;">
+    <h2>ಸ್ವಚ್ಚ ಭಾರತ ಗ್ರಾಮೀಣ ಕರ್ನಾಟಕ</h2>
+    <p><b>ವಿವರಣೆ:</b> ರಾಷ್ಟ್ರೀಯ ಸ್ವಚ್ಚ ಭಾರತ ಮಿಷನ್‌ನ ಭಾಗವಾಗಿ, ಗ್ರಾಮೀಣ ಕರ್ನಾಟಕದಲ್ಲಿ ಶೌಚಾಲಯ, ಸ್ವಚ್ಚತೆ ಮತ್ತು ಆರೈಕೆ ಸುಧಾರಣೆ. ವೈಯಕ್ತಿಕ ಶೌಚಾಲಯ ನಿರ್ಮಾಣ, ಘನ ಮತ್ತು ದ್ರವ ತ್ಯಾಜ್ಯ ನಿರ್ವಹಣೆ, ODF ಗ್ರಾಮಗಳ ಅರಿವು ಅಭಿಯಾನಗಳನ್ನು ಪ್ರೋತ್ಸಾಹಿಸುತ್ತದೆ.</p>
+
+    <h3>ಅರ್ಹತೆ</h3>
+    <ul>
+        <li>ಮನೆಯಲ್ಲಿಯ ಶೌಚಾಲಯವಿಲ್ಲದ ಗ್ರಾಮೀಣ ಕುಟುಂಬಗಳು.</li>
+        <li>ಪ್ರಾಥಮಿಕತೆ: BPL ಕುಟುಂಬಗಳು, SC/ST ಕುಟುಂಬಗಳು, ಮಹಿಳಾ ಮುಖ್ಯಸ್ಥರ ಕುಟುಂಬಗಳು.</li>
+        <li>ಗ್ರಾಮಗಳು ಮತ್ತು ಗ್ರಾಮ ಪಂಚಾಯತ್‌ಗಳು ಸಮುದಾಯ ಸ್ವಚ್ಚತಾ ಯೋಜನೆಗಳಿಗೆ.</li>
+    </ul>
+
+    <h3>ಲಾಭಗಳು</h3>
+    <ul>
+        <li>ವೈಯಕ್ತಿಕ ಮನೆಯ ಶೌಚಾಲಯ ನಿರ್ಮಾಣಕ್ಕೆ ಆರ್ಥಿಕ ಸಹಾಯ.</li>
+        <li>ಶಾಲೆಗಳು, ಅಂಗನವಾಡಿಗಳು, ಮತ್ತು ಪಂಚಾಯತ್ ಕಟ್ಟಡಗಳಲ್ಲಿ ಸುಧಾರಿತ ಶೌಚಾಲಯ ಸೌಲಭ್ಯ.</li>
+        <li>ಗ್ರಾಮ ಮಟ್ಟದಲ್ಲಿ ಘನ ಮತ್ತು ದ್ರವ ತ್ಯಾಜ್ಯ ನಿರ್ವಹಣೆ ವ್ಯವಸ್ಥೆ.</li>
+        <li>ಜಲಜ ಸಂಬಂಧಿತ ರೋಗ ಕಡಿಮೆಮಾಡಿ ಆರೋಗ್ಯ ಲಾಭ.</li>
+        <li>ಸ್ವಚ್ಚತೆ ಮತ್ತು ಹೈಜೀನ್ ಕುರಿತು ಆಚಾರ-ವ್ಯವಹಾರ ಬದಲಾವಣೆ ಪ್ರೋತ್ಸಾಹ.</li>
+    </ul>
+
+    <h3>ಅರ್ಜಿಯ ಪ್ರಕ್ರಿಯೆ</h3>
+    <ol>
+        <li><a href="https://sbm.gov.in" target="_blank">ಸ್ವಚ್ಚ ಭಾರತ ಗ್ರಾಮೀಣ ಪೋರ್ಟಲ್</a> ಭೇಟಿ ಮಾಡಿ.</li>
+        <li>ಆಧಾರ್ ಮೂಲಕ ನೋಂದಣಿ ಮಾಡಿ, ರಾಜ್ಯವಾಗಿ ಕರ್ನಾಟಕ (ಗ್ರಾಮೀಣ) ಆಯ್ಕೆಮಾಡಿ.</li>
+        <li>ಮನೆಯ ಅಥವಾ ಗ್ರಾಮ ಪಂಚಾಯತ್ ವಿವರಗಳು ಮತ್ತು ಸ್ವಚ್ಚತಾ ಅಗತ್ಯಗಳನ್ನು ಭರ್ತಿ ಮಾಡಿ.</li>
+        <li>ಅಗತ್ಯ ದಾಖಲೆ ಅಪ್‌ಲೋಡ್: ಆಧಾರ್, ನಿವಾಸ ಪ್ರಮಾಣ, BPL ಕಾರ್ಡ್ (ಆವಶ್ಯಕವಾದರೆ).</li>
+        <li>ಅರ್ಜಿ ಸಲ್ಲಿಸಿ; ಸ್ಥಳೀಯ ಪಂಚಾಯತ್ ಮತ್ತು ಗ್ರಾಮೀಣ ಅಭಿವೃದ್ಧಿ ಇಲಾಖೆ ಪರಿಶೀಲನೆ ಮಾಡಲಿದೆ.</li>
+    </ol>
+
+    <h3>ಹೆಚ್ಚಿನ ವಿವರಗಳು</h3>
+    <ul>
+        <li>ಜಲ ಶಕ್ತಿ ಸಚಿವಾಲಯ ಮತ್ತು ಕರ್ನಾಟಕ ಗ್ರಾಮೀಣ ಅಭಿವೃದ್ಧಿ & ಪಂಚಾಯತ್ ರಾಜ್ ಇಲಾಖೆಯ ಸಹಯೋಗದಲ್ಲಿ ಜಾರಿಗೆ.</li>
+        <li>ಗ್ರಾಮ ಸ್ವಯಂಪ್ರೇರಿತ ಅಭಿಯಾನಗಳು ಮತ್ತು ಸ್ವಚ್ಚಗ್ರಹಿಗಳು ನಡವಳಿಕೆ ಬದಲಾವಣೆ ಸಹಾಯ.</li>
+        <li>ಪ್ರೋತ್ಸಾಹಗಳು DBT ಮೂಲಕ ನೇರವಾಗಿ ಬ್ಯಾಂಕ್ ಖಾತೆಗಳಿಗೆ.</li>
+        <li>ಗ್ರಾಮ ಮಟ್ಟದಲ್ಲಿ ನಿಯಮಿತ ಪರಿಶೀಲನೆ ಮತ್ತು ODF ಪ್ರಮಾಣಪತ್ರ.</li>
+    </ul>
+
+    <h3>ಪ್ರಮುಖತೆ / ಆಕರ್ಷಣೆ</h3>
+    <p>ಗ್ರಾಮೀಣ ಆರೋಗ್ಯ, ಸ್ವಚ್ಚತೆ ಮತ್ತು ಜಲ ನಿರ್ವಹಣೆಯಲ್ಲಿ ಸುಧಾರಣೆ, ODF ಗ್ರಾಮಗಳನ್ನು ಸಾಧಿಸಿ ಸಾಮಾಜಿಕ ಅಭಿವೃದ್ಧಿಗೆ ಪ್ರೋತ್ಸಾಹ.</p>
+</div>
+
+</div>
+
+
+
+
+
+
+<!-- Footer -->
+<footer style="background-color: #4b2e2e; color: white; text-align: center; padding: 12px 0; margin-top: 30px;">
+    © Gramasetu
+</footer>
+
+<!-- Scripts -->
+<script src="../va.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguageDisplay() {
+            document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+            const active = document.querySelector('.' + currentLang);
+            if (active) active.style.display = 'block';
+            if (langToggleBtn) langToggleBtn.textContent = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+        }
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'kn' : 'en';
+                localStorage.setItem('lang', currentLang);
+                updateLanguageDisplay();
+            });
+        }
+        updateLanguageDisplay();
+    } catch (e) {}
+
+    try {
+        const vaBtn = document.getElementById('voiceAssistantBtn');
+        if (vaBtn) {
+            vaBtn.addEventListener('click', function () {
+                if (typeof startVoiceAssistant === 'function') {
+                    startVoiceAssistant(localStorage.getItem('lang') || 'en');
+                }
+            });
+        }
+    } catch (e) {}
+
+    try {
+        const icon = document.getElementById('open-chatbot');
+        const frameContainer = document.getElementById('chatbot-frame-container');
+        if (icon && frameContainer) {
+            icon.addEventListener('click', () => {
+                frameContainer.style.display = frameContainer.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+    } catch (e) {}
+});
+</script>
+
+<!-- Chatbot Icon -->
+<div id="open-chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(120% 120% at 80% 20%, #c6a94c 0%, #c6a94c 100%); color: #4b2e2e; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 99999;">💬</div>
+
+<!-- Chatbot Frame -->
+<div id="chatbot-frame-container" style="position: fixed; bottom: 90px; right: 20px; width: 380px; height: 560px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden; z-index: 99999;">
+    <iframe src="../cb-standalone.html" style="width:100%;height:100%;border:none;" allow="microphone; autoplay; clipboard-read" title="Chatbot"></iframe>
+</div>
+
+</body>
+</html>

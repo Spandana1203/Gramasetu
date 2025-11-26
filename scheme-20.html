@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMGDISHA - Gramasetu</title>
+    <link rel="stylesheet" href="scheme.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="actions">
+        <button class="toggle-btn" onclick="window.location.href='../home.html'">Home</button>
+        <button class="toggle-btn" id="langToggle">ಕನ್ನಡ</button>
+    </div>
+</div>
+
+<!-- ✅ Voice Assistant Button -->
+<button class="voice-btn" id="voiceAssistantBtn">🎤 Voice Assistant</button>
+
+<!-- Content -->
+<div class="content">
+
+<!-- English -->
+<div class="lang en">
+    <h2>Bhagyalakshmi Girl Child Welfare Scheme</h2>
+    <p><b>Objective:</b> Encourages girl child birth in BPL families, improves social status, and provides financial assistance for upbringing and education.</p>
+
+    <h3>Eligibility</h3>
+    <ul>
+        <li>Residency: Karnataka resident</li>
+        <li>BPL family with valid BPL card</li>
+        <li>Maximum of 2 girl children per family</li>
+        <li>Girl child born after March 31, 2006</li>
+        <li>Birth registered within 1 year</li>
+        <li>Child should not be engaged in child labour</li>
+        <li>Immunized as per health schedule</li>
+        <li>Education: At least up to 8th standard and not married before 18 years</li>
+    </ul>
+
+    <h3>Benefits</h3>
+    <ul>
+        <li>Financial Assistance: Deposit in girl's name at birth; maturity amount at 18 years</li>
+        <li>Scholarships: ₹300–₹1,000 per year from 1st to 10th standard</li>
+        <li>Health Insurance: Up to ₹25,000 per year</li>
+        <li>Accident Benefits: Compensation in case of accidental or natural death</li>
+    </ul>
+
+    <h3>Documents Required</h3>
+    <ul>
+        <li>Birth Certificate of girl child</li>
+        <li>BPL Card of family</li>
+        <li>Parents' Income Certificate</li>
+        <li>Parents' ID & Address Proof (Aadhaar, Ration Card)</li>
+        <li>Bank Account Details of girl child</li>
+        <li>Photographs of girl child and parents</li>
+        <li>Immunization Records of girl child</li>
+    </ul>
+
+    <h3>How to Apply</h3>
+    <ul>
+        <li>Offline: Obtain form from Anganwadi/Gram Panchayat/DD Women & Child Development office, fill, attach documents, submit</li>
+        <li>Online Status Check: Visit <a href="http://blakshmi.kar.nic.in:8080/First.jsp" target="_blank">http://blakshmi.kar.nic.in</a>, select "Query Search → Multi Search", enter name, DOB, application ID</li>
+    </ul>
+</div>
+
+<!-- Kannada -->
+<div class="lang kn" style="display: none;">
+    <h2>ಭಾಗ್ಯಲಕ್ಷ್ಮಿ ಹೆಣ್ಣುಮಕ್ಕಳ ಕಲ್ಯಾಣ ಯೋಜನೆ</h2>
+    <p><b>ಉದ್ದೇಶ:</b> BPL ಕುಟುಂಬಗಳಲ್ಲಿ ಹೆಣ್ಣುಮಕ್ಕಳ ಜನನವನ್ನು ಉತ್ತೇಜಿಸುವುದು, ಸಾಮಾಜಿಕ ಸ್ಥಾನಮಾನವನ್ನು ಹೆಚ್ಚಿಸುವುದು, ಮತ್ತು ಪೋಷಣೆ/ಶಿಕ್ಷಣಕ್ಕೆ ಆರ್ಥಿಕ ನೆರವು ಒದಗಿಸುವುದು.</p>
+
+    <h3>ಅರ್ಹತೆ</h3>
+    <ul>
+        <li>ಕರ್ನಾಟಕ ನಿವಾಸಿ</li>
+        <li>BPL ಕುಟುಂಬ ಮತ್ತು ಮಾನ್ಯ BPL ಕಾರ್ಡ್</li>
+        <li>ಒಂದು ಕುಟುಂಬಕ್ಕೆ ಗರಿಷ್ಠ 2 ಹೆಣ್ಣುಮಕ್ಕಳು</li>
+        <li>2006 ಮಾರ್ಚ್ 31 ನಂತರ ಹುಟ್ಟಿದ ಹೆಣ್ಣುಮಗು</li>
+        <li>ಹುಟ್ಟಿದ ದಿನಾಂಕದಿಂದ 1 ವರ್ಷ ಒಳಗೆ ನೋಂದಣಿ</li>
+        <li>ಬಾಲಕಾರ್ಮಿಕರಾಗಿ ಕೆಲಸ ಮಾಡಬಾರದು</li>
+        <li>ಆರೋಗ್ಯ ಇಲಾಖೆ ಅನುಸಾರ ಲಸಿಕೆ ಮಾಡಿರಬೇಕು</li>
+        <li>ಕನಿಷ್ಠ 8ನೇ ತರಗತಿ ಓದಿರಬೇಕು ಮತ್ತು 18 ವರ್ಷ ಮುಗಿಯುವ ಮೊದಲು ಮದುವೆಯಾಗಬಾರದು</li>
+    </ul>
+
+    <h3>ಲಾಭಗಳು</h3>
+    <ul>
+        <li>ಆರ್ಥಿಕ ಸಹಾಯ: ಹುಟ್ಟಿದಾಗ ಹಣ ಠೇವಣಿ; 18 ವರ್ಷದಲ್ಲಿ maturity amount</li>
+        <li>ವಿದ್ಯಾರ್ಥಿವೇತನ: 1ನೇ–10ನೇ ತರಗತಿ ₹300–₹1,000</li>
+        <li>ಆರೋಗ್ಯ ವಿಮೆ: ಪ್ರತಿ ವರ್ಷ ₹25,000</li>
+        <li>ಅಪಘಾತ ಸಹಾಯಧನ: ಅಪಘಾತ ಅಥವಾ ಸಹಜ ಸಾವು ಸಂಭವಿಸಿದರೆ ಪರಿಹಾರ</li>
+    </ul>
+
+    <h3>ಅಗತ್ಯ ದಾಖಲೆಗಳು</h3>
+    <ul>
+        <li>ಹೆಣ್ಣುಮಗುವಿನ ಜನನ ಪ್ರಮಾಣ ಪತ್ರ</li>
+        <li>BPL ಕಾರ್ಡ್</li>
+        <li>ಪೋಷಕರ ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ</li>
+        <li>ಪೋಷಕರ ಗುರುತು/ವಿಳಾಸ ಪುರಾವೆ</li>
+        <li>ಹೆಣ್ಣುಮಗುವಿನ ಬ್ಯಾಂಕ್ ಖಾತೆ ವಿವರಗಳು</li>
+        <li>ಹೆಣ್ಣುಮಗುವಿನ ಮತ್ತು ಪೋಷಕರ ಫೋಟೋ</li>
+        <li>ಹೆಣ್ಣುಮಗುವಿನ ಲಸಿಕೆ ದಾಖಲೆ</li>
+    </ul>
+
+    <h3>ಅರ್ಜಿಯ ವಿಧಾನ</h3>
+    <ul>
+        <li>ಆಫ್‌ಲೈನ್: ಆಂಗನವಾಡಿ/ಗ್ರಾಮ ಪಂಚಾಯತ್/ಮಹಿಳಾ & ಮಕ್ಕಳ ಅಭಿವೃದ್ಧಿ ಕಚೇರಿ, ಅರ್ಜಿ ಭರ್ತಿ ಮಾಡಿ, ದಾಖಲೆ ಜೋಡಿಸಿ ಸಲ್ಲಿಸಿ</li>
+        <li>ಆನ್‌ಲೈನ್ ಸ್ಥಿತಿ ಪರಿಶೀಲನೆ: <a href="http://blakshmi.kar.nic.in:8080/First.jsp" target="_blank">http://blakshmi.kar.nic.in</a>, "Query Search → Multi Search", ಹೆಸರು, DOB, ಅರ್ಜಿ ID ನಮೂದಿಸಿ</li>
+    </ul>
+</div>
+
+</div>
+
+<!-- Footer -->
+<footer style="background-color: #4b2e2e; color: white; text-align: center; padding: 12px 0; margin-top: 30px;">
+    © Gramasetu
+</footer>
+
+<!-- Scripts -->
+<script src="../va.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguageDisplay() {
+            document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+            const active = document.querySelector('.' + currentLang);
+            if (active) active.style.display = 'block';
+            if (langToggleBtn) langToggleBtn.textContent = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+        }
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'kn' : 'en';
+                localStorage.setItem('lang', currentLang);
+                updateLanguageDisplay();
+            });
+        }
+        updateLanguageDisplay();
+    } catch (e) {}
+
+    try {
+        const vaBtn = document.getElementById('voiceAssistantBtn');
+        if (vaBtn) {
+            vaBtn.addEventListener('click', function () {
+                if (typeof startVoiceAssistant === 'function') {
+                    startVoiceAssistant(localStorage.getItem('lang') || 'en');
+                }
+            });
+        }
+    } catch (e) {}
+
+    try {
+        const icon = document.getElementById('open-chatbot');
+        const frameContainer = document.getElementById('chatbot-frame-container');
+        if (icon && frameContainer) {
+            icon.addEventListener('click', () => {
+                frameContainer.style.display = frameContainer.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+    } catch (e) {}
+});
+</script>
+
+<!-- Chatbot Icon -->
+<div id="open-chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(120% 120% at 80% 20%, #c6a94c 0%, #c6a94c 100%); color: #4b2e2e; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 99999;">💬</div>
+
+<!-- Chatbot Frame -->
+<div id="chatbot-frame-container" style="position: fixed; bottom: 90px; right: 20px; width: 380px; height: 560px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden; z-index: 99999;">
+    <iframe src="../cb-standalone.html" style="width:100%;height:100%;border:none;" allow="microphone; autoplay; clipboard-read" title="Chatbot"></iframe>
+</div>
+
+</body>
+</html>

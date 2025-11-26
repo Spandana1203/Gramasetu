@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMGDISHA - Gramasetu</title>
+    <link rel="stylesheet" href="scheme.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="actions">
+        <button class="toggle-btn" onclick="window.location.href='../home.html'">Home</button>
+        <button class="toggle-btn" id="langToggle">ಕನ್ನಡ</button>
+    </div>
+</div>
+
+<!-- ✅ Voice Assistant Button -->
+<button class="voice-btn" id="voiceAssistantBtn">🎤 Voice Assistant</button>
+
+<!-- Content -->
+<div class="content">
+
+<!-- English -->
+<div class="lang en">
+    <h2>Karmika Sahaya Hasta Scheme</h2>
+    <p><b>Description:</b> The scheme provides welfare benefits to unorganized sector workers registered under the Karnataka Labour Department. It ensures financial support for social security and emergencies.</p>
+
+    <h3>Benefits</h3>
+    <ul>
+        <li>Financial aid during hospitalization.</li>
+        <li>Maternity benefit for women workers.</li>
+        <li>Educational scholarships for children of workers.</li>
+        <li>Accidental and natural death compensation.</li>
+    </ul>
+
+    <h3>Eligibility</h3>
+    <ul>
+        <li>Must be a registered unorganized sector worker.</li>
+        <li>Age between 18–60 years.</li>
+        <li>Must possess Labour Card issued by Karnataka government.</li>
+    </ul>
+
+    <h3>Documents Required</h3>
+    <ul>
+        <li>Aadhaar Card</li>
+        <li>Labour ID Card / Employment proof</li>
+        <li>Bank account details</li>
+        <li>Income Certificate</li>
+        <li>Passport-size photo</li>
+    </ul>
+
+    <h3>How to Apply</h3>
+    <ol>
+        <li>Visit <a href="https://labour.karnataka.gov.in" target="_blank">https://labour.karnataka.gov.in</a>.</li>
+        <li>Register as a worker in the unorganized sector.</li>
+        <li>Apply for benefits under Sahaya Hasta scheme.</li>
+        <li>Upload documents: Labour ID, Aadhaar, bank details.</li>
+        <li>Submit and track through Labour portal.</li>
+    </ol>
+</div>
+
+<!-- Kannada -->
+<div class="lang kn" style="display: none;">
+    <h2>ಕಾರ್ಮಿಕ ಸಹಾಯ ಹಸ್ತ ಯೋಜನೆ</h2>
+    <p><b>ವಿವರಣೆ:</b> ಕರ್ನಾಟಕ ಕಾರ್ಮಿಕ ಇಲಾಖೆಯಲ್ಲಿ ನೋಂದಾಯಿಸಿಕೊಂಡಿರುವ ಅಸಂಘಟಿತ ವಲಯದ ಕಾರ್ಮಿಕರಿಗೆ ಈ ಯೋಜನೆಯಡಿ ಕಲ್ಯಾಣ ಸೌಲಭ್ಯಗಳನ್ನು ಒದಗಿಸಲಾಗುತ್ತದೆ. ಇದರಿಂದ ಸಾಮಾಜಿಕ ಭದ್ರತೆ, ತುರ್ತು ಪರಿಸ್ಥಿತಿಗಳಲ್ಲಿ ಆರ್ಥಿಕ ನೆರವು ಸಿಗುತ್ತದೆ.</p>
+
+    <h3>ಲಾಭಗಳು</h3>
+    <ul>
+        <li>ಆಸ್ಪತ್ರೆ ಚಿಕಿತ್ಸೆಯ ಸಮಯದಲ್ಲಿ ಆರ್ಥಿಕ ನೆರವು.</li>
+        <li>ಮಹಿಳಾ ಕಾರ್ಮಿಕರಿಗೆ ಮಾತೃತ್ವ ಸೌಲಭ್ಯ.</li>
+        <li>ಕಾರ್ಮಿಕರ ಮಕ್ಕಳಿಗೆ ಶೈಕ್ಷಣಿಕ ವಿದ್ಯಾರ್ಥಿವೇತನ.</li>
+        <li>ಅಪಘಾತ ಅಥವಾ ಸಹಜ ಸಾವಿನ ಸಂದರ್ಭಗಳಲ್ಲಿ ಪರಿಹಾರ ಧನ.</li>
+    </ul>
+
+    <h3>ಅರ್ಹತೆ</h3>
+    <ul>
+        <li>ಕರ್ನಾಟಕದಲ್ಲಿ ಅಸಂಘಟಿತ ವಲಯದ ಕಾರ್ಮಿಕರಾಗಿ ನೋಂದಾಯಿತರಾಗಿರಬೇಕು.</li>
+        <li>ವಯಸ್ಸು 18 ರಿಂದ 60 ವರ್ಷಗಳೊಳಗೆ ಇರಬೇಕು.</li>
+        <li>ಕರ್ನಾಟಕ ಸರ್ಕಾರ ನೀಡಿದ Labour Card (ಕಾರ್ಮಿಕ ಕಾರ್ಡ್) ಇರಬೇಕು.</li>
+    </ul>
+
+    <h3>ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</h3>
+    <ul>
+        <li>ಆಧಾರ್ ಕಾರ್ಡ್</li>
+        <li>ಕಾರ್ಮಿಕ ಗುರುತಿನ ಚೀಟಿ / ಉದ್ಯೋಗದ ಪುರಾವೆ</li>
+        <li>ಬ್ಯಾಂಕ್ ಖಾತೆ ವಿವರಗಳು</li>
+        <li>ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ</li>
+        <li>ಪಾಸ್‌ಪೋರ್ಟ್ ಗಾತ್ರದ ಫೋಟೋ</li>
+    </ul>
+
+    <h3>ಅರ್ಜಿಯ ಪ್ರಕ್ರಿಯೆ</h3>
+    <ol>
+        <li><a href="https://labour.karnataka.gov.in" target="_blank">https://labour.karnataka.gov.in</a> ವೆಬ್‌ಸೈಟ್‌ಗೆ ಭೇಟಿ ನೀಡಿ.</li>
+        <li>ಅಸಂಘಟಿತ ವಲಯದ ಕಾರ್ಮಿಕರಾಗಿ ನೋಂದಣಿ ಮಾಡಿ.</li>
+        <li>**“ಸಹಾಯ ಹಸ್ತ ಯೋಜನೆ”**ಗೆ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ.</li>
+        <li>Labour Card, ಆಧಾರ್, ಬ್ಯಾಂಕ್ ವಿವರಗಳಂತಹ ದಾಖಲೆಗಳನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ.</li>
+        <li>ಅರ್ಜಿಯನ್ನು ಸಲ್ಲಿಸಿ ಮತ್ತು Labour Portal ಮೂಲಕ ಟ್ರಾಕ್ ಮಾಡಿ.</li>
+    </ol>
+</div>
+
+</div>
+
+
+<!-- Footer -->
+<footer style="background-color: #4b2e2e; color: white; text-align: center; padding: 12px 0; margin-top: 30px;">
+    © Gramasetu
+</footer>
+
+<!-- Scripts -->
+<script src="../va.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguageDisplay() {
+            document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+            const active = document.querySelector('.' + currentLang);
+            if (active) active.style.display = 'block';
+            if (langToggleBtn) langToggleBtn.textContent = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+        }
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'kn' : 'en';
+                localStorage.setItem('lang', currentLang);
+                updateLanguageDisplay();
+            });
+        }
+        updateLanguageDisplay();
+    } catch (e) {}
+
+    try {
+        const vaBtn = document.getElementById('voiceAssistantBtn');
+        if (vaBtn) {
+            vaBtn.addEventListener('click', function () {
+                if (typeof startVoiceAssistant === 'function') {
+                    startVoiceAssistant(localStorage.getItem('lang') || 'en');
+                }
+            });
+        }
+    } catch (e) {}
+
+    try {
+        const icon = document.getElementById('open-chatbot');
+        const frameContainer = document.getElementById('chatbot-frame-container');
+        if (icon && frameContainer) {
+            icon.addEventListener('click', () => {
+                frameContainer.style.display = frameContainer.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+    } catch (e) {}
+});
+</script>
+
+<!-- Chatbot Icon -->
+<div id="open-chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(120% 120% at 80% 20%, #c6a94c 0%, #c6a94c 100%); color: #4b2e2e; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 99999;">💬</div>
+
+<!-- Chatbot Frame -->
+<div id="chatbot-frame-container" style="position: fixed; bottom: 90px; right: 20px; width: 380px; height: 560px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden; z-index: 99999;">
+    <iframe src="../cb-standalone.html" style="width:100%;height:100%;border:none;" allow="microphone; autoplay; clipboard-read" title="Chatbot"></iframe>
+</div>
+
+</body>
+</html>

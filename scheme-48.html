@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMGDISHA - Gramasetu</title>
+    <link rel="stylesheet" href="scheme.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="actions">
+        <button class="toggle-btn" onclick="window.location.href='../home.html'">Home</button>
+        <button class="toggle-btn" id="langToggle">ಕನ್ನಡ</button>
+    </div>
+</div>
+
+<!-- ✅ Voice Assistant Button -->
+<button class="voice-btn" id="voiceAssistantBtn">🎤 Voice Assistant</button>
+
+<!-- Content -->
+<div class="content">
+
+<!-- English -->
+<div class="lang en">
+    <h2>Raita Vidya Nidhi Scholarship</h2>
+    <p><b>Description:</b> This scheme provides financial assistance to the children of farmers to pursue higher education. It ensures that financial barriers do not stop students from continuing their studies.</p>
+
+    <h3>Eligibility</h3>
+    <ul>
+        <li>Applicant must be a child of a farmer (proof required).</li>
+        <li>Must have passed SSLC/PUC and enrolled in higher studies.</li>
+        <li>Resident of Karnataka.</li>
+        <li>Priority to BPL families.</li>
+    </ul>
+
+    <h3>Benefits</h3>
+    <ul>
+        <li>Scholarship amount between ₹2,500 – ₹11,000 depending on the course.</li>
+        <li>Covers undergraduate, professional, and technical courses.</li>
+        <li>Direct Benefit Transfer into student’s bank account.</li>
+    </ul>
+
+    <h3>Documents Required</h3>
+    <ul>
+        <li>Aadhaar Card</li>
+        <li>Farmer ID (from Agriculture Department)</li>
+        <li>Marks card of last exam</li>
+        <li>Income Certificate</li>
+        <li>Bank details</li>
+    </ul>
+
+    <h3>How to Apply</h3>
+    <p>Visit <a href="https://raitamitra.karnataka.gov.in/english/schemes/Pages/Raita-Vidhya-Nidhi.aspx" target="_blank">Raita Mitra Portal</a>. Register, upload Aadhaar, marks card, Farmer ID, and submit application. Track status online.</p>
+</div>
+
+<!-- Kannada -->
+<div class="lang kn" style="display: none;">
+    <h2>ರೈತ ವಿದ್ಯಾ ನಿಧಿ ವಿದ್ಯಾರ್ಥಿ ಅನುದಾನ</h2>
+    <p><b>ವಿವರಣೆ:</b> ಈ ಯೋಜನೆಯು ರೈತ ಮಕ್ಕಳಿಗೆ ಉನ್ನತ ಶಿಕ್ಷಣ ಪಡೆಯಲು ಹಣಕಾಸು ಸಹಾಯ ಒದಗಿಸುತ್ತದೆ. ವಿದ್ಯಾರ್ಥಿಗಳು ಆರ್ಥಿಕ ಅಡಚಣೆಗಳಿಂದ ತಮ್ಮ ಅಧ್ಯಯನವನ್ನು ಮುಂದುವರಿಸಲು ಸೌಲಭ್ಯ ಪಡೆಯುತ್ತಾರೆ.</p>
+
+    <h3>ಅರ್ಹತೆ</h3>
+    <ul>
+        <li>ಅರ್ಜಿದಾರನು ರೈತ ಕುಟುಂಬದ ಮಗ/ಮಗಳು ಆಗಿರಬೇಕು (ಪ್ರಮಾಣಿತ ದಾಖಲೆ ಅಗತ್ಯ).</li>
+        <li>SSLC/PUC ತಯಾರಾಗಿ ಉನ್ನತ ಶಿಕ್ಷಣಕ್ಕೆ ಪ್ರವೇಶ ಪಡೆದಿರಬೇಕು.</li>
+        <li>ಕರ್ನಾಟಕದ ನಿವಾಸಿಯಾಗಿರಬೇಕು.</li>
+        <li>BPL ಕುಟುಂಬಗಳಿಗೆ ಪ್ರಾಥಮಿಕತೆ.</li>
+    </ul>
+
+    <h3>ಲಾಭಗಳು</h3>
+    <ul>
+        <li>ವಿದ್ಯಾರ್ಥಿಯ ಕೋರ್ಸ್ ಆಧಾರದ ಮೇಲೆ ₹2,500 – ₹11,000 ವಿದ್ಯಾರ್ಥಿ ಅನುದಾನ.</li>
+        <li>ಅಂಡರ್‌ಗ್ರ್ಯಾಜುಯೇಟ್, ಪ್ರೊಫೆಷನಲ್ ಮತ್ತು ಟೆಕ್ನಿಕಲ್ ಕೋರ್ಸ್‌ಗಳಿಗೆ ಅನುದಾನ.</li>
+        <li>Direct Benefit Transfer ಮೂಲಕ ನೇರವಾಗಿ ವಿದ್ಯಾರ್ಥಿಯ ಬ್ಯಾಂಕ್ ಖಾತೆಗೆ ಹಣ ವರ್ಗಾವಣೆ.</li>
+    </ul>
+
+    <h3>ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</h3>
+    <ul>
+        <li>ಆಧಾರ್ ಕಾರ್ಡ್</li>
+        <li>ರೈತ ID (ಕೃಷಿ ಇಲಾಖೆ ನೀಡಿರುವುದು)</li>
+        <li>ಕೊನೆಯ ಪರೀಕ್ಷೆಯ ಮಾರ್ಕ್ಸ್ ಕಾರ್ಡ್</li>
+        <li>ಆದಾಯ ಪ್ರಮಾಣ ಪತ್ರ</li>
+        <li>ಬ್ಯಾಂಕ್ ಖಾತೆ ವಿವರಗಳು</li>
+    </ul>
+
+    <h3>ಅರ್ಜಿಯ ಪ್ರಕ್ರಿಯೆ</h3>
+    <p>ಕೆಳಗಿನ ಲಿಂಕ್‌ಗೆ ಭೇಟಿ ನೀಡಿ: <a href="https://raitamitra.karnataka.gov.in/english/schemes/Pages/Raita-Vidhya-Nidhi.aspx" target="_blank">Raita Mitra Portal</a>. ನೋಂದಣಿ ಮಾಡಿ, ಆಧಾರ್, ಮಾರ್ಕ್ಸ್ ಕಾರ್ಡ್ ಮತ್ತು ರೈತ ID ಅಪ್‌ಲೋಡ್ ಮಾಡಿ, ಅರ್ಜಿ ಸಲ್ಲಿಸಿ ಮತ್ತು ಸ್ಥಿತಿಯನ್ನು ಟ್ರಾಕ್ ಮಾಡಿ.</p>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer style="background-color: #4b2e2e; color: white; text-align: center; padding: 12px 0; margin-top: 30px;">
+    © Gramasetu
+</footer>
+
+<!-- Scripts -->
+<script src="../va.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguageDisplay() {
+            document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+            const active = document.querySelector('.' + currentLang);
+            if (active) active.style.display = 'block';
+            if (langToggleBtn) langToggleBtn.textContent = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+        }
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'kn' : 'en';
+                localStorage.setItem('lang', currentLang);
+                updateLanguageDisplay();
+            });
+        }
+        updateLanguageDisplay();
+    } catch (e) {}
+
+    try {
+        const vaBtn = document.getElementById('voiceAssistantBtn');
+        if (vaBtn) {
+            vaBtn.addEventListener('click', function () {
+                if (typeof startVoiceAssistant === 'function') {
+                    startVoiceAssistant(localStorage.getItem('lang') || 'en');
+                }
+            });
+        }
+    } catch (e) {}
+
+    try {
+        const icon = document.getElementById('open-chatbot');
+        const frameContainer = document.getElementById('chatbot-frame-container');
+        if (icon && frameContainer) {
+            icon.addEventListener('click', () => {
+                frameContainer.style.display = frameContainer.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+    } catch (e) {}
+});
+</script>
+
+<!-- Chatbot Icon -->
+<div id="open-chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(120% 120% at 80% 20%, #c6a94c 0%, #c6a94c 100%); color: #4b2e2e; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 99999;">💬</div>
+
+<!-- Chatbot Frame -->
+<div id="chatbot-frame-container" style="position: fixed; bottom: 90px; right: 20px; width: 380px; height: 560px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden; z-index: 99999;">
+    <iframe src="../cb-standalone.html" style="width:100%;height:100%;border:none;" allow="microphone; autoplay; clipboard-read" title="Chatbot"></iframe>
+</div>
+
+</body>
+</html>

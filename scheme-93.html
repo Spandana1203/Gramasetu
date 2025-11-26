@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMGDISHA - Gramasetu</title>
+    <link rel="stylesheet" href="scheme.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="actions">
+        <button class="toggle-btn" onclick="window.location.href='../home.html'">Home</button>
+        <button class="toggle-btn" id="langToggle">ಕನ್ನಡ</button>
+    </div>
+</div>
+
+<!-- ✅ Voice Assistant Button -->
+<button class="voice-btn" id="voiceAssistantBtn">🎤 Voice Assistant</button>
+
+<!-- Content -->
+<div class="content">
+
+<!-- English -->
+<div class="lang en">
+    <h2>Pragati Patha Rural Road Connectivity Program – Karnataka</h2>
+    <p><b>Description:</b> State initiative to enhance rural road infrastructure and provide all-weather connectivity between villages and essential services. Complements PMGSY by covering additional villages and upgrading roads.</p>
+
+    <h3>Eligibility</h3>
+    <ul>
+        <li>Rural habitations not covered under PMGSY or requiring road upgradation.</li>
+        <li>Villages with population 100+ in backward, hilly, and drought-prone areas.</li>
+        <li>Projects proposed by Gram Panchayats and approved by DRDAs.</li>
+    </ul>
+
+    <h3>Benefits</h3>
+    <ul>
+        <li>Construction of all-weather rural roads in unconnected or partially connected villages.</li>
+        <li>Upgradation of existing kutcha/damaged roads into pucca (paved) roads.</li>
+        <li>Reduced travel time and transportation costs.</li>
+        <li>Improved access to education, healthcare, markets, and government services.</li>
+        <li>Boosts local economy via better transport of agricultural produce.</li>
+    </ul>
+
+    <h3>How to Apply</h3>
+    <ul>
+        <li>No individual application needed.</li>
+        <li>Gram Panchayats identify road needs and propose them in Gram Sabha meetings.</li>
+        <li>Proposals submitted to Taluk/District Panchayats for approval.</li>
+        <li>Sanctioned projects implemented by PWD & RDPR, Karnataka.</li>
+    </ul>
+
+    <h3>Additional Details</h3>
+    <ul>
+        <li>Funded by Government of Karnataka and rural infrastructure grants.</li>
+        <li>Emphasis on eco-friendly materials and sustainable construction practices.</li>
+        <li>Road maintenance via Panchayat-level funds and state grants.</li>
+        <li>Aligned with Chief Minister’s Rural Infrastructure Development Plan.</li>
+    </ul>
+</div>
+
+<!-- Kannada -->
+<div class="lang kn" style="display: none;">
+    <h2>ಪ್ರಗತಿ ಪಥ ಗ್ರಾಮೀಣ ರಸ್ತೆ ಸಂಪರ್ಕ ಕಾರ್ಯಕ್ರಮ – ಕರ್ನಾಟಕ</h2>
+    <p><b>ವಿವರಣೆ:</b> ರಾಜ್ಯ ಮಟ್ಟದ ಯೋಜನೆ ಗ್ರಾಮಗಳಲ್ಲಿ ರಸ್ತೆ ಮೂಲಸೌಕರ್ಯ ಸುಧಾರಿಸಲು ಮತ್ತು ಗ್ರಾಮೀಣ ವಸತಿಗಳಿಂದ ಅಗತ್ಯ ಸೇವೆಗಳವರೆಗೆ ಸಂಪೂರ್ಣ ವರ್ಷಾವಧಿ ಸಂಪರ್ಕ ಒದಗಿಸಲು. ಕೇಂದ್ರ PMGSY ಯೋಜನೆಯನ್ನು ಪೂರಕವಾಗಿ ಹೆಚ್ಚುವರಿ ಗ್ರಾಮಗಳು ಮತ್ತು ಅಪ್‌ಗ್ರೇಡ್ ಅಗತ್ಯಗಳನ್ನು ಒಳಗೊಂಡಂತೆ ಕಾರ್ಯಗತಗೊಳಿಸುತ್ತದೆ.</p>
+
+    <h3>ಅರ್ಹತೆ</h3>
+    <ul>
+        <li>PMGSY ಅಡಿಯಲ್ಲಿ ಸೇರ್ಪಡೆ ಆಗದ ಅಥವಾ ರಸ್ತೆ ಅಪ್‌ಗ್ರೇಡ್ ಅಗತ್ಯವಿರುವ ಗ್ರಾಮೀಣ ವಸತಿಗಳು.</li>
+        <li>ಹಿಂಸಿತ, ಪರ್ವತೀಯ, ಬರೋಬ್ಬರಿ 100 ಜನಸಂಖ್ಯೆಯ ಗ್ರಾಮಗಳು.</li>
+        <li>ಗ್ರಾಮ ಪಂಚಾಯತ್ಗಳಿಂದ ಪ್ರಸ್ತಾಪಿತ ಯೋಜನೆಗಳು DRDAs ಮೂಲಕ ಮಂಜೂರು.</li>
+    </ul>
+
+    <h3>ಲಾಭಗಳು</h3>
+    <ul>
+        <li>ಸಂಪರ್ಕವಿಲ್ಲದ ಅಥವಾ ಭಾಗಶಃ ಸಂಪರ್ಕ ಹೊಂದಿರುವ ಗ್ರಾಮಗಳಲ್ಲಿ ಸಂಪೂರ್ಣ ವರ್ಷಾವಧಿ ರಸ್ತೆ ನಿರ್ಮಾಣ.</li>
+        <li>ಕುಚ್ಚಾ ಮತ್ತು ಹಾನಿಗೊಂಡ ರಸ್ತೆಗಳ ಪುಕ್ಕಾ (ಪೇವ್ಡ್) ರೇರಿಗೆ ಪರಿವರ್ತನೆ.</li>
+        <li>ಪ್ರಯಾಣ ಸಮಯ ಮತ್ತು ಸಾರಿಗೆ ವೆಚ್ಚದಲ್ಲಿ ಕಡಿತ.</li>
+        <li>ಶಿಕ್ಷಣ, ಆರೋಗ್ಯ, ಮಾರುಕಟ್ಟೆ ಮತ್ತು ಸರ್ಕಾರಿ ಸೇವೆಗಳ ಸುಧಾರಿತ ಪ್ರವೇಶ.</li>
+        <li>ಕೃಷಿ ಉತ್ಪನ್ನ ಸಾಗಣೆಯನ್ನು ಸುಗಮಗೊಳಿಸುವ ಮೂಲಕ ಸ್ಥಳೀಯ ಆರ್ಥಿಕತೆಯನ್ನು ಉತ್ತೇಜನೆ.</li>
+    </ul>
+
+    <h3>ಅರ್ಜಿಯ ಪ್ರಕ್ರಿಯೆ</h3>
+    <ul>
+        <li>ವೈಯಕ್ತಿಕ ಅರ್ಜಿ ಸಲ್ಲಿಸುವ ಅಗತ್ಯವಿಲ್ಲ.</li>
+        <li>ಗ್ರಾಮ ಪಂಚಾಯತ್ ರಸ್ತೆ ಅಗತ್ಯಗಳನ್ನು ಗುರುತಿಸಿ ಗ್ರಾಮ ಸಭೆಗಳಲ್ಲಿ ಪ್ರಸ್ತಾಪ.</li>
+        <li>ತಾಲೂಕು/ಜಿಲ್ಲಾ ಪಂಚಾಯತ್ ಗೆ ಮಂಜೂರಿಗಾಗಿ ಪ್ರಸ್ತಾಪ ಸಲ್ಲಿಕೆ.</li>
+        <li>ಅನುಮೋದಿತ ಯೋಜನೆಗಳು PWD & RDPR, ಕರ್ನಾಟಕ ಮೂಲಕ ಜಾರಿಗೆ ಬರುವುವು.</li>
+    </ul>
+
+    <h3>ಹೆಚ್ಚಿನ ವಿವರಗಳು</h3>
+    <ul>
+        <li>ಕರ್ನಾಟಕ ಸರ್ಕಾರ ಮತ್ತು ಗ್ರಾಮೀಣ ಮೂಲಸೌಕರ್ಯ ಅನುದಾನಗಳ ಮೂಲಕ ಹಣಕಾಸು.</li>
+        <li>ಪರಿಸರ ಸ್ನೇಹಿ ನಿರ್ಮಾಣ ಸಾಮಗ್ರಿಗಳು ಮತ್ತು ಸ್ಥಿರ ಅಭ್ಯಾಸಗಳ ಮೇಲೆ ಒತ್ತು.</li>
+        <li>ರಸ್ತೆ ನಿರ್ವಹಣೆ ಪಂಚಾಯತ್ ನಿಧಿಗಳು ಮತ್ತು ರಾಜ್ಯ ನಿರ್ವಹಣಾ ಅನುದಾನಗಳ ಮೂಲಕ.</li>
+        <li>ಮುಖ್ಯಮಂತ್ರಿ ಗ್ರಾಮೀಣ ಮೂಲಸೌಕರ್ಯ ಅಭಿವೃದ್ಧಿ ಯೋಜನೆ ಜೊತೆಗೆ ಹೊಂದಾಣಿಕೆ.</li>
+    </ul>
+</div>
+
+</div>
+
+
+
+
+
+
+<!-- Footer -->
+<footer style="background-color: #4b2e2e; color: white; text-align: center; padding: 12px 0; margin-top: 30px;">
+    © Gramasetu
+</footer>
+
+<!-- Scripts -->
+<script src="../va.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguageDisplay() {
+            document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+            const active = document.querySelector('.' + currentLang);
+            if (active) active.style.display = 'block';
+            if (langToggleBtn) langToggleBtn.textContent = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+        }
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'kn' : 'en';
+                localStorage.setItem('lang', currentLang);
+                updateLanguageDisplay();
+            });
+        }
+        updateLanguageDisplay();
+    } catch (e) {}
+
+    try {
+        const vaBtn = document.getElementById('voiceAssistantBtn');
+        if (vaBtn) {
+            vaBtn.addEventListener('click', function () {
+                if (typeof startVoiceAssistant === 'function') {
+                    startVoiceAssistant(localStorage.getItem('lang') || 'en');
+                }
+            });
+        }
+    } catch (e) {}
+
+    try {
+        const icon = document.getElementById('open-chatbot');
+        const frameContainer = document.getElementById('chatbot-frame-container');
+        if (icon && frameContainer) {
+            icon.addEventListener('click', () => {
+                frameContainer.style.display = frameContainer.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+    } catch (e) {}
+});
+</script>
+
+<!-- Chatbot Icon -->
+<div id="open-chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(120% 120% at 80% 20%, #c6a94c 0%, #c6a94c 100%); color: #4b2e2e; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 99999;">💬</div>
+
+<!-- Chatbot Frame -->
+<div id="chatbot-frame-container" style="position: fixed; bottom: 90px; right: 20px; width: 380px; height: 560px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden; z-index: 99999;">
+    <iframe src="../cb-standalone.html" style="width:100%;height:100%;border:none;" allow="microphone; autoplay; clipboard-read" title="Chatbot"></iframe>
+</div>
+
+</body>
+</html>
