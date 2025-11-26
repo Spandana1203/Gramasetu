@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbot Assistant</title>
+  <style>
+    :root {
+      --brand: #c6a94c; /* gold accent */
+      --brand-dark: #c6a94c;
+      --bg: #4b2e2e; /* dark background */
+      --panel: #4b2e2e;
+      --text: #c5c6c7;
+      --muted: #999;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #chatbot-container {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      width: min(380px, 100vw);
+      height: 560px;
+      margin: 0;
+      padding: 0;
+      box-shadow: var(--shadow);
+      border-radius: 20px 0 0 0;
+      overflow: hidden;
+    }
+
+    .assistant {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .assistant-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      background: var(--panel);
+      color: var(--text);
+      border-radius: 20px 0 0 0;
+      overflow: hidden;
+    }
+
+    .assistant-header {
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      border-bottom: 3px solid #333;
+      gap: 6px;
+      background: var(--brand);
+      color: #4b2e2e;
+      font-weight: bold;
+    }
+
+    .assistant-messages {
+      flex: 1;
+      overflow: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #f5eedc;
+    }
+
+    .msg {
+      display: flex;
+      gap: 10px;
+    }
+
+    .msg .bubble {
+      max-width: 85%;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid #333;
+      word-wrap: break-word;
+      white-space: pre-wrap;
+    }
+
+    .msg.user {
+      justify-content: flex-end;
+    }
+
+    .msg.user .bubble {
+      background: var(--brand);
+      color: #4b2e2e;
+    }
+
+    .msg.bot .bubble {
+      background: #1f2833;
+      color: var(--text);
+    }
+
+    .assistant-input {
+      display: flex;
+      padding: 12px;
+      border-top: 1px solid #333;
+      background: var(--panel);
+      gap: 8px;
+      align-items: center;
+    }
+
+    .assistant-input input {
+      flex: 1;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #333;
+      background: #f5eedc;
+      color: #000;
+      font-size: 14px;
+    }
+
+    #send-btn {
+      background: var(--brand);
+      color: black;
+      border: none;
+      padding: 10px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lang-toggle {
+      background: transparent;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      color: #4b2e2e;
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .lang-toggle.active {
+      background: #4b2e2e;
+      color: var(--brand);
+      border-color: black;
+    }
+
+    .bubble a {
+      color: var(--brand);
+      text-decoration: underline;
+      word-break: break-word;
+    }
+
+    strong { font-weight: bold; }
+    em { font-style: italic; }
+  </style>
+</head>
+<body>
+  <!-- 🪄 Chatbot UI -->
+  <div id="chatbot-container">
+    <section id="assistant" class="assistant">
+      <div class="assistant-card">
+        <header class="assistant-header">
+          <strong>Assistant</strong>
+          <div style="margin-left:auto; display:flex; gap:6px;">
+            <button id="lang-en" class="lang-toggle active">A</button>
+            <button id="lang-kn" class="lang-toggle">ಕ</button>
+            <button id="clear-chat" class="lang-toggle" title="Clear chat">🧹</button>
+          </div>
+        </header>
+
+        <main id="assistant-messages" class="assistant-messages">
+          <div class="msg bot"><div class="bubble">Hello 👋 Ask me anything.</div></div>
+        </main>
+
+        <form id="assistant-form" class="assistant-input" autocomplete="off">
+          <input id="assistant-input" placeholder="Type a message…" required />
+          <button type="submit" id="send-btn">➤</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const form = document.querySelector('#assistant-form');
+    const input = document.querySelector('#assistant-input');
+    const messages = document.querySelector('#assistant-messages');
+    const clearChatBtn = document.querySelector('#clear-chat');
+    const sendBtn = document.querySelector('#send-btn');
+
+    let currentLanguage = "en";
+    let manualLangSelection = false;
+
+    const langEn = document.querySelector('#lang-en');
+    const langKn = document.querySelector('#lang-kn');
+
+    langEn.addEventListener('click', () => setLanguage('en', true));
+    langKn.addEventListener('click', () => setLanguage('kn', true));
+
+    function detectLanguage(text) {
+      const kannadaRegex = /[\u0C80-\u0CFF]/;
+      return kannadaRegex.test(text) ? 'kn' : 'en';
+    }
+
+    function setLanguage(lang, manual = false) {
+      currentLanguage = lang;
+      langEn.classList.toggle('active', lang === 'en');
+      langKn.classList.toggle('active', lang === 'kn');
+      if (manual) manualLangSelection = true;
+    }
+
+    // 🔁 call merged backend on SAME origin
+    clearChatBtn.addEventListener('click', async () => {
+      await fetch('/api/clear', { method: 'POST' });
+      messages.innerHTML = `<div class="msg bot"><div class="bubble">🧹 Chat cleared. Start a new conversation.</div></div>`;
+    });
+
+    function formatBotText(text) {
+      const urlRegex = /(https?:\/\/[^\s]+)/g;
+      let formatted = text.replace(urlRegex, (url) => {
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
+      });
+      formatted = formatted.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+      formatted = formatted.replace(/\*(.*?)\*/g, "<em>$1</em>");
+      formatted = formatted.replace(/\n/g, "<br>");
+      return formatted;
+    }
+
+    function addMessage(role, text) {
+      const div = document.createElement('div');
+      div.className = `msg ${role}`;
+      div.innerHTML = `<div class="bubble">${role === 'bot' ? formatBotText(text) : text}</div>`;
+      messages.appendChild(div);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    form.addEventListener('submit', sendMessage);
+    sendBtn.addEventListener('click', sendMessage);
+
+    async function sendMessage(e) {
+      e.preventDefault();
+      const text = input.value.trim();
+      if (!text) return;
+
+      if (!manualLangSelection) {
+        const detectedLang = detectLanguage(text);
+        setLanguage(detectedLang);
+      }
+
+      addMessage('user', text);
+      input.value = '';
+      const thinking = document.createElement('div');
+      thinking.className = 'msg bot';
+      thinking.innerHTML = '<div class="bubble">…</div>';
+      messages.appendChild(thinking);
+      messages.scrollTop = messages.scrollHeight;
+
+      try {
+        // 🔁 call merged backend on SAME origin
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: text, language: currentLanguage })
+        });
+        const data = await response.json();
+        thinking.querySelector('.bubble').innerHTML =
+          formatBotText(data.reply || "⚠️ No response");
+      } catch (err) {
+        console.error(err);
+        thinking.querySelector('.bubble').textContent = "❌ Connection error.";
+      }
+    }
+  </script>
+</body>
+</html>

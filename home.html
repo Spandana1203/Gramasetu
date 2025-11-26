@@ -1,0 +1,1998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gramasetu</title>
+  <style>
+    /* ----------------- Theme variables ----------------- */
+    :root{
+      --bg: #faf6f1;
+      --card: #fdfaf6;
+      --muted: #e0d7c6;
+      --accent: #c6a94c;
+      --dark: #4b2e2e;
+      --text: #2c3e50;
+      --danger: #c0392b;
+      --success: #27ae60;
+      --glass: rgba(255,255,255,0.7);
+    }
+
+    /* Reset + base */
+    *{box-sizing: border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Navbar */
+    .navbar {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      background: var(--dark);
+      color: var(--accent);
+      padding: 12px 20px;
+      position: sticky;
+      top:0;
+      z-index: 1000;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .brand .logo {
+      max-width: 200px;
+      height: auto;
+      display:block;
+    }
+    .actions {
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .toggle-btn {
+      background: var(--accent);
+      color: var(--dark);
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* user icon wrapper */
+    .user-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* generic neutral user icon (no user photos) */
+    .user-icon {
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      cursor:pointer;
+      background: radial-gradient(120% 120% at 80% 20%, var(--accent) 0%, var(--accent) 100%);
+      color: var(--dark);
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      border: 2px solid rgba(255,255,255,0.12);
+    }
+
+    /* dropdown menu */
+    .user-menu {
+      position: absolute;
+      right: 0;
+      top: 56px;
+      width: 260px;
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      overflow: hidden;
+      border: 2px solid var(--muted);
+      display: none;
+      z-index: 2000;
+    }
+    .user-menu.show { display:block; }
+
+    .user-menu .header {
+      padding:12px 14px;
+      border-bottom: 1px solid var(--muted);
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .user-menu .header .avatar-small {
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      background: var(--accent);
+      color: var(--dark);
+      display:grid;
+      place-items:center;
+      font-weight:800;
+    }
+    .user-menu .header .meta {
+      font-size: 13px;
+      line-height: 1;
+    }
+    .user-menu .list {
+      padding:8px;
+    }
+    .user-menu button.menu-item {
+      width:100%;
+      display:flex;
+      gap:8px;
+      align-items:center;
+      padding:10px 12px;
+      border-radius:8px;
+      border:none;
+      background:transparent;
+      cursor:pointer;
+      text-align:left;
+      font-weight:700;
+      color:var(--dark);
+    }
+    .user-menu button.menu-item:hover {
+      background: #f5eedc;
+    }
+
+    /* Search */
+    .search-container {
+      display:flex;
+      justify-content:center;
+      padding: 20px;
+    }
+    .search-container input {
+      width: 72%;
+      max-width:900px;
+      padding:12px 14px;
+      border-radius:8px;
+      border:2px solid var(--muted);
+      font-size: 15px;
+      background: white;
+    }
+
+    /* Scheme list */
+    .scheme-list {
+      display:flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px;
+      max-width: 1100px;
+      margin: 0 auto 80px auto;
+    }
+    .scheme-card {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 16px;
+      cursor: pointer;
+      transition: transform 0.18s, border-color 0.18s, box-shadow 0.18s;
+      border: 3px solid var(--muted);
+    }
+    .scheme-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .scheme-card h3 { margin: 0 0 8px; color: var(--dark); }
+    .scheme-card p { margin:0; color: #333; }
+
+    /* Voice assistant button */
+    .voice-btn {
+      display:block;
+      margin: 18px auto;
+      padding: 12px 20px;
+      background: var(--accent);
+      color: var(--dark);
+      border: none;
+      border-radius: 8px;
+      font-weight:800;
+      cursor:pointer;
+    }
+  
+    /* Modal base */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      display: none;
+      z-index: 99998;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-backdrop.show { display: flex; }
+    .modal {
+      width: 100%;
+      max-width: 720px;
+      background: var(--card);
+      border-radius: 12px;
+      padding: 18px;
+      border: 2px solid var(--muted);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal h2 { margin-top:0; color:var(--dark); }
+    .modal .row { display:flex; gap:10px; flex-wrap:wrap; }
+    .modal label { display:block; font-weight:700; margin-top:10px; font-size:13px; color:#333; }
+    .modal input, .modal select, .modal textarea {
+      width:100%;
+      padding:10px 12px;
+      border-radius:8px;
+      border:1px solid #ddd;
+      background: white;
+      resize: vertical;
+      font-size:14px;
+      margin-top:6px;
+    }
+    .modal .two { width: calc(50% - 6px); min-width: 140px; }
+    .modal .three { width: calc(33.333% - 6px); min-width: 110px; }
+
+    .modal .actions {
+      display:flex;
+      gap:10px;
+      margin-top:14px;
+    }
+    .btn {
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      cursor:pointer;
+      font-weight:800;
+    }
+    .btn.primary { background: var(--dark); color: white; }
+    .btn.ghost { background: transparent; border: 2px solid var(--muted); color: var(--dark); }
+    .btn.danger { background: var(--danger); color:white; }
+
+    /* small messages */
+    .small-msg { font-size:13px; margin-top:8px; padding:8px; border-radius:8px; display:none; }
+    .small-msg.error { background:#ffe9e9; color:#9b1b1b; border:1px solid #f0b3b3; display:block; }
+    .small-msg.success { background:#eef9ec; color:#1a6b2a; border:1px solid #bfe6c9; display:block; }
+
+    /* responsive */
+    @media (max-width: 880px){
+      .search-container input { width: 92%; }
+      .modal .two, .modal .three { width: 100%; }
+      .user-menu { right: 8px; left: auto; width: 90vw; top: 62px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="brand">
+      <img src="Gramasetu.png" alt="GramaSetu Logo" class="logo">
+    </div>
+
+    <div class="actions">
+      <button id="langToggle" class="toggle-btn">ಕನ್ನಡ</button>
+
+      <div class="user-wrap" id="userWrap" aria-haspopup="true">
+        <div id="userIcon" class="user-icon" title="User menu" aria-label="Open user menu">👤</div>
+
+        <!-- dropdown -->
+        <div id="userMenu" class="user-menu" role="menu" aria-hidden="true">
+          <div class="header">
+            <div class="avatar-small" id="avatarSmall">👤</div>
+            <div class="meta">
+              <div id="menuUsername" style="font-weight:800">Guest</div>
+              <div id="menuEmail" style="font-size:12px;color:#666">Not signed in</div>
+            </div>
+          </div>
+
+          <div class="list" role="none">
+            <button class="menu-item" id="btnManageAccount" role="menuitem">⚙️ Manage account</button>
+            <button class="menu-item" id="btnFeedback" role="menuitem">✉️ Feedback</button>
+            <button class="menu-item" id="btnLearning" role="menuitem">📚 My Learning Space</button>
+            <button class="menu-item" id="btnLogout" role="menuitem" style="justify-content:space-between;color:var(--danger)">⤴️ Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-container" role="search">
+    <input id="searchInput" type="text" placeholder="Search schemes..." aria-label="Search schemes">
+  </div>
+
+  <!-- Voice assistant -->
+  <button class="voice-btn" id="voiceAssistantBtn">🎤 Voice Assistant</button>
+
+  <!-- SCHEME LIST (kept same content but preserved) -->
+  <div class="scheme-list" id="schemeList">
+    <!-- scheme cards replicated from your original file -->
+    <div class="scheme-card"
+     data-en-title="Gruha Jyothi Scheme"
+     data-en-desc="Launched on 1 August 2023 by the Government of Karnataka, it offers eligible households up to 200 units of free electricity per month, subsidized fully by the state."
+     data-kn-title="ಗೃಹ ಜ್ಯೋತಿ ಯೋಜನೆ"
+     data-kn-desc="ಕರ್ನಾಟಕ ಸರ್ಕಾರ 1 ಆಗಸ್ಟ್ 2023 ರಂದು ಈ ಯೋಜನೆ ಆರಂಭಿಸಿದೆ. ಇದರಡಿ, ಅರ್ಹ ಕುಟುಂಬಗಳಿಗೆ ಪ್ರತಿ ತಿಂಗಳು 200 ಯೂನಿಟ್‌ಗಳವರೆಗೆ ಉಚಿತ ವಿದ್ಯುತ್ ನೀಡಲಾಗುತ್ತದೆ. ಇದರ ಸಂಪೂರ್ಣ ವೆಚ್ಚವನ್ನು ಸರ್ಕಾರವೇ ಹೊರುತ್ತದೆ."
+     data-link="schemes/scheme-1.html">
+  <h3>Gruha Jyothi Scheme</h3>
+  <p>Launched on 1 August 2023 by the Government of Karnataka, it offers eligible households up to 200 units of free electricity per month, subsidized fully by the state.</p>
+</div>
+
+    <div class="scheme-card" 
+     data-en-title="Gruha Lakshmi Scheme"
+     data-en-desc="It provides ₹2,000 per month to the woman head of the family (as per ration card) to support household expenses and empower women financially."
+     data-kn-title="ಗೃಹ ಲಕ್ಷ್ಮೀ ಯೋಜನೆ"
+     data-kn-desc="ಕುಟುಂಬದ ಮಹಿಳಾ ಮುಖ್ಯಸ್ಥೆಗೆ ಪ್ರತಿ ತಿಂಗಳು ₹2,000 ಸಹಾಯಧನ ನೀಡಲಾಗುತ್ತದೆ. ಇದು ಮನೆ ಖರ್ಚುಗಳಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತದೆ ಮತ್ತು ಮಹಿಳೆಯರನ್ನು ಆರ್ಥಿಕವಾಗಿ ಸ್ವಾವಲಂಬಿಗಳನ್ನಾಗಿಸುತ್ತದೆ."
+     data-link="schemes/scheme-2.html">
+  <h3>Gruha Lakshmi Scheme</h3>
+  <p>It provides ₹2,000 per month to the woman head of the family to support household expenses and empower women financially.</p>
+</div>
+
+    <div class="scheme-card"
+     data-en-title="Shakti Free Bus Scheme (for Women)"
+     data-en-desc="Launched on June 11, 2023, by the Siddaramaiah government. Women who are Karnataka domiciles can travel free of charge on non-luxury state-run buses using a Shakti smartcard."
+     data-kn-title="ಶಕ್ತಿ ಉಚಿತ ಬಸ್ ಯೋಜನೆ (ಮಹಿಳೆಯರಿಗೆ)"
+     data-kn-desc="ಜೂನ್ 11, 2023 ರಂದು ಸಿದ್ದರಾಮಯ್ಯ ಸರ್ಕಾರ ಈ ಯೋಜನೆಯನ್ನು ಪ್ರಾರಂಭಿಸಿತು. ಕರ್ನಾಟಕದ ಮಹಿಳೆಯರು ಸರ್ಕಾರಿ ನಾನ್-ಲಕ್ಸುರಿ ಬಸ್‌ಗಳಲ್ಲಿ ಶಕ್ತಿ ಸ್ಮಾರ್ಟ್ ಕಾರ್ಡ್ ಮೂಲಕ ಉಚಿತವಾಗಿ ಪ್ರಯಾಣ ಮಾಡಬಹುದು."
+     data-link="schemes/scheme-3.html">
+  <h3>Shakti Free Bus Scheme (for Women)</h3>
+  <p>Launched on June 11, 2023, by the Siddaramaiah government. Women who are Karnataka domiciles can travel free of charge on non-luxury state-run buses using a Shakti smartcard.</p>
+</div>
+
+    <div class="scheme-card" 
+    data-en-title="Anna Bhagya Scheme" 
+    data-en-desc="A food security program by the Government of Karnataka that provides 10 kg of free rice every month to BPL and AAY ration card holders." 
+    data-kn-title="ಅನ್ನ ಭಾಗ್ಯ ಯೋಜನೆ" 
+    data-kn-desc="ಬಡ BPL ಮತ್ತು AAY ಕಾರ್ಡ್ ಹೊಂದಿರುವ ಅರ್ಹ ಕುಟುಂಬಗಳಿಗೆ ಪ್ರತಿ ತಿಂಗಳು 10 ಕೆ.ಜಿ ಉಚಿತ ಅಕ್ಕಿ ನೀಡುವ ಆಹಾರ ಭದ್ರತಾ ಯೋಜನೆ." 
+    data-link="schemes/scheme-4.html">
+    <h3>Anna Bhagya Scheme</h3>
+    <p>A food security program providing 10 kg free rice monthly to BPL and AAY ration card holders.</p>
+</div>
+
+    <div class="scheme-card" 
+    data-en-title="Yuva Nidhi Scheme" 
+    data-en-desc="Monthly unemployment allowance for graduates and diploma holders in Karnataka, providing financial support until they secure a job." 
+    data-kn-title="ಯುವ ನಿಧಿ ಯೋಜನೆ" 
+    data-kn-desc="ಪದವಿ ಮತ್ತು ಡಿಪ್ಲೋಮಾ ಪೂರೈಸಿದ ನಿರುದ್ಯೋಗಿ ಯುವಕರಿಗೆ ಪ್ರತಿ ತಿಂಗಳಲ್ಲಿ ಸಹಾಯಧನ ನೀಡುವ ಯೋಜನೆ." 
+    data-link="schemes/scheme-5.html">
+    <h3>Yuva Nidhi Scheme</h3>
+    <p>Unemployment allowance for graduates and diploma holders in Karnataka.</p>
+</div>
+
+    <div class="scheme-card"
+     data-en-title="Vajpayee Arogyasri Yojana"
+     data-en-desc="Launched in 2009, the Vajpayee Arogyashree Yojana provides free tertiary healthcare to economically vulnerable families in Karnataka."
+     data-kn-title="ವಾಜಪೇಯಿ ಆರೋಗ್ಯಶ್ರೀ ಯೋಜನೆ"
+     data-kn-desc="2009ರಲ್ಲಿ ಆರಂಭವಾದ ಈ ಯೋಜನೆಯ ಉದ್ದೇಶ ಬಡ ಕುಟುಂಬಗಳಿಗೆ ಉಚಿತ ತೃತೀಯ ಹಂತದ ಆರೋಗ್ಯ ಸೇವೆ ಒದಗಿಸುವುದು."
+     data-link="schemes/scheme-6.html">
+  <h3>Vajpayee Arogyasri Yojana</h3>
+  <p>Launched in 2009, the Vajpayee Arogyashree Yojana provides free tertiary healthcare to economically vulnerable families in Karnataka.</p>
+</div>
+
+<div class="scheme-card"
+     data-en-title="Arogyavani Health Helpline (Dial 104)"
+     data-en-desc="The Arogyavani Helpline (104) is a toll-free health helpline launched by the Government of Karnataka to provide 24/7 medical advice, counseling, and health-related information to citizens over the phone."
+     data-kn-title="ಆರೋಗ್ಯವಾಣಿ ಸಹಾಯವಾಣಿ – 104"
+     data-kn-desc="ಕರ್ನಾಟಕ ಸರ್ಕಾರ ಆರಂಭಿಸಿರುವ ಉಚಿತ (toll-free) ದೂರವಾಣಿ ಸೇವೆ. 24/7 ವೈದ್ಯಕೀಯ ಸಲಹೆ, ಮನಶ್ಶಾಂತಿ ಕೌನ್ಸೆಲಿಂಗ್ ಮತ್ತು ಆರೋಗ್ಯ ಸಂಬಂಧಿತ ಮಾಹಿತಿ 104 ಸಂಖ್ಯೆಗೆ ಕರೆ ಮಾಡಿದರೆ ದೊರೆಯುತ್ತದೆ."
+     data-link="schemes/scheme-7.html">
+  <h3>Arogyavani Health Helpline (Dial 104)</h3>
+  <p>The Arogyavani Helpline (104) is a toll-free health helpline launched by the Government of Karnataka to provide 24/7 medical advice, counseling, and health-related information to citizens over the phone.</p>
+</div>
+
+<div class="scheme-card"
+     data-en-title="Karnataka Sakala Services Act"
+     data-en-desc="Enacted in 2011 and operational from 2012, the Sakala Services Act guarantees time-bound delivery of public services to citizens in Karnataka."
+     data-kn-title="ಕರ್ನಾಟಕ ಸಕಲ ಸೇವಾ ಕಾಯ್ದೆ"
+     data-kn-desc="2011ರಲ್ಲಿ ಜಾರಿಯಾದ ಈ ಕಾಯ್ದೆ 2012ರಿಂದ ಅನುಷ್ಠಾನಕ್ಕೆ ಬಂದಿದೆ. ನಾಗರಿಕರಿಗೆ ಸರಕಾರಿ ಸೇವೆಗಳನ್ನು ನಿಗದಿತ ಅವಧಿಯಲ್ಲಿ ಒದಗಿಸುವುದು ಇದರ ಉದ್ದೇಶ."
+     data-link="schemes/scheme-8.html">
+  <h3>Karnataka Sakala Services Act</h3>
+  <p>Enacted in 2011 and operational from 2012, the Sakala Services Act guarantees time-bound delivery of public services to citizens in Karnataka.</p>
+</div>
+
+<div class="scheme-card"
+     data-en-title="MGNREGA (National Rural Employment)"
+     data-en-desc="MGNREGA, launched in 2005, is a social security scheme by the Government of India that guarantees at least 100 days of wage employment per year to rural households."
+     data-kn-title="MGNREGA (ರಾಷ್ಟ್ರೀಯ ಗ್ರಾಮೀಣ ಉದ್ಯೋಗ ಖಾತರಿ ಯೋಜನೆ)"
+     data-kn-desc="2005ರಲ್ಲಿ ಭಾರತ ಸರ್ಕಾರ ಪ್ರಾರಂಭಿಸಿದ ಸಮಾಜ ಕಲ್ಯಾಣ ಯೋಜನೆ, ಇದು ಗ್ರಾಮೀಣ ಕುಟುಂಬಗಳಿಗೆ ವರ್ಷಕ್ಕೆ ಕನಿಷ್ಠ 100 ದಿನಗಳ ಕೂಲಿ ಕೆಲಸ ಖಾತರಿ ನೀಡುತ್ತದೆ."
+     data-link="schemes/scheme-9.html">
+  <h3>MGNREGA (National Rural Employment)</h3>
+  <p>MGNREGA, launched in 2005, is a social security scheme by the Government of India that guarantees at least 100 days of wage employment per year to rural households.</p>
+</div>
+
+<div class="scheme-card"
+     data-en-title="Sanjeevini – NRLM"
+     data-en-desc="Sanjeevini is a Karnataka state initiative under the National Rural Livelihoods Mission (NRLM) focusing on enhancing livelihood opportunities and income security for rural poor households, especially women."
+     data-kn-title="ಸಂಜೀವಿನಿ – NRLM"
+     data-kn-desc="ಸಂಜೀವಿನಿ ಕರ್ನಾಟಕ ಸರ್ಕಾರದ ಯೋಜನೆ, ಇದು ರಾಷ್ಟ್ರೀಯ ಗ್ರಾಮೀಣ ಜೀವನೋಪಾಯ ಮಿಷನ್ (NRLM) ಅಡಿಯಲ್ಲಿ ಜಾರಿಯಲ್ಲಿದೆ. ಗ್ರಾಮೀಣ ಬಡ ಕುಟುಂಬಗಳಿಗೆ, ವಿಶೇಷವಾಗಿ ಮಹಿಳೆಯರಿಗೆ ಉದ್ಯೋಗಾವಕಾಶ ಮತ್ತು ಆದಾಯ ಭದ್ರತೆ ನೀಡುತ್ತದೆ."
+     data-link="schemes/scheme-10.html">
+  <h3>Sanjeevini – NRLM</h3>
+  <p>Sanjeevini is a Karnataka state initiative under the National Rural Livelihoods Mission (NRLM) focusing on enhancing livelihood opportunities and income security for rural poor households, especially women.</p>
+</div>
+
+<div class="scheme-card"
+     data-en-title="National Rural Drinking Water Programme (NRDWP)"
+     data-en-desc="NRDWP is a central government scheme launched in 2009 to provide safe and adequate drinking water to rural communities, promoting sustainable water management and community participation."
+     data-kn-title="ರಾಷ್ಟ್ರೀಯ ಗ್ರಾಮೀಣ ಕುಡಿಯುವ ನೀರಿನ ಯೋಜನೆ (NRDWP)"
+     data-kn-desc="NRDWP ಕೇಂದ್ರ ಸರ್ಕಾರದ ಯೋಜನೆ, ಇದು 2009ರಲ್ಲಿ ಗ್ರಾಮೀಣ ಪ್ರದೇಶಗಳಲ್ಲಿ ಸುರಕ್ಷಿತ ಹಾಗೂ ಸಾಕಷ್ಟು ಕುಡಿಯುವ ನೀರು ಒದಗಿಸುವ ಉದ್ದೇಶದಿಂದ ಪ್ರಾರಂಭವಾಯಿತು. ಗ್ರಾಮಸ್ಥರ ಪಾಲ್ಗೊಳ್ಳುವಿಕೆಯನ್ನು ಉತ್ತೇಜಿಸುತ್ತದೆ."
+     data-link="schemes/scheme-11.html">
+  <h3>National Rural Drinking Water Programme (NRDWP)</h3>
+  <p>NRDWP is a central government scheme launched in 2009 to provide safe and adequate drinking water to rural communities, promoting sustainable water management and community participation.</p>
+</div>
+
+<div class="scheme-card"
+     data-en-title="Pashu Bhagya (Livestock Subsidy)"
+     data-en-desc="The Pashu Bhagya Scheme promotes livestock farming among small and marginal farmers, providing subsidies, insurance, and financial support to improve livelihoods and dairy/meat production."
+     data-kn-title="ಪಶು ಭಾಗ್ಯ ಯೋಜನೆ (Pashu Bhagya Scheme)"
+     data-kn-desc="ಸಣ್ಣ ಮತ್ತು ಅತಿಸಣ್ಣ ರೈತರಿಗೆ ಪಶುಸಂಗೋಪನೆ ಉತ್ತೇಜನ ನೀಡುವುದು. ಸಬ್ಸಿಡಿ, ವಿಮೆ ಮತ್ತು ಆರ್ಥಿಕ ಬೆಂಬಲವನ್ನು ಒದಗಿಸುವ ಮೂಲಕ ಜೀವನೋಪಾಯ ಸುಧಾರಣೆ ಮಾಡುತ್ತದೆ."
+     data-link="schemes/scheme-12.html">
+  <h3>Pashu Bhagya (Livestock Subsidy)</h3>
+  <p>The Pashu Bhagya Scheme promotes livestock farming among small and marginal farmers, providing subsidies, insurance, and financial support to improve livelihoods and dairy/meat production.</p>
+</div>
+
+<div class="scheme-card"
+     data-en-title="Karnataka Panchayat Development Scheme"
+     data-en-desc="A government initiative where senior officials adopt Gram Panchayats to provide customized support, improving governance, infrastructure, and implementation of rural schemes."
+     data-kn-title="ಕರ್ನಾಟಕ ಪಂಚಾಯತ್ ಅಭಿವೃದ್ಧಿ ಯೋಜನೆ"
+     data-kn-desc="ಹಿರಿಯ ಸರ್ಕಾರಿ ಅಧಿಕಾರಿಗಳು ಗ್ರಾಮ ಪಂಚಾಯತ್‌ಗಳನ್ನು 'ದತ್ತು' ತೆಗೆದು, ವಿಶೇಷ ಮಾರ್ಗದರ್ಶನ ನೀಡಿ ಆಡಳಿತ, ಮೂಲಸೌಕರ್ಯ ಮತ್ತು ಗ್ರಾಮೀಣ ಯೋಜನೆ ಜಾರಿಗೆ ಸುಧಾರಣೆ ಮಾಡುತ್ತಾರೆ."
+     data-link="schemes/scheme-13.html">
+  <h3>Karnataka Panchayat Development Scheme</h3>
+  <p>A government initiative where senior officials adopt Gram Panchayats to provide customized support, improving governance, infrastructure, and implementation of rural schemes.</p>
+</div>
+
+<div class="scheme-card"
+     data-en-title="Project Nemmadi (e-Governance Centers)"
+     data-en-desc="Launched in 2006 by the Karnataka government, Project Nemmadi provides citizen services via computerized e-Governance centers across villages, offering transparent, fast, and corruption-free delivery of certificates and approvals."
+     data-kn-title="ಪ್ರಾಜೆಕ್ಟ್ ನೆಮ್ಮದಿ (Nemmadi Kendras)"
+     data-kn-desc="2006ರಲ್ಲಿ ಕರ್ನಾಟಕ ಸರ್ಕಾರ ಆರಂಭಿಸಿದ ಯೋಜನೆ. ಹಳ್ಳಿಗಳಲ್ಲಿನ e-Governance ಕೇಂದ್ರಗಳ ಮೂಲಕ ನಾಗರಿಕರಿಗೆ ಸರಳ, ಪಾರದರ್ಶಕ ಹಾಗೂ ಭ್ರಷ್ಟಾಚಾರರಹಿತ ಸೇವೆ ಒದಗಿಸುತ್ತದೆ."
+     data-link="schemes/scheme-14.html">
+  <h3>Project Nemmadi (e-Governance Centers)</h3>
+  <p>Launched in 2006 by the Karnataka government, Project Nemmadi provides citizen services via computerized e-Governance centers across villages, offering transparent, fast, and corruption-free delivery of certificates and approvals.</p>
+</div>
+
+<div class="scheme-card"
+     data-en-title="PMGDISHA (Digital Literacy Program)"
+     data-en-desc="Launched in 2017 under Digital India, PMGDISHA trains rural citizens in basic digital literacy, enabling them to use smartphones, computers, internet, e-governance services, and digital payments."
+     data-kn-title="PMGDISHA – ಡಿಜಿಟಲ್ ಸಾಕ್ಷರತಾ ಯೋಜನೆ"
+     data-kn-desc="2017ರಲ್ಲಿ ಡಿಜಿಟಲ್ ಇಂಡಿಯಾ ಯೋಜನೆಯ ಭಾಗವಾಗಿ ಆರಂಭಿಸಿದ PMGDISHA, ಗ್ರಾಮೀಣ ಪ್ರದೇಶದ ಜನರಿಗೆ ಮೂಲಭೂತ ಡಿಜಿಟಲ್ ಕೌಶಲ್ಯ ಕಲಿಸುತ್ತದೆ, ಮೊಬೈಲ್, ಕಂಪ್ಯೂಟರ್, ಇಂಟರ್ನೆಟ್, ಇ-ಗವರ್ನನ್ಸ್ ಸೇವೆ ಮತ್ತು ಡಿಜಿಟಲ್ ಪೇಮೆಂಟ್ ಬಳಸುವ ಸಾಮರ್ಥ್ಯ ಕೊಡುತ್ತದೆ."
+     data-link="schemes/scheme-15.html">
+  <h3>PMGDISHA (Digital Literacy Program)</h3>
+  <p>Launched in 2017 under Digital India, PMGDISHA trains rural citizens in basic digital literacy, enabling them to use smartphones, computers, internet, e-governance services, and digital payments.</p>
+</div>
+
+<div class="scheme-card"
+     data-en-title="Diksha Platform (Digital Learning)"
+     data-en-desc="DIKSHA, launched in 2017 by NCERT, is India's national digital platform for school education, providing resources for teachers, students, and parents in 36+ Indian languages via web, Android, and iOS."
+     data-kn-title="ದೀಕ್ಷಾ ವೇದಿಕೆ (ಡಿಜಿಟಲ್ ಕಲಿಕೆ)"
+     data-kn-desc="2017ರಲ್ಲಿ NCERT ಮೂಲಕ ಪ್ರಾರಂಭಿಸಿದ DIKSHA, ಭಾರತದ ರಾಷ್ಟ್ರೀಯ ಡಿಜಿಟಲ್ ಶಿಕ್ಷಣ ವೇದಿಕೆ, 36ಕ್ಕೂ ಹೆಚ್ಚು ಭಾರತೀಯ ಭಾಷೆಗಳಲ್ಲಿ ಶಿಕ್ಷಕರು, ವಿದ್ಯಾರ್ಥಿಗಳು, ಪೋಷಕರು ಬಳಸಲು ಸಂಪನ್ಮೂಲ ಒದಗಿಸುತ್ತದೆ."
+     data-link="schemes/scheme-16.html">
+  <h3>Diksha Platform (Digital Learning)</h3>
+  <p>DIKSHA, launched in 2017 by NCERT, is India's national digital platform for school education, providing resources for teachers, students, and parents in 36+ Indian languages via web, Android, and iOS.</p>
+</div>
+
+<div class="scheme-card"
+     data-en-title="KBOCWWB Pension Scheme"
+     data-en-desc="The KBOCWWB Pension Scheme provides financial security to registered construction workers aged 60+, offering up to ₹2,000/month pension along with social welfare benefits."
+     data-kn-title="KBOCWWB ಪಿಂಚಣಿ ಯೋಜನೆ"
+     data-kn-desc="KBOCWWB ಪಿಂಚಣಿ ಯೋಜನೆ 60 ವರ್ಷಕ್ಕಿಂತ ಮೇಲ್ಪಟ್ಟ ನೋಂದಾಯಿತ ನಿರ್ಮಾಣ ಕಾರ್ಮಿಕರಿಗೆ ತಿಂಗಳಿಗೆ ₹2,000ವರೆಗೆ ಪಿಂಚಣಿ ಹಾಗೂ ಸಾಮಾಜಿಕ ಕಲ್ಯಾಣದ ಹಿತಚಿಂತನೆಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ."
+     data-link="schemes/scheme-17.html">
+  <h3>KBOCWWB Pension Scheme</h3>
+  <p>The KBOCWWB Pension Scheme provides financial security to registered construction workers aged 60+, offering up to ₹2,000/month pension along with social welfare benefits.</p>
+</div>
+
+<div class="scheme-card"
+     data-en-title="Udyogini Scheme"
+     data-en-desc="The Udyogini Scheme promotes self-reliance among women by providing financial assistance and subsidized loans to set up small-scale businesses, along with skill development support."
+     data-kn-title="ಉದ್ಯೋಗಿನಿ ಯೋಜನೆ"
+     data-kn-desc="ಉದ್ಯೋಗಿನಿ ಯೋಜನೆ ಮಹಿಳೆಯರಿಗೆ ಸ್ವಯಂ ಉದ್ಯೋಗ ಆರಂಭಿಸಲು ಆರ್ಥಿಕ ನೆರವು ಮತ್ತು ಸಬ್ಸಿಡಿ ಸಾಲಗಳನ್ನು ಒದಗಿಸಿ ಸ್ವಾವಲಂಬನೆಯತ್ತ ಉತ್ತೇಜನ ನೀಡುತ್ತದೆ. ತರಬೇತಿ ಹಾಗೂ ಕೌಶಲ್ಯಾಭಿವೃದ್ಧಿ ಸಹಾ ಇದೆ."
+     data-link="schemes/scheme-18.html">
+  <h3>Udyogini Scheme</h3>
+  <p>The Udyogini Scheme promotes self-reliance among women by providing financial assistance and subsidized loans to set up small-scale businesses, along with skill development support.</p>
+</div>
+
+<div class="scheme-card"
+     data-en-title="Unnati Scheme"
+     data-en-desc="The Unnati Scheme promotes entrepreneurship among SC/ST communities in Karnataka by providing financial support, startup funding, and market access for innovative startups."
+     data-kn-title="ಉನ್ನತಿ ಯೋಜನೆ"
+     data-kn-desc="ಉನ್ನತಿ ಯೋಜನೆ SC/ST ಸಮುದಾಯಗಳಲ್ಲಿ ಉದ್ಯಮಶೀಲತೆಯನ್ನು ಉತ್ತೇಜಿಸಲು ಆರ್ಥಿಕ ನೆರವು, ಸ್ಟಾರ್ಟ್‌ಅಪ್ ಹೂಡಿಕೆ, ಮಾರುಕಟ್ಟೆ ಪ್ರವೇಶ ಮತ್ತು ಸಂಪೂರ್ಣ ಬೆಂಬಲ ಒದಗಿಸುತ್ತದೆ."
+     data-link="schemes/scheme-19.html">
+  <h3>Unnati Scheme</h3>
+  <p>The Unnati Scheme promotes entrepreneurship among SC/ST communities in Karnataka by providing financial support, startup funding, and market access for innovative startups.</p>
+</div>
+
+<div class="scheme-card"
+     data-en-title="Bhagyalakshmi Scheme"
+     data-en-desc="The Bhagyalakshmi Scheme encourages girl child birth in BPL families, provides financial assistance for upbringing and education, and promotes their social status."
+     data-kn-title="ಭಾಗ್ಯಲಕ್ಷ್ಮಿ ಹೆಣ್ಣುಮಕ್ಕಳ ಕಲ್ಯಾಣ ಯೋಜನೆ"
+     data-kn-desc="ಭಾಗ್ಯಲಕ್ಷ್ಮಿ ಯೋಜನೆ BPL ಕುಟುಂಬಗಳಲ್ಲಿ ಹೆಣ್ಣುಮಕ್ಕಳ ಜನನವನ್ನು ಉತ್ತೇಜಿಸುತ್ತದೆ, ಪೋಷಣೆ ಮತ್ತು ಶಿಕ್ಷಣಕ್ಕೆ ಆರ್ಥಿಕ ಸಹಾಯ ಒದಗಿಸುತ್ತದೆ ಮತ್ತು ಸಾಮಾಜಿಕ ಸ್ಥಾನಮಾನವನ್ನು ಬೆಂಬಲಿಸುತ್ತದೆ."
+     data-link="schemes/scheme-20.html">
+  <h3>Bhagyalakshmi Scheme</h3>
+  <p>The Bhagyalakshmi Scheme encourages girl child birth in BPL families, provides financial assistance for upbringing and education, and promotes their social status.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Deendayal Upadhyaya Gram Jyothi Yojana (DDUGJY)"
+     data-en-desc="DDUGJY aims to provide continuous and reliable electricity supply to rural India, focusing on feeder separation, infrastructure strengthening, and metering."
+     data-kn-title="ದೀನ್‌ದಯಾಳ್ ಉಪಾಧ್ಯಾಯ ಗ್ರಾಮ ಜ್ಯೋತಿ ಯೋಜನೆ (DDUGJY)"
+     data-kn-desc="DDUGJY ಗ್ರಾಮೀಣ ಭಾರತಕ್ಕೆ ನಿರಂತರ ಹಾಗೂ ನಂಬಲರ್ಹ ವಿದ್ಯುತ್ ಪೂರೈಕೆ ಒದಗಿಸಲು, ಫೀಡರ್ ಪ್ರತ್ಯೇಕತೆ, ಮೂಲಸೌಕರ್ಯ ಬಲಪಡಿಸುವಿಕೆ ಮತ್ತು ಮೀಟರಿಂಗ್ ಮೇಲೆ ಗಮನಹರಿಸುತ್ತದೆ."
+     data-link="schemes/scheme-21.html">
+  <h3>Deendayal Upadhyaya Gram Jyothi Yojana (DDUGJY)</h3>
+  <p>DDUGJY aims to provide continuous and reliable electricity supply to rural India, focusing on feeder separation, infrastructure strengthening, and metering.</p>
+</div>
+
+<!-- Scheme Card -->
+<div class="scheme-card" 
+     data-en-title="Niranthara Jyothi Yojane"
+     data-en-desc="The Niranthara Jyothi Yojane provides 24-hour uninterrupted electricity to rural areas, segregates agricultural and non-agricultural feeders, and improves service quality and agricultural productivity."
+     data-kn-title="ನಿರಂತರ ಜ್ಯೋತಿ ಯೋಜನೆ (ಕೃಷಿ ವಿದ್ಯುತ್ ಸಬ್ಸಿಡಿ)"
+     data-kn-desc="ನಿರಂತರ ಜ್ಯೋತಿ ಯೋಜನೆ ಗ್ರಾಮೀಣ ಪ್ರದೇಶಗಳಿಗೆ 24 ಗಂಟೆಗಳ ನಿರಂತರ ವಿದ್ಯುತ್ ಪೂರೈಕೆ ಒದಗಿಸುತ್ತದೆ, ಕೃಷಿ ಮತ್ತು ಕೃಷಿಯಲ್ಲದ ಫೀಡರ್‌ಗಳನ್ನು ವಿಭಜಿಸುತ್ತದೆ ಮತ್ತು ಸೇವೆ ಗುಣಮಟ್ಟ ಮತ್ತು ಕೃಷಿ ಉತ್ಪಾದಕತೆ ಸುಧಾರಿಸುತ್ತದೆ."
+     data-link="schemes/scheme-22.html">
+  <h3>Niranthara Jyothi Yojane</h3>
+  <p>The Niranthara Jyothi Yojane provides 24-hour uninterrupted electricity to rural areas, segregates agricultural and non-agricultural feeders, and improves service quality and agricultural productivity.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Solar Irrigation Pumpsets Scheme"
+     data-en-desc="The Solar Irrigation Pumpsets Scheme provides cost-effective and sustainable irrigation solutions using solar-powered pumpsets, promoting renewable energy and reducing dependence on conventional power."
+     data-kn-title="ಸೌರ ನೀರಾವರಿ ಪಂಪ್‌ಸೆಟ್‌ ಯೋಜನೆ"
+     data-kn-desc="ಸೌರ ನೀರಾವರಿ ಪಂಪ್‌ಸೆಟ್‌ ಯೋಜನೆ ಸೌರ ಶಕ್ತಿಯ ಪಂಪ್‌ಸೆಟ್‌ಗಳನ್ನು ಬಳಸಿಕೊಂಡು ಕಡಿಮೆ ವೆಚ್ಚದ ಮತ್ತು ಶಾಶ್ವತ ನೀರಾವರಿ ಪರಿಹಾರಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ, ನವೀಕರಿಸಬಹುದಾದ ಶಕ್ತಿಯನ್ನು ಉತ್ತೇಜಿಸುತ್ತದೆ ಮತ್ತು ಸಾಮಾನ್ಯ ವಿದ್ಯುತ್ ಅವಲಂಬನೆಯನ್ನು ಕಡಿಮೆ ಮಾಡುತ್ತದೆ."
+     data-link="schemes/scheme-23.html">
+  <h3>Solar Irrigation Pumpsets Scheme</h3>
+  <p>The Solar Irrigation Pumpsets Scheme provides cost-effective and sustainable irrigation solutions using solar-powered pumpsets, promoting renewable energy and reducing dependence on conventional power.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Ganga Kalyana Scheme"
+     data-en-desc="The Ganga Kalyana Scheme provides financial assistance for irrigation infrastructure including borewells, pump sets, and lift irrigation systems, targeting small and marginal minority farmers."
+     data-kn-title="ಗಂಗಾ ಕಲ್ಯಾಣ ಯೋಜನೆ"
+     data-kn-desc="ಗಂಗಾ ಕಲ್ಯಾಣ ಯೋಜನೆ ಸಣ್ಣ ಮತ್ತು ಅಲ್ಪಭೂಮಿ ರೈತರಿಗೆ ಬಾವಿ/ಬೋರ್‌ವೆಲ್, ಪಂಪ್‌ಸೆಟ್ ಮತ್ತು ಲಿಫ್ಟ್ ನೀರಾವರಿ ವ್ಯವಸ್ಥೆಗಳಿಗೆ ಹಣಕಾಸು ಸಹಾಯ ಒದಗಿಸುತ್ತದೆ."
+     data-link="schemes/scheme-24.html">
+  <h3>Ganga Kalyana Scheme</h3>
+  <p>The Ganga Kalyana Scheme provides financial assistance for irrigation infrastructure including borewells, pump sets, and lift irrigation systems, targeting small and marginal minority farmers.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Swavalambi Sarathi Scheme"
+     data-en-desc="Provides 50% subsidy (up to ₹3,00,000) for purchasing vehicles like passenger auto rickshaws, goods vehicles, and taxis, targeting eligible minority beneficiaries for self-employment."
+     data-kn-title="ಸ್ವಾವಲಂಬಿ ಸಾರಥಿ ಯೋಜನೆ"
+     data-kn-desc="ಅರ್ಹ ಫಲಾನುಭವಿಗಳಿಗೆ ಪ್ರಯಾಣಿಕರ ಆಟೋ ರಿಕ್ಷಾ, ಸರಕು ವಾಹನಗಳು ಮತ್ತು ಟ್ಯಾಕ್ಸಿಗಳಿಗೆ 50% ಅನುದಾನ (ಗರಿಷ್ಠ ₹3,00,000) ನೀಡಲಾಗುತ್ತದೆ, ಸ್ವ ಉದ್ಯೋಗಕ್ಕಾಗಿ."
+     data-link="schemes/scheme-25.html">
+  <h3>Swavalambi Sarathi Scheme</h3>
+  <p>Provides 50% subsidy (up to ₹3,00,000) for purchasing vehicles like passenger auto rickshaws, goods vehicles, and taxis, targeting eligible minority beneficiaries for self-employment.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Charmakara Housing Scheme"
+     data-en-desc="Provides financial assistance for house construction or improvement for economically weaker families of the Charmakara community (SC category), ensuring safe and dignified living conditions."
+     data-kn-title="ಚರ್ಮಕರ ಗೃಹ ಯೋಜನೆ"
+     data-kn-desc="ಚರ್ಮಕರ ಸಮುದಾಯದ (SC ವರ್ಗ) ಬಡ ಕುಟುಂಬಗಳಿಗೆ ಮನೆ ನಿರ್ಮಾಣ ಅಥವಾ ಸುಧಾರಣೆಗಾಗಿ ಆರ್ಥಿಕ ಸಹಾಯ, ಭದ್ರ ಹಾಗೂ ಗೌರವಯುತ ವಾಸಸ್ಥಳ ಒದಗಿಸಲು."
+     data-link="schemes/scheme-26.html">
+  <h3>Charmakara Housing Scheme</h3>
+  <p>Provides financial assistance for house construction or improvement for economically weaker families of the Charmakara community (SC category), ensuring safe and dignified living conditions.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Paduke Kuteera Housing Scheme"
+     data-en-desc="Provides affordable housing support to economically weaker families under Karnataka’s Ashraya Housing initiatives."
+     data-kn-title="ಪದುಕೆ ಕುಟೀರ ಗೃಹ ಯೋಜನೆ"
+     data-kn-desc="ಆರ್ಥಿಕವಾಗಿ ದುಬಾರಿಯಾದ ಕುಟುಂಬಗಳಿಗೆ Karnataka Ashraya Housing ಯೋಜನೆಯಡಿ ಅಗ್ಗದ ಮನೆಗಳ ಸಹಾಯ ಒದಗಿಸುವುದು."
+     data-link="schemes/scheme-27.html">
+  <h3>Paduke Kuteera Housing Scheme</h3>
+  <p>Provides affordable housing support to economically weaker families under Karnataka’s Ashraya Housing initiatives.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Kayaka Spoorthi Yojane"
+     data-en-desc="Financial assistance and skill development program for SHG members, especially women, providing loans, training, and business support."
+     data-kn-title="ಕಾಯಕ ಸ್ಪೂರ್ತಿ ಯೋಜನೆ"
+     data-kn-desc="ಸ್ವ-ಸಹಾಯ ಗುಂಪುಗಳ ಸದಸ್ಯರಿಗೆ, ವಿಶೇಷವಾಗಿ ಮಹಿಳೆಯರಿಗೆ, ಹಣಕಾಸು ನೆರವು ಮತ್ತು ಕೌಶಲ್ಯಾಭಿವೃದ್ಧಿ ಒದಗಿಸುವ ಯೋಜನೆ."
+     data-link="schemes/scheme-28.html">
+  <h3>Kayaka Spoorthi Yojane</h3>
+  <p>Financial assistance and skill development program for SHG members, especially women, providing loans, training, and business support.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Micro Credit Prerana Scheme"
+     data-en-desc="Provides microcredit facilities to women from economically weaker sections, particularly SHG members, to encourage entrepreneurship and financial independence."
+     data-kn-title="ಮೈಕ್ರೋ ಕ್ರೆಡಿಟ್ ಪ್ರೇರಣಾ ಯೋಜನೆ"
+     data-kn-desc="ಆರ್ಥಿಕವಾಗಿ ದುರ್ಬಲ ಮಹಿಳೆಯರಿಗೆ, ವಿಶೇಷವಾಗಿ SHGs ಸದಸ್ಯರಿಗೆ, ಸಣ್ಣ ಪ್ರಮಾಣದ ಸಾಲ ಒದಗಿಸುವ ಯೋಜನೆ. ಮಹಿಳೆಯರಲ್ಲಿ ಉದ್ಯಮಶೀಲತೆ ಮತ್ತು ಆರ್ಥಿಕ ಸ್ವಾವಲಂಬನೆ ಉದ್ದೇಶ."
+     data-link="schemes/scheme-29.html">
+  <h3>Micro Credit Prerana Scheme</h3>
+  <p>Provides microcredit facilities to women from economically weaker sections, particularly SHG members, to encourage entrepreneurship and financial independence.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Land Purchase Scheme"
+     data-en-desc="Assists SC/ST women in purchasing agricultural land by providing financial subsidies to promote land ownership among marginalized groups."
+     data-kn-title="ಭೂ ಖರೀದಿ ಯೋಜನೆ"
+     data-kn-desc="SC/ST ಮಹಿಳೆಯರಿಗೆ ಕೃಷಿ ಭೂಮಿ ಖರೀದಿಸಲು ಅನುದಾನ ಮತ್ತು ಸಾಲದ ಸಹಾಯ ನೀಡುವ ಯೋಜನೆ. marginalized ಗುಂಪುಗಳಲ್ಲಿ ಭೂಮಿ ಮಾಲಿಕತ್ವವನ್ನು ಉತ್ತೇಜಿಸುವುದು ಉದ್ದೇಶ."
+     data-link="schemes/scheme-30.html">
+  <h3>Land Purchase Scheme</h3>
+  <p>Assists SC/ST women in purchasing agricultural land by providing financial subsidies to promote land ownership among marginalized groups.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Sabka Vikas Panchayat Development Plan"
+     data-en-desc="Gram Panchayats prepare annual development plans reflecting local needs, ensuring community participation in developmental priorities."
+     data-kn-title="ಸಬ್ಕಾ ವಿಕಾಸ್ ಪಂಥಾಯತ್ ಡೆವಲಪ್‌ಮೆಂಟ್ ಪ್ಲಾನ್ (GPDP)"
+     data-kn-desc="ಪ್ರತಿಯೊಂದು ಗ್ರಾಮ ಪಂಚಾಯತ್ ವಾರ್ಷಿಕ ಅಭಿವೃದ್ಧಿ ಯೋಜನೆಗಳನ್ನು ತಯಾರಿಸುತ್ತವೆ, ಗ್ರಾಮ ಮಟ್ಟದ ಜನರನ್ನು ಅಭಿವೃದ್ಧಿ ನಿರ್ಧಾರಗಳಲ್ಲಿ ನೇರವಾಗಿ ಪಾಲ್ಗೊಳ್ಳುವಂತೆ ಮಾಡುವ ಯೋಜನೆ."
+     data-link="schemes/scheme-31.html">
+  <h3>Sabka Vikas Panchayat Development Plan</h3>
+  <p>Gram Panchayats prepare annual development plans reflecting local needs, ensuring community participation in developmental priorities.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="National Handloom Development Programme"
+     data-en-desc="The NHDP aims to improve the handloom sector by providing financial assistance, infrastructure support, and marketing opportunities to weavers."
+     data-kn-title="ರಾಷ್ಟ್ರೀಯ ಹ್ಯಾಂಡ್ಲೂಮ್ ಅಭಿವೃದ್ಧಿ ಕಾರ್ಯಕ್ರಮ (NHDP)"
+     data-kn-desc="ಈ ಯೋಜನೆಯ ಉದ್ದೇಶ ಹ್ಯಾಂಡ್ಲೂಮ್ ವಲಯದ ಸುಧಾರಣೆ ಮತ್ತು ಜರಿಗಾರರಿಗೆ ಆರ್ಥಿಕ ಸಹಾಯ, ಮೂಲಸೌಕರ್ಯ ಸೌಲಭ್ಯ ಮತ್ತು ಮಾರ್ಕೆಟಿಂಗ್ ಅವಕಾಶ ಒದಗಿಸುವುದು."
+     data-link="schemes/scheme-32.html">
+  <h3>National Handloom Development Programme</h3>
+  <p>The NHDP aims to improve the handloom sector by providing financial assistance, infrastructure support, and marketing opportunities to weavers.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Atal Pension Yojana"
+     data-en-desc="APY is a national pension scheme for unorganized sector workers providing a guaranteed monthly pension after age 60."
+     data-kn-title="ಅಟಲ್ ಪೆನ್ಷನ್ ಯೋಜನೆ (APY)"
+     data-kn-desc="ಅಟಲ್ ಪೆನ್ಷನ್ ಯೋಜನೆ (APY) ಅಸಂಘಟಿತ ಕ್ಷೇತ್ರದ ಕಾರ್ಮಿಕರಿಗೆ ಮಾಸಿಕ ಪೆನ್ಷನ್ ಭರವಸೆ ನೀಡುವ ರಾಷ್ಟ್ರೀಯ ಯೋಜನೆ."
+     data-link="schemes/scheme-33.html">
+  <h3>Atal Pension Yojana</h3>
+  <p>APY is a national pension scheme for unorganized sector workers providing a guaranteed monthly pension after age 60.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Stand Up India Scheme"
+     data-en-desc="The scheme provides loans to SC/ST and women entrepreneurs for setting up new enterprises."
+     data-kn-title="ಸ್ಟ್ಯಾಂಡ್ ಅಪ್ ಇಂಡಿಯಾ ಯೋಜನೆ"
+     data-kn-desc="SC/ST ಸಮುದಾಯದವರು ಮತ್ತು ಮಹಿಳಾ ಉದ್ಯಮಿಗಳಿಗೆ ಹೊಸ ಉದ್ಯಮಗಳನ್ನು ಸ್ಥಾಪಿಸಲು ಸಾಲ ಸೌಲಭ್ಯ ಒದಗಿಸುವ ಯೋಜನೆ."
+     data-link="schemes/scheme-34.html">
+  <h3>Stand Up India Scheme</h3>
+  <p>Loans to SC/ST and women entrepreneurs for new enterprises.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Pradhan Mantri Jan Dhan Yojana"
+     data-en-desc="PMJDY is a financial inclusion program providing banking services to every household."
+     data-kn-title="ಪ್ರಧಾನಮಂತ್ರಿ ಜನಧನ್ ಯೋಜನೆ (PMJDY)"
+     data-kn-desc="ಪ್ರತಿ ಮನೆಯಿಗೂ ಬ್ಯಾಂಕಿಂಗ್ ಸೇವೆಗಳನ್ನು ತಲುಪಿಸುವ ಯೋಜನೆ, ಗ್ರಾಮೀಣ ಹಾಗೂ ಬಡ ಕುಟುಂಬಗಳಿಗೆ ಉಳಿತಾಯ ಖಾತೆ, ವಿಮೆ ಮತ್ತು ನೇರ ಸಬ್ಸಿಡಿ ಸೌಲಭ್ಯ."
+     data-link="schemes/scheme-35.html">
+  <h3>Pradhan Mantri Jan Dhan Yojana</h3>
+  <p>Financial inclusion program providing banking access, insurance, and DBT to households.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Chief Minister Grama Vikasa Scheme"
+     data-en-desc="Focuses on improving rural infrastructure and basic amenities in Karnataka villages."
+     data-kn-title="ಮುಖ್ಯಮಂತ್ರಿ ಗ್ರಾಮ ಅಭಿವೃದ್ಧಿ (Grama Vikasa) ಯೋಜನೆ"
+     data-kn-desc="ಕರ್ನಾಟಕದ ಗ್ರಾಮೀಣ ಪ್ರದೇಶಗಳಲ್ಲಿ ಮೂಲಸೌಕರ್ಯ ಮತ್ತು ಸೌಲಭ್ಯಗಳ ಅಭಿವೃದ್ಧಿ."
+     data-link="schemes/scheme-36.html">
+  <h3>Chief Minister Grama Vikasa Scheme</h3>
+  <p>Improving rural infrastructure including roads, schools, water supply, and sanitation.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Mukhyamantri Anila Bhagya Yojane"
+     data-en-desc="Provides free LPG connections to poor families to reduce dependence on traditional fuels."
+     data-kn-title="ಮುಖ್ಯಮಂತ್ರಿ ಅನಿಲ ಭಾಗ್ಯ ಯೋಜನೆ"
+     data-kn-desc="ಬಡ ಕುಟುಂಬಗಳಿಗೆ ಉಚಿತ ಎಲ್‌ಪಿಜಿ ಸಂಪರ್ಕ ಒದಗಿಸುತ್ತದೆ, ಪಾರಂಪರಿಕ ಇಂಧನಗಳ ಅವಲಂಬನೆ ಕಡಿಮೆಮಾಡಲು."
+     data-link="schemes/scheme-37.html">
+  <h3>Mukhyamantri Anila Bhagya Yojane</h3>
+  <p>Free LPG connection for poor families to improve health and reduce indoor air pollution.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Karmika Sahaya Hasta Scheme"
+     data-en-desc="Provides welfare benefits to unorganized sector workers registered under Karnataka Labour Department."
+     data-kn-title="ಕಾರ್ಮಿಕ ಸಹಾಯ ಹಸ್ತ ಯೋಜನೆ"
+     data-kn-desc="ಅಸಂಘಟಿತ ವಲಯದ ಕಾರ್ಮಿಕರಿಗೆ ಕಲ್ಯಾಣ ಸೌಲಭ್ಯಗಳನ್ನು ಒದಗಿಸುವ ಯೋಜನೆ."
+     data-link="schemes/scheme-38.html">
+  <h3>Karmika Sahaya Hasta Scheme</h3>
+  <p>Welfare benefits for unorganized sector workers including financial aid, maternity support, and educational scholarships.</p>
+</div>
+
+  <div class="scheme-card" 
+     data-en-title="Raita Belaku Scheme"
+     data-en-desc="Provides income support to small and medium farmers in Karnataka through direct benefit transfers."
+     data-kn-title="ರೈತ ಬೆಳಕು ಯೋಜನೆ"
+     data-kn-desc="ಸಣ್ಣ ಮತ್ತು ಮಧ್ಯಮ ರೈತರಿಗೆ ನೇರ ಆರ್ಥಿಕ ನೆರವು ನೀಡುವ ಯೋಜನೆ."
+     data-link="schemes/scheme-39.html">
+  <h3>Raita Belaku Scheme</h3>
+  <p>Income support for small and medium farmers via Direct Benefit Transfer (DBT) to help with input costs and household expenses.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="National Means-cum-Merit Scholarship (NMMS)"
+     data-en-desc="Central scholarship for meritorious students from economically weaker families in Karnataka, providing financial support from class 9 to 12."
+     data-kn-title="ರಾಷ್ಟ್ರೀಯ ಆರ್ಥಿಕ-ಪ್ರತಿಭಾ ವಿದ್ಯಾರ್ಥಿವೇತನ (NMMS)"
+     data-kn-desc="ಆರ್ಥಿಕವಾಗಿ ಹಿಂದುಳಿದ ಕುಟುಂಬಗಳ ಪ್ರತಿಭಾವಂತ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಕೇಂದ್ರ ವಿದ್ಯಾರ್ಥಿವೇತನ ಯೋಜನೆ, 9ರಿಂದ 12ನೇ ತರಗತಿ ವರೆಗೆ ಹಣಕಾಸು ನೆರವು."
+     data-link="schemes/scheme-40.html">
+  <h3>National Means-cum-Merit Scholarship (NMMS)</h3>
+  <p>Financial support for meritorious students from economically weaker families in Karnataka, encouraging continuation of secondary education.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Pratibha Puraskar Scholarship"
+     data-en-desc="Scholarship for meritorious students from SC/ST/OBC categories in Karnataka, providing financial support for higher education."
+     data-kn-title="ಪ್ರತಿಭಾ ಪುರಸ್ಕಾರ ವಿದ್ಯಾರ್ಥಿವೇತನ"
+     data-kn-desc="ಕನ್ನಡದಲ್ಲಿ ಹಿಂದುಳಿದ ವರ್ಗಗಳ (SC/ST/OBC) ಪ್ರತಿಭಾವಂತ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಉನ್ನತ ಶಿಕ್ಷಣಕ್ಕಾಗಿ ಆರ್ಥಿಕ ಬೆಂಬಲ ನೀಡುವ ವಿದ್ಯಾರ್ಥಿವೇತನ."
+     data-link="schemes/scheme-41.html">
+  <h3>Pratibha Puraskar Scholarship</h3>
+  <p>Financial assistance for meritorious SC/ST/OBC students to pursue PUC, graduation, and post-graduation courses.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Free Laptop Scheme for SC/ST Students"
+     data-en-desc="Provides free laptops to meritorious SC/ST students in Karnataka pursuing higher education to promote digital inclusion."
+     data-kn-title="ಎಸ್‌ಸಿ/ಎಸ್‌ಟಿ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಉಚಿತ ಲ್ಯಾಪ್‌ಟಾಪ್ ಯೋಜನೆ"
+     data-kn-desc="ಕರ್ನಾಟಕದಲ್ಲಿ ಮೇಲು ಶಿಕ್ಷಣ ಪಡೆಯುತ್ತಿರುವ ಪ್ರತಿಭಾವಂತ ಎಸ್‌ಸಿ/ಎಸ್‌ಟಿ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಉಚಿತ ಲ್ಯಾಪ್‌ಟಾಪ್ ಒದಗಿಸುವ ಮೂಲಕ ಡಿಜಿಟಲ್ ಸಮಾವೇಶವನ್ನು ಉತ್ತೇಜಿಸುವ ಯೋಜನೆ."
+     data-link="schemes/scheme-42.html">
+  <h3>Free Laptop Scheme for SC/ST Students</h3>
+  <p>Provides laptops worth ₹25,000–₹35,000 to meritorious SC/ST students in higher education for digital learning.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Karnataka ePass Scholarship"
+     data-en-desc="Provides scholarships to SC, ST, and OBC students in Karnataka for post-matric education, with direct benefit transfer."
+     data-kn-title="ಕರ್ನಾಟಕ ಇ-ಪಾಸ್ ವಿದ್ಯಾರ್ಥಿವೇತನ"
+     data-kn-desc="ಎಸ್‌ಸಿ, ಎಸ್‌ಟಿ ಮತ್ತು ಓಬಿಸಿ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಪೋಸ್ಟ್ ಮ್ಯಾಟ್ರಿಕ್ ಶಿಕ್ಷಣಕ್ಕೆ ವಿದ್ಯಾರ್ಥಿವೇತನ ನೀಡುವ ಯೋಜನೆ, ನೇರ ಹಣ ವರ್ಗಾವಣೆಯೊಂದಿಗೆ."
+     data-link="schemes/scheme-43.html">
+  <h3>Karnataka ePass Scholarship</h3>
+  <p>Scholarships ranging from ₹3,000 to ₹19,000 for SC/ST/OBC students in Karnataka with fee reimbursement and DBT facility.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Kaushalya Karnataka Skill Training"
+     data-en-desc="Provides free skill development training to unemployed youth in Karnataka, along with certification and job placement assistance."
+     data-kn-title="ಕೌಶಲ್ಯ ಕರ್ನಾಟಕ ಕೌಶಲ್ಯ ತರಬೇತಿ"
+     data-kn-desc="ಕರ್ನಾಟಕದ ನಿರುದ್ಯೋಗಿ ಯುವಕರಿಗೆ ಉಚಿತ ಕೌಶಲ್ಯಾಭಿವೃದ್ಧಿ ತರಬೇತಿ, ಪ್ರಮಾಣಪತ್ರ ಮತ್ತು ಉದ್ಯೋಗ ನಿಯೋಜನೆ ನೆರವಿನೊಂದಿಗೆ."
+     data-link="schemes/scheme-44.html">
+  <h3>Kaushalya Karnataka Skill Training</h3>
+  <p>Free training in 200+ trades, certification, and placement assistance for unemployed youth in Karnataka.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Udyoga Mitra"
+     data-en-desc="Provides a single-window platform for entrepreneurs in Karnataka to obtain approvals, clearances, and incentives for setting up industries."
+     data-kn-title="ಉದ್ಯೋಗ ಮಿತ್ರ (Udyoga Mitra)"
+     data-kn-desc="ಕರ್ನಾಟಕದಲ್ಲಿ ಉದ್ಯಮಿಗಳಿಗೆ ಕೈಗಾರಿಕೆ ಆರಂಭಿಸಲು ಅನುಮತಿಗಳು, ಪರವಾನಗಿಗಳು ಮತ್ತು ಸಬ್ಸಿಡಿಗಳನ್ನು ಪಡೆಯಲು ಸಿಂಗಲ್-ವಿಂಡೋ ವೇದಿಕೆ."
+     data-link="schemes/scheme-45.html">
+  <h3>Udyoga Mitra</h3>
+  <p>Single-window platform for approvals, clearances, subsidies, and support for entrepreneurs in Karnataka.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Free Coaching Scheme"
+     data-en-desc="Provides free coaching to SC/ST/OBC/minority students in Karnataka for competitive exams like IAS, KAS, UPSC, SSC, Banking, and other government jobs."
+     data-kn-title="ಉಚಿತ ಕೋಚಿಂಗ್ ಯೋಜನೆ (Free Coaching Scheme)"
+     data-kn-desc="ಕರ್ನಾಟಕದ SC/ST/OBC/ಅಲ್ಪಸಂಖ್ಯಾತ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಉಚಿತ ಕೋಚಿಂಗ್ ನೀಡುವ ಯೋಜನೆ, IAS, KAS, UPSC, SSC, ಬ್ಯಾಂಕಿಂಗ್ ಮತ್ತು ಇತರ ಸರ್ಕಾರಿ ಉದ್ಯೋಗ ಪರೀಕ್ಷೆಗಳಿಗೆ ತಯಾರಿ."
+     data-link="schemes/scheme-46.html">
+  <h3>Free Coaching Scheme</h3>
+  <p>Free coaching, study materials, hostel and stipend support for competitive exams for eligible students in Karnataka.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Karnataka Digital Learning Portals"
+     data-en-desc="Online learning platforms by Karnataka government providing e-content, recorded lectures, practice tests, and exam preparation material for students."
+     data-kn-title="ಕರ್ನಾಟಕ ಡಿಜಿಟಲ್ ಲರ್ನಿಂಗ್ ಪೋರ್ಟಲ್‌ಗಳು"
+     data-kn-desc="ಕರ್ನಾಟಕ ಸರ್ಕಾರದ ಡಿಜಿಟಲ್ ಲರ್ನಿಂಗ್ ಪೋರ್ಟಲ್‌ಗಳು ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಇ-ಕಾಂಟೆಂಟ್, ಉಪನ್ಯಾಸಗಳು, ಅಭ್ಯಾಸ ಪ್ರಶ್ನೆಗಳು ಮತ್ತು ಪರೀಕ್ಷಾ ತಯಾರಿ ಸಾಮಗ್ರಿಗಳನ್ನು ನೀಡುತ್ತದೆ."
+     data-link="schemes/scheme-47.html">
+  <h3>Karnataka Digital Learning Portals</h3>
+  <p>Free digital resources for school and college students across Karnataka including e-textbooks, videos, and practice tests.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Raita Vidya Nidhi Scholarship"
+     data-en-desc="Financial assistance for children of farmers in Karnataka to pursue higher education. Covers undergrad, professional, and technical courses."
+     data-kn-title="ರೈತ ವಿದ್ಯಾ ನಿಧಿ ವಿದ್ಯಾರ್ಥಿ ಅನುದಾನ"
+     data-kn-desc="ಕರ್ನಾಟಕದ ರೈತ ಮಕ್ಕಳಿಗೆ ಉನ್ನತ ಶಿಕ್ಷಣಕ್ಕಾಗಿ ಹಣಕಾಸು ಸಹಾಯ. ಅಂಡರ್‌ಗ್ರ್ಯಾಜುಯೇಟ್, ಪ್ರೊಫೆಷನಲ್ ಮತ್ತು ಟೆಕ್ನಿಕಲ್ ಕೋರ್ಸ್ಗಳನ್ನು ಒಳಗೊಂಡಿದೆ."
+     data-link="schemes/scheme-48.html">
+  <h3>Raita Vidya Nidhi Scholarship</h3>
+  <p>Financial support for farmer children pursuing higher education with direct benefit transfer to bank accounts.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Labour Card Scholarship"
+     data-en-desc="Scholarship for children of registered construction workers in Karnataka to support education at school, PUC, and higher education levels."
+     data-kn-title="ಲೇಬರ್ ಕಾರ್ಡ್ ವಿದ್ಯಾರ್ಥಿ ಅನುದಾನ"
+     data-kn-desc="ನೋಂದಾಯಿತ ಕಟ್ಟಡ ಕಾರ್ಮಿಕರ ಮಕ್ಕಳಿಗೆ ಶಾಲೆ, PUC ಮತ್ತು ಉನ್ನತ ಶಿಕ್ಷಣದಲ್ಲಿ ಶಿಕ್ಷಣ ಬೆಂಬಲಕ್ಕಾಗಿ ವಿದ್ಯಾರ್ಥಿ ಅನುದಾನ."
+     data-link="schemes/scheme-49.html">
+  <h3>Labour Card Scholarship</h3>
+  <p>Supports education for children of registered construction workers with scholarships ranging ₹2,000 – ₹11,000.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Prabhuddha Overseas Scholarship"
+     data-en-desc="Financial assistance for SC/ST students from Karnataka to pursue higher education abroad for Master's and PhD courses."
+     data-kn-title="ಪ್ರಭುದ್ದ ಓವರ್‌ಸೀಸ್ ವಿದ್ಯಾರ್ಥಿ ಅನುದಾನ"
+     data-kn-desc="ಕರ್ನಾಟಕದ SC/ST ವಿದ್ಯಾರ್ಥಿಗಳು ವಿದೇಶದಲ್ಲಿ ಸ್ನಾತಕೋತ್ತರ ಮತ್ತು ಡಾಕ್ಟರಲ್ ಕೋರ್ಸ್‌ಗಳನ್ನು ಅಧ್ಯಯನ ಮಾಡಲು ಹಣಕಾಸು ನೆರವು ಪಡೆಯಲು ಯೋಜನೆ."
+     data-link="schemes/scheme-50.html">
+  <h3>Prabhuddha Overseas Scholarship</h3>
+  <p>Supports SC/ST students studying abroad with financial and holistic assistance for global education and research opportunities.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Namma Clinics – Urban & Rural Health Services"
+     data-en-desc="Primary healthcare services for urban and rural Karnataka communities with free consultations, diagnostics, and maternal-child health support."
+     data-kn-title="ನಮ್ಮ ಕ್ಲಿನಿಕ್ಸ್ (ನಗರ ಮತ್ತು ಗ್ರಾಮೀಣ ಆರೋಗ್ಯ ಸೇವೆಗಳು)"
+     data-kn-desc="ನಗರ ಮತ್ತು ಗ್ರಾಮೀಣ ಕರ್ನಾಟಕ ಸಮುದಾಯಗಳಿಗೆ ಉಚಿತ ಪ್ರಾಥಮಿಕ ಆರೋಗ್ಯ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುವ ಕಾರ್ಯಕ್ರಮ."
+     data-link="schemes/scheme-51.html">
+  <h3>Namma Clinics – Urban & Rural Health Services</h3>
+  <p>Provides accessible primary healthcare, preventive care, and essential medicines to improve health outcomes in urban and rural areas.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Prasooti Araike Scheme – Maternity Benefit for BPL Women"
+     data-en-desc="Maternity benefit for BPL women providing financial aid, nutrition, and healthcare services during and after pregnancy."
+     data-kn-title="ಪ್ರಸೂತಿ ಅರೈಕೆ ಯೋಜನೆ (BPL ಮಹಿಳೆಯರಿಗೆ ಗರ್ಭಧಾರಣೆ ಸಹಾಯ)"
+     data-kn-desc="BPL ಮಹಿಳೆಯರಿಗೆ ಗರ್ಭಧಾರಣೆಯ ಸಮಯದಲ್ಲಿ ಆರ್ಥಿಕ, ಪೋಷಣೆ ಮತ್ತು ಆರೋಗ್ಯ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುವ ಯೋಜನೆ."
+     data-link="schemes/scheme-52.html">
+  <h3>Prasooti Araike Scheme – Maternity Benefit for BPL Women</h3>
+  <p>Provides financial support, nutrition, and healthcare to pregnant women from BPL families to ensure safe deliveries and improved maternal-child health.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Stree Shakti Groups – Empowerment of Women"
+     data-en-desc="Women empowerment through Self-Help Groups (SHGs) promoting financial independence, skill development, and social participation."
+     data-kn-title="ಸ್ತ್ರೀ ಶಕ್ತಿ ಗುಂಪುಗಳು – ಮಹಿಳೆಯರ ಸಬಲೀಕರಣ"
+     data-kn-desc="ಮಹಿಳೆಯರಿಗೆ ಸ್ವ-ಸಹಾಯ ಗುಂಪುಗಳ ಮೂಲಕ ಆರ್ಥಿಕ ಸ್ವಾವಲಂಬನೆ, ಕೌಶಲ್ಯಾಭಿವೃದ್ಧಿ, ಮತ್ತು ಸಾಮಾಜಿಕ ಭಾಗವಹಿಸುವಿಕೆಯನ್ನು ಉತ್ತೇಜಿಸುವ ಯೋಜನೆ."
+     data-link="schemes/scheme-53.html">
+  <h3>Stree Shakti Groups – Empowerment of Women</h3>
+  <p>Promotes women’s financial independence, skill-building, and leadership through SHGs, micro-credit, and training programs.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Maithreyi Yojana – Widow Marriage Financial Support"
+     data-en-desc="Financial assistance to widows who choose to remarry, promoting dignity, social acceptance, and economic security."
+     data-kn-title="ಮೈತ್ರೇಯಿ ಯೋಜನೆ – ವಿಧವೆ ವಿವಾಹ ಆರ್ಥಿಕ ಸಹಾಯ"
+     data-kn-desc="ಪುನರ್ವಿವಾಹ ಆಯ್ಕೆ ಮಾಡಿಕೊಂಡ ವಿಧವೆಗಳಿಗೆ ಆರ್ಥಿಕ ಸಹಾಯ, ಸನ್ಮಾನ, ಸಾಮಾಜಿಕ ಒಪ್ಪಿಗೆ, ಮತ್ತು ಆರ್ಥಿಕ ಸುರಕ್ಷತೆ ಒದಗಿಸುವ ಯೋಜನೆ."
+     data-link="schemes/scheme-54.html">
+  <h3>Maithreyi Yojana – Widow Marriage Financial Support</h3>
+  <p>Supports widow remarriage with one-time financial aid, encouraging social acceptance and providing economic security for the couple.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Spoorthi Scheme – Financial Support for Rural Entrepreneurs"
+     data-en-desc="Promotes rural entrepreneurship through financial aid, training, and subsidies for individuals, women, and SHGs."
+     data-kn-title="ಸ್ಪೂರ್ತಿ ಯೋಜನೆ – ಗ್ರಾಮೀಣ ಉದ್ಯಮಿಗಳ ಆರ್ಥಿಕ ಸಹಾಯ"
+     data-kn-desc="ವ್ಯಕ್ತಿಗಳು, ಮಹಿಳೆಯರು ಮತ್ತು SHG ಗಳಿಗೆ ಆರ್ಥಿಕ ಸಹಾಯ, ತರಬೇತಿ ಮತ್ತು سب್ಸಿಡಿ ನೀಡುವ ಮೂಲಕ ಗ್ರಾಮೀಣ ಉದ್ಯಮಶೀಲತೆಯನ್ನು ಉತ್ತೇಜಿಸುವ ಯೋಜನೆ."
+     data-link="schemes/scheme-55.html">
+  <h3>Spoorthi Scheme – Financial Support for Rural Entrepreneurs</h3>
+  <p>Supports rural self-employment and entrepreneurship with loans, subsidies, training, and market linkages for individuals, women, and SHGs.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Karnataka Mathrushree Scheme – Pregnant Women"
+     data-en-desc="Provides financial support, nutrition, and healthcare to pregnant and lactating women, promoting institutional delivery and reducing maternal & infant mortality."
+     data-kn-title="ಕರ್ನಾಟಕ ಮಾತೃಶ್ರೀ ಯೋಜನೆ – ಗರ್ಭಿಣಿ ಮಹಿಳೆಯರಿಗೆ"
+     data-kn-desc="ಗರ್ಭಿಣಿ ಮತ್ತು ಹಸುವಿನ ಪೋಷಣೆಯ ಮಹಿಳೆಯರಿಗೆ ನೇರ ಆರ್ಥಿಕ ಸಹಾಯ, ಪೋಷಣೆ, ಆರೋಗ್ಯ ಸೇವೆ ಮತ್ತು ಸಂಸ್ಥಾನಿಕ ಪ್ರಸವವನ್ನು ಉತ್ತೇಜಿಸುವ ಯೋಜನೆ."
+     data-link="schemes/scheme-56.html">
+  <h3>Karnataka Mathrushree Scheme – Pregnant Women</h3>
+  <p>Supports maternal health and nutrition with monthly financial aid, DBT transfers, and encouragement of institutional delivery for BPL families.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Janasevaka Scheme – Home Delivery of Government Services"
+     data-en-desc="Citizen-centric program providing doorstep delivery of selected government services, reducing travel and middlemen involvement."
+     data-kn-title="ಜನಸೇವಕ ಯೋಜನೆ – ಸರ್ಕಾರಿ ಸೇವೆಗಳ ಮನೆಮೇಲೆ ವಿತರಣೆ"
+     data-kn-desc="ಜನಸೇವಕರು ಮನೆಗೆ ಬಂದು ದಾಖಲೆ ಪರಿಶೀಲನೆ, ಸಂಗ್ರಹಣೆ ಮತ್ತು ಸಲ್ಲಿಕೆಯನ್ನು ನೆರವಾಗಿಸುವ ಯೋಜನೆ, ವಿಶೇಷವಾಗಿ ಹಿರಿಯ ನಾಗರಿಕರು ಮತ್ತು ವಿಭಿನ್ನ ಸಾಮರ್ಥ್ಯದ ವ್ಯಕ್ತಿಗಳಿಗೆ."
+     data-link="schemes/scheme-57.html">
+  <h3>Janasevaka Scheme – Home Delivery of Government Services</h3>
+  <p>Delivers government services to citizens' homes, ensuring hassle-free verification and submission, focusing on elderly, differently-abled, and busy families.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Mahila Samruddhi Yojana"
+     data-en-desc="Women-focused economic empowerment program providing loans, subsidies, and guidance for small businesses and self-employment."
+     data-kn-title="ಮಹಿಳಾ ಸಮೃದ್ಧಿ ಯೋಜನೆ"
+     data-kn-desc="ಆರ್ಥಿಕವಾಗಿ ದುರ್ಬಲ, ಹಿಂದುಳಿದ ವರ್ಗ ಮತ್ತು ಅಲ್ಪಸಂಖ್ಯಾತ ಸಮುದಾಯದ ಮಹಿಳೆಯರಿಗೆ ಸಾಲ ಮತ್ತು ಸಹಾಯಧನ ನೀಡುವ ಮಹಿಳಾ-ಕೇಂದ್ರಿತ ಯೋಜನೆ."
+     data-link="schemes/scheme-58.html">
+  <h3>Mahila Samruddhi Yojana</h3>
+  <p>Financial assistance and guidance for women entrepreneurs from weaker sections, promoting self-employment and small businesses.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Ambedkar Vasati Yojana"
+     data-en-desc="Housing scheme providing financial assistance and subsidies for SC/ST families to build or upgrade homes."
+     data-kn-title="ಅಂಬೇಡ್ಕರ್ ವಸತಿ ಯೋಜನೆ"
+     data-kn-desc="ಆರ್ಥಿಕವಾಗಿ ದುರ್ಬಲ SC/ST ಕುಟುಂಬಗಳಿಗೆ ಮನೆ ನಿರ್ಮಾಣ ಮತ್ತು ನವೀಕರಣಕ್ಕೆ ಹಣಕಾಸು ಸಹಾಯ ಮತ್ತು ಸಬ್ಸಿಡಿ ನೀಡುವ ಹೌಸಿಂಗ್ ಯೋಜನೆ."
+     data-link="schemes/scheme-59.html">
+  <h3>Ambedkar Vasati Yojana</h3>
+  <p>Financial and technical support for SC/ST families to construct new homes or upgrade existing houses, improving living standards and security.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Saptapadi Vivaha Yojana"
+     data-en-desc="Mass marriage scheme providing financial assistance and marriage kits to couples, promoting simple weddings and social harmony."
+     data-kn-title="ಸಪ್ತಪದಿ ವಿವಾಹ ಯೋಜನೆ"
+     data-kn-desc="ಸಾಮೂಹಿಕ ವಿವಾಹ ಯೋಜನೆ, ದಂಪತಿಗಳಿಗೆ ಹಣಕಾಸು ನೆರವು ಮತ್ತು ವಿವಾಹ ಕಿಟ್ ಒದಗಿಸಿ ಸರಳ ವಿವಾಹಗಳನ್ನು ಮತ್ತು ಸಾಮಾಜಿಕ ಸೌಹಾರ್ದವನ್ನು ಉತ್ತೇಜಿಸುತ್ತದೆ."
+     data-link="schemes/scheme-60.html">
+  <h3>Saptapadi Vivaha Yojana</h3>
+  <p>Financial and logistical support for mass weddings, reducing the financial burden on families and promoting equality and community bonding.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Vatsalya Scheme"
+     data-en-desc="Healthcare initiative providing free or subsidized heart surgeries for children with congenital heart defects, supporting poor families."
+     data-kn-title="ವತ್ಸಲ್ಯ ಯೋಜನೆ"
+     data-kn-desc="ಹೃದಯದ congenital ದೋಷ ಇರುವ ಮಕ್ಕಳಿಗೆ ಉಚಿತ ಅಥವಾ ಸಬ್ಸಿಡೈಸ್ ಶಸ್ತ್ರಚಿಕಿತ್ಸೆ, ಬಡ ಕುಟುಂಬಗಳಿಗೆ ಆರೋಗ್ಯ ನೆರವು."
+     data-link="schemes/scheme-61.html">
+  <h3>Vatsalya Scheme</h3>
+  <p>Life-saving heart treatments for children below 18 years, ensuring access to quality medical care regardless of financial status.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Karnataka Building & Other Construction Workers Scheme"
+     data-en-desc="Social security and welfare benefits for registered construction workers and their families, including financial aid, health benefits, pensions, and scholarships."
+     data-kn-title="ಕರ್ನಾಟಕ ಕಟ್ಟಡ ಮತ್ತು ಇತರ ನಿರ್ಮಾಣ ಕಾರ್ಮಿಕರ ಯೋಜನೆ"
+     data-kn-desc="ನೋಂದಣಿಯಾದ ನಿರ್ಮಾಣ ಕಾರ್ಮಿಕರು ಮತ್ತು ಕುಟುಂಬಗಳಿಗೆ ಸಾಮಾಜಿಕ ಭದ್ರತೆ, ಆರ್ಥಿಕ ನೆರವು, ಆರೋಗ್ಯ, ಪಿಂಚಣಿ ಮತ್ತು ವಿದ್ಯಾರ್ಥಿ ಸಹಾಯ."
+     data-link="schemes/scheme-62.html">
+  <h3>Karnataka BOCW Welfare Scheme</h3>
+  <p>Ensuring social security, health, and financial protection for unorganized construction workers in Karnataka.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="SC/ST Self Employment Scheme"
+     data-en-desc="Economic empowerment program providing financial assistance, subsidies, and training to SC/ST individuals for self-employment and entrepreneurship."
+     data-kn-title="ಎಸ್‌ಸಿ/ಎಸ್‌ಟಿ ಸ್ವ-ಉದ್ಯೋಗ ಯೋಜನೆ"
+     data-kn-desc="ಸ್ವ-ಉದ್ಯೋಗ ಮತ್ತು ಉದ್ಯಮಶೀಲತೆಯನ್ನು ಉತ್ತೇಜಿಸಲು ಎಸ್‌ಸಿ/ಎಸ್‌ಟಿ ವ್ಯಕ್ತಿಗಳಿಗೆ ಆರ್ಥಿಕ ನೆರವು, ಸಬ್ಸಿಡಿ ಮತ್ತು ತರಬೇತಿ."
+     data-link="schemes/scheme-63.html">
+  <h3>SC/ST Self Employment Scheme</h3>
+  <p>Promoting entrepreneurship and financial independence among marginalized communities in Karnataka.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Shrama Samarthya Yojane"
+     data-en-desc="Skill support initiative providing training, certification, and upskilling opportunities to workers in organized and unorganized sectors."
+     data-kn-title="ಶ್ರಮ ಸಾಮರ್ಥ್ಯ ಯೋಜನೆ"
+     data-kn-desc="ಸಂಘಟಿತ ಮತ್ತು ಅಸಂಘಟಿತ ಕಾರ್ಮಿಕರಿಗೆ ತರಬೇತಿ, ಪ್ರಮಾಣೀಕರಣ ಮತ್ತು ಕೌಶಲ್ಯ ವೃದ್ಧಿ ಒದಗಿಸುವ ಯೋಜನೆ."
+     data-link="schemes/scheme-64.html">
+  <h3>Shrama Samarthya Yojane</h3>
+  <p>Enhancing employability, productivity, and income generation for Karnataka’s workforce.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Karnataka Minorities Development Corporation (KMDC) Schemes"
+     data-en-desc="Financial and welfare schemes for minority communities promoting education, entrepreneurship, and socio-economic upliftment."
+     data-kn-title="ಕರ್ನಾಟಕ ಅಲ್ಪಸಂಖ್ಯಾತರ ಅಭಿವೃದ್ಧಿ ನಿಗಮ (KMDC) ಯೋಜನೆಗಳು"
+     data-kn-desc="ಅಲ್ಪಸಂಖ್ಯಾತ ಸಮುದಾಯಗಳಿಗೆ ಶಿಕ್ಷಣ, ಉದ್ಯಮಶೀಲತೆ ಮತ್ತು ಸಾಮಾಜಿಕ-ಆರ್ಥಿಕ ಏರಿಕೆಗೆ ಆರ್ಥಿಕ ಹಾಗೂ ಕಲ್ಯಾಣ ಯೋಜನೆಗಳು."
+     data-link="schemes/scheme-65.html">
+  <h3>Karnataka Minorities Development Corporation (KMDC) Schemes</h3>
+  <p>Empowering minority communities through loans, subsidies, training, and scholarships for education and entrepreneurship.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Karnataka Handloom Development Programme"
+     data-en-desc="Support and promote handloom industry with financial aid, training, and market access for weavers and artisans."
+     data-kn-title="ಕರ್ನಾಟಕ ಹ್ಯಾಂಡ್ಲೂಮ್ ಅಭಿವೃದ್ಧಿ ಕಾರ್ಯಕ್ರಮ"
+     data-kn-desc="ಹಸ್ತಕಲೆಗಾರರ ಜೀವನೋಪಾಯ ಸುಧಾರಣೆ ಮತ್ತು ಹ್ಯಾಂಡ್ಲೂಮ್ ಕೈಗಾರಿಕೆಯನ್ನು ಉತ್ತೇಜಿಸಲು ಹಣಕಾಸು, ತರಬೇತಿ ಮತ್ತು ಮಾರ್ಕೆಟಿಂಗ್ ನೆರವು."
+     data-link="schemes/scheme-66.html">
+  <h3>Karnataka Handloom Development Programme</h3>
+  <p>Preserving heritage and empowering artisans through financial assistance, modern tools, training, and market linkages.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Krishi Bhagya Scheme"
+     data-en-desc="Irrigation support for dry land farmers with farm ponds, micro-irrigation, and modern water conservation techniques."
+     data-kn-title="ಕೃಷಿ ಭಾಗ್ಯ ಯೋಜನೆ"
+     data-kn-desc="ಒಣಭೂಮಿ ರೈತರಿಗೆ ಕೊಳಗಳು, ಸೂಕ್ಷ್ಮ ನೀರಾವರಿ ಮತ್ತು ಆಧುನಿಕ ಜಲ ಸಂರಕ್ಷಣಾ ತಂತ್ರಜ್ಞಾನಗಳ ಮೂಲಕ ನೀರಾವರಿ ನೆರವು."
+     data-link="schemes/scheme-67.html">
+  <h3>Krishi Bhagya Scheme</h3>
+  <p>Supporting dry land farmers with sustainable irrigation, water conservation structures, and modern techniques to improve productivity and income.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Raitha Siri Scheme"
+     data-en-desc="Financial support for millet farmers to promote climate-resilient and nutritious millet cultivation."
+     data-kn-title="ರೈತ ಸಿರಿ ಯೋಜನೆ"
+     data-kn-desc="ಮಿಲೆಟ್ ಬೆಳೆಗಾರರಿಗೆ ಹಣಕಾಸು ಬೆಂಬಲ, ಹವಾಮಾನ-ಸ್ನೇಹಿ ಮತ್ತು ಪೋಷಕತೆಯ ಮಿಲೆಟ್ ಕೃಷಿ ಉತ್ತೇಜನ."
+     data-link="schemes/scheme-68.html">
+  <h3>Raitha Siri Scheme</h3>
+  <p>Supporting millet farmers like ragi, jowar, bajra with financial aid, sustainable practices, and enhanced income.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Raitha Shakti Scheme"
+     data-en-desc="Diesel subsidy for farmers to reduce input costs and promote mechanized farming."
+     data-kn-title="ರೈತ ಶಕ್ತಿ ಯೋಜನೆ"
+     data-kn-desc="ರೈತರಿಗೆ ಡೀಸೆಲ್ ಸಬ್ಸಿಡಿ, ಕೃಷಿ ವೆಚ್ಚ ಕಡಿಮೆ ಮಾಡಿ ಯಂತ್ರಸಹಿತ ಕೃಷಿ ಉತ್ತೇಜನೆ."
+     data-link="schemes/scheme-69.html">
+  <h3>Raitha Shakti Scheme</h3>
+  <p>Subsidy on diesel for tractors, pump sets, and farm machinery to ease farming costs.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Pashu Bhagya Scheme"
+     data-en-desc="Livestock development scheme providing financial assistance and subsidies for animal husbandry."
+     data-kn-title="ಪಶು ಭಾಗ್ಯ ಯೋಜನೆ"
+     data-kn-desc="ಪಶುಪಾಲನೆಗೆ ಆರ್ಥಿಕ ನೆರವು ಮತ್ತು ಸಬ್ಸಿಡಿ, ಹಸು, ಕುರಿ, ಹಂದಿ, ಕೋಳಿ, ಮೀನು ಚಟುವಟಿಕೆಗಳಿಗೆ ಬೆಂಬಲ."
+     data-link="schemes/scheme-70.html">
+  <h3>Pashu Bhagya Scheme</h3>
+  <p>Livestock development program supporting farmers with subsidies, infrastructure, and veterinary care.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Ganga Kalyana Scheme"
+     data-en-desc="Irrigation borewell and lift irrigation subsidy program for small and marginal farmers."
+     data-kn-title="ಗಂಗಾ ಕಲ್ಯಾಣ ಯೋಜನೆ"
+     data-kn-desc="ಸಿಂಚನೆ ಬೋರ್‌ವೆಲ್ ಮತ್ತು ಲಿಫ್ಟ್ ಸಿಂಚನೆ ಸಬ್ಸಿಡಿ, SC/ST ಸಣ್ಣ ಮತ್ತು ಮಧ್ಯಮ ರೈತರಿಗೆ ಬೆಂಬಲ."
+     data-link="schemes/scheme-71.html">
+  <h3>Ganga Kalyana Scheme</h3>
+  <p>Irrigation assistance program providing borewell and lift irrigation facilities for small and marginal farmers.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Bhagyalakshmi Scheme"
+     data-en-desc="Girl child welfare scheme providing financial security, education scholarships, and maturity benefits for BPL families."
+     data-kn-title="ಭಾಗ್ಯಲಕ್ಷ್ಮಿ ಯೋಜನೆ"
+     data-kn-desc="BPL ಕುಟುಂಬದ ಹುಡುಗಿಯರಿಗೆ ಹಣಕಾಸು ಭದ್ರತೆ, ಶಿಕ್ಷಣ ಹಾಗೂ ಮ್ಯಾಚುರಿಟಿ ಲಾಭ ನೀಡುವ ಯೋಜನೆ."
+     data-link="schemes/scheme-72.html">
+  <h3>Bhagyalakshmi Scheme</h3>
+  <p>Promotes the birth, education, and welfare of girl children in BPL families with financial and educational support.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Kannada Language Learning for Rural Youth"
+     data-en-desc="Training program to improve reading, writing, and speaking skills in Kannada for rural youth, enhancing employability and education access."
+     data-kn-title="ಗ್ರಾಮೀಣ ಯುವಕರಿಗಾಗಿ ಕನ್ನಡ ಭಾಷಾ ಅಧ್ಯಯನ"
+     data-kn-desc="ಗ್ರಾಮೀಣ ಯುವಕರಿಗೆ ಕನ್ನಡ ಓದು, ಬರವಣಿಗೆ ಮತ್ತು ಮಾತಾಡುವ ಕೌಶಲ್ಯಗಳ ತರಬೇತಿ ನೀಡುವ ಕಾರ್ಯಕ್ರಮ."
+     data-link="schemes/scheme-73.html">
+  <h3>Kannada Language Learning for Rural Youth</h3>
+  <p>Promotes Kannada literacy and communication skills among rural youth, improving education access and employability.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Swachh Bharat Gramin Karnataka"
+     data-en-desc="Rural sanitation and hygiene improvement program under the national Swachh Bharat Mission, promoting toilets, waste management, and ODF villages."
+     data-kn-title="ಸ್ವಚ್ಚ ಭಾರತ ಗ್ರಾಮೀಣ ಕರ್ನಾಟಕ"
+     data-kn-desc="ಗ್ರಾಮೀಣ ಪ್ರದೇಶಗಳಲ್ಲಿ ಶೌಚಾಲಯ, ಸ್ವಚ್ಚತೆ ಮತ್ತು ತ್ಯಾಜ್ಯ ನಿರ್ವಹಣೆ ಸುಧಾರಣೆ ಕಾರ್ಯಕ್ರಮ."
+     data-link="schemes/scheme-74.html">
+  <h3>Swachh Bharat Gramin Karnataka</h3>
+  <p>Promotes rural sanitation, hygiene, and open defecation free villages in Karnataka under the Swachh Bharat Mission.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Rural Road Connectivity Scheme (PMGSY Karnataka)"
+     data-en-desc="Provides all-weather rural road connectivity under PMGSY, improving access to schools, healthcare, markets, and government services."
+     data-kn-title="ಗ್ರಾಮೀಣ ರಸ್ತೆ ಸಂಪರ್ಕ ಯೋಜನೆ (PMGSY ಕರ್ನಾಟಕ)"
+     data-kn-desc="PMGSY ಅಡಿ ಗ್ರಾಮೀಣ ರಸ್ತೆ ಸಂಪರ್ಕ ಯೋಜನೆ, ಶಾಲೆ, ಆರೋಗ್ಯ ಕೇಂದ್ರ, ಮಾರುಕಟ್ಟೆ ಪ್ರವೇಶ ಸುಧಾರಣೆ."
+     data-link="schemes/scheme-75.html">
+  <h3>Rural Road Connectivity Scheme (PMGSY Karnataka)</h3>
+  <p>Ensures year-round rural road connectivity, promoting economic development and village integration in Karnataka.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Pradhan Mantri Krishi Sinchayee Yojana (PMKSY) – Karnataka"
+     data-en-desc="Provides financial assistance for drip/sprinkler irrigation and watershed projects to improve water use efficiency and agricultural productivity."
+     data-kn-title="ಪ್ರಧಾನಿ ಕೃಷಿ ಸಿಂಚನ ಯೋಜನೆ (PMKSY) – ಕರ್ನಾಟಕ"
+     data-kn-desc="ಡ್ರಿಪ್/ಸ್ಪ್ರಿಂಕ್ಲರ್ ಸಿಂಚನ ಮತ್ತು ವಾಟರ್‌ಶೆಡ್ ಯೋಜನೆಗಳಿಗೆ ಸಹಾಯ, ನೀರಿನ ದಕ್ಷತೆ ಮತ್ತು ಕೃಷಿ ಉತ್ಪಾದನೆ ಸುಧಾರಣೆ."
+     data-link="schemes/scheme-76.html">
+  <h3>Pradhan Mantri Krishi Sinchayee Yojana (PMKSY) – Karnataka</h3>
+  <p>Ensures irrigation coverage, water conservation, and adoption of modern irrigation practices to boost productivity and farmer income in Karnataka.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Soil Health Card Scheme – Karnataka"
+     data-en-desc="Promotes scientific farming by assessing soil nutrients and providing personalized soil health cards."
+     data-kn-title="ಮಣ್ಣು ಆರೋಗ್ಯ ಕಾರ್ಡ್ ಯೋಜನೆ – ಕರ್ನಾಟಕ"
+     data-kn-desc="ಮಣ್ಣಿನ ಪೋಷಕಾಂಶ ವಿಶ್ಲೇಷಣೆ ಮತ್ತು ವೈಯಕ್ತಿಕ ಮಣ್ಣು ಆರೋಗ್ಯ ಕಾರ್ಡ್ ಮೂಲಕ ವಿಜ್ಞಾನಾಧಾರಿತ ಕೃಷಿ ಪ್ರೋತ್ಸಾಹ."
+     data-link="schemes/scheme-77.html">
+  <h3>Soil Health Card Scheme – Karnataka</h3>
+  <p>Provides farmers with soil testing, nutrient recommendations, and personalized cards for sustainable and productive agriculture.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Paramparagat Krishi Vikas Yojana (PKVY) – Organic Farming Karnataka"
+     data-en-desc="Promotes organic farming via clusters, certification, and eco-friendly practices."
+     data-kn-title="ಪರಂಪರাগত ಕೃಷಿ ಅಭಿವೃದ್ಧಿ ಯೋಜನೆ (PKVY) – ಕರ್ನಾಟಕ (ಸಸ್ಯಾಹಾರ ಕೃಷಿ)"
+     data-kn-desc="ಕ್ಲಸ್ಟರ್ ಆಧಾರಿತ Organic Farming, ಪ್ರಮಾಣೀಕರಣ, ಪರಿಸರ ಸ್ನೇಹಿ ಕೃಷಿ ಪ್ರೋತ್ಸಾಹ."
+     data-link="schemes/scheme-78.html">
+  <h3>Paramparagat Krishi Vikas Yojana (PKVY) – Organic Farming Karnataka</h3>
+  <p>Supports farmers with cluster-based organic farming, financial aid, certification, and market access for sustainable agriculture.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Pradhan Mantri Fasal Bima Yojana (PMFBY) – Crop Insurance Karnataka"
+     data-en-desc="Provides crop insurance for farmers against natural calamities, pests, and diseases."
+     data-kn-title="ಪ್ರಧಾನ ಮಂತ್ರಿ ಫಸಲ್ ವಿಮಾ ಯೋಜನೆ (PMFBY) – ಕರ್ನಾಟಕ (ಬೆಳೆ ವಿಮಾ)"
+     data-kn-desc="ರೈತರಿಗೆ ಪ್ರಕೃತಿವಿಪತ್ತು, ಕೀಟಗಳು ಮತ್ತು ರೋಗಗಳಿಂದ ಬೆಳೆ ನಷ್ಟದ ವಿಮಾ."
+     data-link="schemes/scheme-79.html">
+  <h3>Pradhan Mantri Fasal Bima Yojana (PMFBY) – Crop Insurance Karnataka</h3>
+  <p>Provides financial protection to farmers from crop loss due to natural calamities, pests, and diseases while stabilizing income.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Raitha Siri Scheme (Millet Support) – Karnataka"
+     data-en-desc="Provides financial incentives and support for millet cultivation to promote sustainable agriculture and farmer income."
+     data-kn-title="ರೈತ ಸಿರಿ ಯೋಜನೆ (ಜೋಳ/ಸಾಂಬಾರ ಬೆಳೆ ಪ್ರೋತ್ಸಾಹ) – ಕರ್ನಾಟಕ"
+     data-kn-desc="ಜೋಳ, ರಾಗಿ, ಸಾಂಬಾರ ಬೆಳೆಗಳಿಗೆ ಹಣಕಾಸು ಪ್ರೋತ್ಸಾಹ ಮತ್ತು ಬೆಂಬಲ ಒದಗಿಸುತ್ತದೆ."
+     data-link="schemes/scheme-80.html">
+  <h3>Raitha Siri Scheme (Millet Support) – Karnataka</h3>
+  <p>Encourages millet cultivation by providing financial incentives, promoting nutritious crops, and supporting climate-resilient farming.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="PM-Kisan Samman Nidhi (PM-KISAN) – Karnataka"
+     data-en-desc="Provides direct financial assistance to small and marginal farmers to support agricultural and household expenses."
+     data-kn-title="ಪಿಎಂ-ಕಿಸಾನ್ ಸಮ್ಮಾನ್ ನಿಧಿ (PM-KISAN) – ಕರ್ನಾಟಕ"
+     data-kn-desc="ಸಣ್ಣ ಮತ್ತು ಮಧ್ಯಮ ರೈತರಿಗೆ ನೇರ ಹಣಕಾಸು ಸಹಾಯ ಒದಗಿಸುತ್ತದೆ."
+     data-link="schemes/scheme-81.html">
+  <h3>PM-Kisan Samman Nidhi (PM-KISAN) – Karnataka</h3>
+  <p>Income support scheme providing ₹6,000/year to small and marginal farmers through DBT to cover agricultural and household costs.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Gramin Bhandaran Yojana (Rural Storage Subsidy) – Karnataka"
+     data-en-desc="Supports construction and modernization of rural godowns to reduce post-harvest losses and improve storage for farmers."
+     data-kn-title="ಗ್ರಾಮೀಣ ಭಂಡಾರಣ ಯೋಜನೆ (Gramin Bhandaran Yojana) – ಕರ್ನಾಟಕ"
+     data-kn-desc="ಗ್ರಾಮೀಣ ಗೋದಾಮುಗಳು/ವೇರ್‌ಹೌಸ್‌ಗಳ ನಿರ್ಮಾಣ ಮತ್ತು ಆಧುನೀಕರಣಕ್ಕೆ ಸಹಾಯ, ಹಾರ್ವೆಸ್ಟ್ ನಷ್ಟ ಕಡಿಮೆ ಮತ್ತು ಉತ್ತಮ ಸಂಗ್ರಹಣೆಗೆ."
+     data-link="schemes/scheme-82.html">
+  <h3>Gramin Bhandaran Yojana (Rural Storage Subsidy) – Karnataka</h3>
+  <p>Promotes rural godown construction and modernization, providing scientific storage, reducing post-harvest losses, and supporting better market prices.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Swavalambi Sarathi Scheme (Minority Driver Subsidy) – Karnataka"
+     data-en-desc="Provides subsidies to unemployed minority youth to purchase vehicles for self-employment in the transport sector."
+     data-kn-title="ಸ್ವಾವಲಂಬಿ ಸಾರಥಿ ಯೋಜನೆ (Swavalambi Sarathi Scheme) – ಕರ್ನಾಟಕ"
+     data-kn-desc="ಅಲ್ಪಸಂಖ್ಯಾತ ಯುವಕರಿಗೆ ವಾಹನ ಖರೀದಿ ಸಬ್ಸಿಡಿ, ಸಾರಿಗೆ ಕ್ಷೇತ್ರದಲ್ಲಿ ಸ್ವ ಉದ್ಯೋಗವನ್ನು ಉತ್ತೇಜಿಸುತ್ತದೆ."
+     data-link="schemes/scheme-83.html">
+  <h3>Swavalambi Sarathi Scheme (Minority Driver Subsidy) – Karnataka</h3>
+  <p>Supports unemployed youth from minority communities by providing vehicle purchase subsidies for self-employment in transport and logistics.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Vrutti Protsaha Loan Scheme (Minority Self-Employment) – Karnataka"
+     data-en-desc="Provides easy loans with subsidy to minority individuals for starting self-employment or small businesses."
+     data-kn-title="ವೃತ್ತಿ ಪ್ರೋತ್ಸಾಹ ಸಾಲ ಯೋಜನೆ (Vrutti Protsaha Loan Scheme) – ಕರ್ನಾಟಕ"
+     data-kn-desc="ಅಲ್ಪಸಂಖ್ಯಾತರಿಗೆ ಸ್ವ ಉದ್ಯೋಗ ಅಥವಾ ಸಣ್ಣ ವ್ಯವಹಾರ ಆರಂಭಿಸಲು ಸುಲಭ ಸಾಲ ಮತ್ತು ಸಬ್ಸಿಡಿ ನೀಡುತ್ತದೆ."
+     data-link="schemes/scheme-84.html">
+  <h3>Vrutti Protsaha Loan Scheme (Minority Self-Employment) – Karnataka</h3>
+  <p>Promotes self-employment among minority communities by providing loans with subsidies for small businesses and service ventures.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Amrith Gram Panchayat Development Scheme – Karnataka"
+     data-en-desc="Rural development initiative to improve infrastructure, sanitation, education, and livelihood in villages."
+     data-kn-title="ಅಮೃತ್ ಗ್ರಾಮ ಪಂಚಾಯತ್ ಅಭಿವೃದ್ಧಿ ಯೋಜನೆ – ಕರ್ನಾಟಕ"
+     data-kn-desc="ಗ್ರಾಮಗಳಲ್ಲಿ ಮೂಲಭೂತ ಮೂಲಸೌಕರ್ಯ, ಶುದ್ಧತೆ, ಶಿಕ್ಷಣ ಮತ್ತು ಉದ್ಯೋಗಾವಕಾಶವನ್ನು ಸುಧಾರಿಸುವ ಗ್ರಾಮೀಣ ಅಭಿವೃದ್ಧಿ ಯೋಜನೆ."
+     data-link="schemes/scheme-85.html">
+  <h3>Amrith Gram Panchayat Development Scheme – Karnataka</h3>
+  <p>Focuses on holistic development of villages by empowering Gram Panchayats to plan and implement need-based projects for sustainable growth.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Amrith Rural Housing Scheme – Karnataka"
+     data-en-desc="State initiative providing affordable and safe housing to rural families, especially EWS and BPL categories."
+     data-kn-title="ಅಮೃತ್ ಗ್ರಾಮೀಣ ಗೃಹ ಯೋಜನೆ – ಕರ್ನಾಟಕ"
+     data-kn-desc="ಗ್ರಾಮೀಣ ಕುಟುಂಬಗಳಿಗೆ, ವಿಶೇಷವಾಗಿ ಆರ್ಥಿಕವಾಗಿ ಹಿಂದುಳಿದ ವರ್ಗದ ಜನರಿಗೆ ಸಸ್ತಾದ, ಸುರಕ್ಷಿತ ಮನೆ ಒದಗಿಸುವ ರಾಜ್ಯ ಯೋಜನೆ."
+     data-link="schemes/scheme-86.html">
+  <h3>Amrith Rural Housing Scheme – Karnataka</h3>
+  <p>Provides financial assistance and subsidies for constructing or upgrading houses in rural areas, promoting social security and improved living standards.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Amrith School Infrastructure Project – Karnataka"
+     data-en-desc="State initiative to improve educational facilities in government schools across rural Karnataka."
+     data-kn-title="ಅಮೃತ್ ಶಾಲಾ ಮೂಲಸೌಕರ್ಯ ಯೋಜನೆ – ಕರ್ನಾಟಕ"
+     data-kn-desc="ಗ್ರಾಮೀಣ ಕರ್ನಾಟಕದ ಸರ್ಕಾರಿ ಶಾಲೆಗಳಲ್ಲಿ ಶಿಕ್ಷಣದ ಸೌಲಭ್ಯಗಳನ್ನು ಸುಧಾರಿಸಲು ರಾಜ್ಯ ಯೋಜನೆ."
+     data-link="schemes/scheme-87.html">
+  <h3>Amrith School Infrastructure Project – Karnataka</h3>
+  <p>Improves classrooms, sanitation, drinking water, digital learning tools, and playgrounds to enhance learning environment for rural children.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Amrith Farmer Producer Organization Subsidy Scheme – Karnataka"
+     data-en-desc="Supports the formation and strengthening of Farmer Producer Organizations (FPOs) in Karnataka, providing financial assistance, capacity-building, and market linkages."
+     data-kn-title="ಅಮೃತ್ ರೈತ ಉತ್ಪಾದಕ ಸಂಘ (FPO) ಸಬ್ಸಿಡಿ ಯೋಜನೆ – ಕರ್ನಾಟಕ"
+     data-kn-desc="ಕರ್ನಾಟಕದಲ್ಲಿ ರೈತ ಉತ್ಪಾದಕ ಸಂಘಗಳ ನಿರ್ಮಾಣ ಮತ್ತು ಬಲಪಡಿಸಲು ಸಬ್ಸಿಡಿ, ತರಬೇತಿ, ಮತ್ತು ಮಾರುಕಟ್ಟೆ ಸಂಪರ್ಕ ಒದಗಿಸುವ ಯೋಜನೆ."
+     data-link="schemes/scheme-88.html">
+  <h3>Amrith Farmer Producer Organization Subsidy Scheme – Karnataka</h3>
+  <p>Empowers farmers collectively to improve production, processing, marketing, and income through FPO formation, infrastructure support, and training.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Kudumbashree Micro Enterprise Training (Pilot in Karnataka)"
+     data-en-desc="Empowers rural women and SHG members to start micro-enterprises through training, support, and access to loans and subsidies."
+     data-kn-title="ಕುಟುಂಬശ്രീ ಸೂಕ್ಷ್ಮ ಉದ್ಯಮ ತರಬೇತಿ – ಕರ್ನಾಟಕ (ಪೈಲಟ್ ಯೋಜನೆ)"
+     data-kn-desc="ಗ್ರಾಮೀಣ ಮಹಿಳೆಯರು ಮತ್ತು SHG ಸದಸ್ಯರು ಸೂಕ್ಷ್ಮ ಉದ್ಯಮ ಆರಂಭಿಸಲು ತರಬೇತಿ, ಬೆಂಬಲ, ಸಾಲ ಮತ್ತು ಸಬ್ಸಿಡಿ ಪಡೆಯುವ ಪೈಲಟ್ ಯೋಜನೆ."
+     data-link="schemes/scheme-89.html">
+  <h3>Kudumbashree Micro Enterprise Training (Pilot in Karnataka)</h3>
+  <p>Promotes women-led entrepreneurship, financial independence, and livelihood generation in rural areas through skill development, training, and market linkages.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Karnataka Gram Swaraj Property Tax & e-Khata Initiative"
+     data-en-desc="Digital initiative to improve property tax collection, issue e-Khata certificates, and streamline rural property record management."
+     data-kn-title="ಕರ್ನಾಟಕ ಗ್ರಾಮ ಸ್ವರಾಜ್ ಮಾಲೀಕತ್ವ ತೆರಿಗೆ & e-ಖಾತೆ ಅಭಿಯಾನ"
+     data-kn-desc="ಗ್ರಾಮೀಣ ಪ್ರದೇಶಗಳಲ್ಲಿ ಮಾಲೀಕತ್ವ ತೆರಿಗೆ ಸಂಗ್ರಹಣೆ ಸುಧಾರಿಸಲು, e-ಖಾತೆ ನೀಡಲು ಮತ್ತು ಡಿಜಿಟಲ್ ರೆಕಾರ್ಡ್ ನಿರ್ವಹಿಸಲು ಯೋಜನೆ."
+     data-link="schemes/scheme-90.html">
+  <h3>Karnataka Gram Swaraj Property Tax & e-Khata Initiative</h3>
+  <p>Enhances transparency, efficiency, and revenue in rural property management by providing online property tax assessment, payments, and digital ownership records.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Arivu Kendra Digital Libraries in Villages"
+     data-en-desc="Digital libraries in rural areas providing internet, e-learning resources, and digital devices to support education, skills, and government services."
+     data-kn-title="ಅರಿವು ಕೇಂದ್ರ ಡಿಜಿಟಲ್ ಲೈಬ್ರರಿಗಳು"
+     data-kn-desc="ಗ್ರಾಮೀಣ ಪ್ರದೇಶಗಳಲ್ಲಿ ಇಂಟರ್ನೆಟ್, ಇ-ಲರ್ನಿಂಗ್ ಸಂಪನ್ಮೂಲಗಳು ಮತ್ತು ಡಿಜಿಟಲ್ ಸಾಧನಗಳೊಂದಿಗೆ ಆಧುನಿಕ ಗ್ರಂಥಾಲಯಗಳು."
+     data-link="schemes/scheme-91.html">
+  <h3>Arivu Kendra Digital Libraries in Villages</h3>
+  <p>Bridges the digital divide in rural Karnataka by providing access to educational content, digital literacy programs, and resources for students, farmers, and youth.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Jal Jeevan Mission – Karnataka (Safe Drinking Water Allocation)"
+     data-en-desc="Provides functional household tap connections and safe drinking water to rural households, improving health, hygiene, and reducing burden on women and children."
+     data-kn-title="ಜಲ್ ಜೀವನ ಮಿಷನ್ – ಕರ್ನಾಟಕ (ರೈತರಿಗೆ ಸುರಕ್ಷಿತ ಕುಡಿಯುವ ನೀರಿನ ವ್ಯವಸ್ಥೆ)"
+     data-kn-desc="ಪ್ರತಿ ಗ್ರಾಮೀಣ ಗೃಹಕ್ಕೆ ಕಾರ್ಯನಿರ್ವಹಿಸುವ ಟ್ಯಾಪ್ ಸಂಪರ್ಕ ಮತ್ತು ಸುರಕ್ಷಿತ ಕುಡಿಯುವ ನೀರನ್ನು ಒದಗಿಸುವ ಯೋಜನೆ."
+     data-link="schemes/scheme-92.html">
+  <h3>Jal Jeevan Mission – Karnataka</h3>
+  <p>Ensures tap water connections for rural households, enhances water quality, and promotes community involvement in water management.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Pragati Patha Rural Road Connectivity Program – Karnataka"
+     data-en-desc="Improves rural road infrastructure, providing all-weather connectivity to essential services, enhancing transport efficiency, and supporting local economies."
+     data-kn-title="ಪ್ರಗತಿ ಪಥ ಗ್ರಾಮೀಣ ರಸ್ತೆ ಸಂಪರ್ಕ ಕಾರ್ಯಕ್ರಮ – ಕರ್ನಾಟಕ"
+     data-kn-desc="ಗ್ರಾಮಗಳಲ್ಲಿ ರಸ್ತೆ ಮೂಲಸೌಕರ್ಯ ಸುಧಾರಣೆ ಮತ್ತು ಅಗತ್ಯ ಸೇವೆಗಳ ನಡುವೆ ಸಂಪೂರ್ಣ ವರ್ಷಾವಧಿ ಸಂಪರ್ಕ ಒದಗಿಸುವ ಯೋಜನೆ."
+     data-link="schemes/scheme-93.html">
+  <h3>Pragati Patha Rural Road Connectivity Program – Karnataka</h3>
+  <p>Ensures all-weather road connectivity in villages, upgrades existing roads, and improves access to education, healthcare, markets, and government services.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Kalyana Patha: Rural Infrastructure Upgrade – Karnataka"
+     data-en-desc="Upgrades basic rural infrastructure including roads, water supply, sanitation, street lighting, and community assets to improve living standards."
+     data-kn-title="ಕಲ್ಯಾಣ ಪಥ: ಗ್ರಾಮೀಣ ಮೂಲಸೌಕರ್ಯ ಉದ್ಭವ – ಕರ್ನಾಟಕ"
+     data-kn-desc="ಗ್ರಾಮೀಣ ಮೂಲಸೌಕರ್ಯ ಅಪ್‌ಗ್ರೇಡ್ ಮೂಲಕ ಜೀವನಮಟ್ಟ ಸುಧಾರಣೆ, ರಸ್ತೆ, ನೀರು, ಸ್ಯಾನಿಟೇಶನ್, ರಸ್ತೆ ಬೆಳಕು ಮತ್ತು ಸಮುದಾಯ ಆಸ್ತಿ ಸೇರಿದಂತೆ."
+     data-link="schemes/scheme-94.html">
+  <h3>Kalyana Patha: Rural Infrastructure Upgrade – Karnataka</h3>
+  <p>Focuses on upgrading basic rural infrastructure, improving connectivity, sanitation, drinking water, and community facilities for balanced rural development.</p>
+</div>
+
+<div class="scheme-card" 
+     data-en-title="Solar Micro-Grids for Gram Panchayats under PPP – Karnataka"
+     data-en-desc="Provides clean and reliable electricity to rural areas through decentralized solar micro-grids under a PPP model."
+     data-kn-title="PPP ಅಡಿಯಲ್ಲಿ ಗ್ರಾಮ ಪಂಚಾಯತ್‌ಗಳಿಗೆ ಸೌರ ಮೈಕ್ರೋ-ಗ್ರಿಡ್‌ಗಳು – ಕರ್ನಾಟಕ"
+     data-kn-desc="ಗ್ರಾಮೀಣ ಪ್ರದೇಶಗಳಿಗೆ PPP ಮಾದರಿ ಅಡಿಯಲ್ಲಿ ಮೈಕ್ರೋ-ಗ್ರಿಡ್ ಮೂಲಕ ಶುದ್ಧ ಮತ್ತು ನಂಬಲರ್ಹ ವಿದ್ಯುತ್ ಪೂರೈಕೆ."
+     data-link="schemes/scheme-95.html">
+  <h3>Solar Micro-Grids for Gram Panchayats under PPP – Karnataka</h3>
+  <p>Decentralized solar power systems to provide uninterrupted electricity to households, schools, health centers, and community services.</p>
+</div>
+
+
+<!-- 💬 Chatbot Icon -->
+  <div id="open-chatbot" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(120% 120% at 80% 20%, #c6a94c 0%, #c6a94c 100%);
+    color: #4b2e2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    z-index: 99999;
+  ">💬</div>
+
+  <!-- 🪄 Chatbot Container -->
+  <div id="chatbot-frame-container" style="
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 380px;
+    height: 560px;
+    display: none;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 99999;
+  ">
+
+  <iframe src="cb-standalone.html"
+            style="width:100%;height:100%;border:none;"
+            allow="microphone; autoplay; clipboard-read"
+            title="Chatbot"></iframe>
+  </div>
+  <!-- MODALS -->
+
+  <!-- Feedback modal -->
+  <div id="feedbackBackdrop" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="feedbackTitle">
+      <h2 id="feedbackTitle">Feedback</h2>
+
+      <p style="font-size:13px;color:#444;margin-top:4px">We value your feedback. Please fill all relevant fields.</p>
+
+      <div id="feedbackForm">
+
+        <label>User ID (auto)</label>
+        <input id="fb-userid" readonly>
+
+        <label>Name</label>
+        <input id="fb-name" placeholder="Full name">
+
+        <label>Gender</label>
+        <select id="fb-gender">
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+
+        <div class="row">
+          <div class="two">
+            <label>Age</label>
+            <input id="fb-age" type="number" min="0" placeholder="e.g. 35">
+          </div>
+          <div class="two">
+            <label>Phone</label>
+            <input id="fb-phone" placeholder="10-digit phone">
+          </div>
+        </div>
+
+        <label>Email</label>
+        <input id="fb-email" placeholder="email@example.com">
+
+        <label>Location</label>
+        <input id="fb-location" placeholder="Village / Taluk / District">
+
+        <label>Scheme Applied</label>
+        <input id="fb-scheme" placeholder="Scheme name">
+
+        <div class="row">
+          <div class="two">
+            <label>Application status</label>
+            <select id="fb-status">
+              <option value="">Select</option>
+              <option value="applied">Applied</option>
+              <option value="approved">Approved</option>
+              <option value="rejected">Rejected</option>
+              <option value="not_applied">Not Applied</option>
+            </select>
+          </div>
+          <div class="two">
+            <label>Scheme benefit amount (₹)</label>
+            <input id="fb-amount" type="number" min="0" placeholder="e.g. 2000">
+          </div>
+        </div>
+
+        <label>Usage Frequency</label>
+        <select id="fb-frequency">
+          <option value="">Select</option>
+          <option value="never">Never</option>
+          <option value="rarely">Rarely</option>
+          <option value="sometimes">Sometimes</option>
+          <option value="often">Often</option>
+          <option value="always">Always</option>
+        </select>
+
+        <label>Feedback rating (1 - 5)</label>
+        <select id="fb-rating">
+          <option value="">Rate</option>
+          <option value="1">1 — Very poor</option>
+          <option value="2">2 — Poor</option>
+          <option value="3">3 — Okay</option>
+          <option value="4">4 — Good</option>
+          <option value="5">5 — Excellent</option>
+        </select>
+
+        <label>Feedback comments</label>
+        <textarea id="fb-comments" rows="4" placeholder="Tell us what we can improve..."></textarea>
+
+        <div class="actions">
+          <button id="fbSubmit" class="btn primary">Submit Feedback</button>
+          <button id="fbCancel" class="btn ghost">Cancel</button>
+        </div>
+
+        <div id="fbMsg" class="small-msg" role="status"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Manage account modal -->
+  <div id="manageBackdrop" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="manageTitle">
+      <h2 id="manageTitle">Manage your account</h2>
+
+      <p style="font-size:13px;color:#444;margin-top:4px">Edit your personal details below. Some fields are pre-filled from your account.</p>
+
+      <div id="manageForm">
+        <label>User ID</label>
+        <input id="ma-userid" readonly>
+
+        <label>Username</label>
+        <input id="ma-username" placeholder="Username">
+
+        <label>Full name</label>
+        <input id="ma-name" placeholder="Full name">
+
+        <label>Email</label>
+        <input id="ma-email" placeholder="email@example.com">
+
+        <label>Phone</label>
+        <input id="ma-phone" placeholder="Phone number">
+
+        <label>Gender</label>
+        <select id="ma-gender">
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label>Age</label>
+        <input id="ma-age" type="number" min="0">
+
+        <div style="height:10px"></div>
+
+        <h3 style="margin-bottom:8px">Change Password</h3>
+
+        <label>Old password (enter to change)</label>
+        <input id="ma-oldpass" type="password" placeholder="Old password">
+
+        <label>New password</label>
+        <input id="ma-newpass" type="password" placeholder="New password">
+
+        <label>Confirm new password</label>
+        <input id="ma-newpass2" type="password" placeholder="Confirm new password">
+
+        <div class="actions">
+          <button id="maSave" class="btn primary">Save changes</button>
+          <button id="maCancel" class="btn ghost">Cancel</button>
+        </div>
+
+        <div id="maMsg" class="small-msg" role="status"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pass language to global -->
+  <script>window.currentLang = localStorage.getItem("lang") || "en";</script>
+
+  <!-- Link voice assistant script (your existing path) -->
+  <script src="va.js"></script>
+
+  <script>
+    // ----------------- Helpers -----------------
+    function el(id){ return document.getElementById(id); }
+    function show(el){ el.classList.add('show'); el.style.display = ''; }
+    function hide(el){ el.classList.remove('show'); el.style.display = 'none'; }
+
+    // parse JWT to get payload safely (no external libs)
+    function parseJwt(token) {
+      if (!token) return null;
+      try {
+        const base64Url = token.split('.')[1];
+        if (!base64Url) return null;
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        return JSON.parse(jsonPayload);
+      } catch (e) {
+        console.warn('Failed to parse token', e);
+        return null;
+      }
+    }
+
+    // get token from localStorage
+    function authHeader() {
+      const t = localStorage.getItem('token');
+      return t ? { 'Authorization': 'Bearer ' + t, 'Content-Type': 'application/json' } : { 'Content-Type': 'application/json' };
+    }
+
+    // ----------------- User Menu behavior -----------------
+    const userIcon = el('userIcon');
+    const userMenu = el('userMenu');
+    const userWrap = el('userWrap');
+
+    // menu items
+    const btnManageAccount = el('btnManageAccount');
+    const btnFeedback = el('btnFeedback');
+    const btnLogout = el('btnLogout');
+    const btnLearning = el('btnLearning');
+    btnLearning.addEventListener('click', () => {
+    userMenu.classList.remove('show');
+    window.location.href = 'learning.html';
+    });
+
+    // populate user display (attempt from token)
+    function populateMenuFromToken() {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        el('menuUsername').textContent = 'Guest';
+        el('menuEmail').textContent = 'Not signed in';
+        el('avatarSmall').textContent = '👤';
+        return;
+      }
+      const payload = parseJwt(token);
+      if (payload) {
+        el('menuUsername').textContent = payload.username || ('User ' + (payload.userId || ''));
+        el('menuEmail').textContent = payload.email || '';
+        // avatar small - show first letter of username (uppercase)
+        const letter = (payload.username || 'U').charAt(0).toUpperCase();
+        el('avatarSmall').textContent = letter;
+      } else {
+        el('menuUsername').textContent = 'User';
+        el('menuEmail').textContent = '';
+      }
+    }
+
+    // toggle menu
+    userIcon.addEventListener('click', (ev) => {
+      ev.stopPropagation();
+      userMenu.classList.toggle('show');
+      userMenu.setAttribute('aria-hidden', userMenu.classList.contains('show') ? 'false' : 'true');
+    });
+
+    // click outside closes menu
+    document.addEventListener('click', (ev) => {
+      if (!userWrap.contains(ev.target)) {
+        userMenu.classList.remove('show');
+      }
+    });
+
+  try {
+        const icon = document.getElementById('open-chatbot');
+        const frameContainer = document.getElementById('chatbot-frame-container');
+        if (icon && frameContainer) {
+          icon.addEventListener('click', () => {
+            frameContainer.style.display = frameContainer.style.display === 'none' ? 'block' : 'none';
+          });
+        }
+      } catch (e) {
+        console.warn('Chatbot toggle error:', e);
+      }
+
+    // ----------------- Schemes card navigation & language -----------------
+    document.addEventListener("DOMContentLoaded", () => {
+      // language logic (kept from original)
+      let currentLang = localStorage.getItem("lang") || "en";
+      function applyLanguage() {
+        const langToggleBtn = el('langToggle');
+        if (langToggleBtn) langToggleBtn.textContent = currentLang === "en" ? "ಕನ್ನಡ" : "English";
+        document.querySelectorAll(".scheme-card").forEach(card => {
+          const h3 = card.querySelector("h3");
+          const p = card.querySelector("p");
+          if (h3 && p) {
+            if (currentLang === "en") {
+              h3.textContent = card.dataset.enTitle || h3.textContent;
+              p.textContent = card.dataset.enDesc || p.textContent;
+            } else {
+              h3.textContent = card.dataset.knTitle || h3.textContent;
+              p.textContent = card.dataset.knDesc || p.textContent;
+            }
+          }
+        });
+        const searchInput = el('searchInput');
+        if (searchInput) searchInput.placeholder = currentLang === "en" ? "Search schemes..." : "ಯೋಜನೆಗಳನ್ನು ಹುಡುಕಿ...";
+      }
+      applyLanguage();
+      el('langToggle').addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'kn' : 'en';
+        localStorage.setItem('lang', currentLang);
+        applyLanguage();
+      });
+
+      // scheme card click -> go to link
+      document.querySelectorAll('.scheme-card').forEach(card => {
+        card.addEventListener('click', () => {
+          const url = card.dataset.link;
+          if (url) window.location.href = url;
+        });
+      });
+
+      // search
+      el('searchInput').addEventListener('input', function() {
+        const query = this.value.trim().toLowerCase();
+        document.querySelectorAll('.scheme-card').forEach(card => {
+          const text = currentLang === 'en'
+            ? ((card.dataset.enTitle || "") + " " + (card.dataset.enDesc || "")).toLowerCase()
+            : ((card.dataset.knTitle || "") + " " + (card.dataset.knDesc || "")).toLowerCase();
+          card.style.display = text.includes(query) ? 'block' : 'none';
+        });
+      });
+
+      // populate menu from token immediately
+      populateMenuFromToken();
+      // also fill modal fields if any
+      prefillAccountForm();
+      prefillFeedbackForm();
+    });
+
+    // ----------------- Feedback modal logic -----------------
+    const feedbackBackdrop = el('feedbackBackdrop');
+    const fbCancel = el('fbCancel');
+    const fbSubmit = el('fbSubmit');
+    const fbMsg = el('fbMsg');
+
+    function prefillFeedbackForm() {
+      const token = localStorage.getItem('token');
+      if (!token) return;
+      const p = parseJwt(token);
+      if (!p) return;
+      if (p.userId) el('fb-userid').value = p.userId;
+      if (p.username) el('fb-name').value = p.username;
+      if (p.email) el('fb-email').value = p.email;
+    }
+
+    btnFeedback.addEventListener('click', () => {
+      userMenu.classList.remove('show');
+      feedbackBackdrop.classList.add('show');
+      feedbackBackdrop.setAttribute('aria-hidden', 'false');
+      prefillFeedbackForm();
+    });
+
+    fbCancel.addEventListener('click', () => {
+      feedbackBackdrop.classList.remove('show');
+      feedbackBackdrop.setAttribute('aria-hidden', 'true');
+      clearFeedbackStatus();
+    });
+
+    function clearFeedbackStatus() {
+      fbMsg.style.display = 'none';
+      fbMsg.textContent = '';
+      fbMsg.className = 'small-msg';
+    }
+
+    async function submitFeedback() {
+      fbMsg.style.display = 'none';
+      fbMsg.textContent = '';
+
+      const payload = {
+        user_id: el('fb-userid').value || null,
+        name: el('fb-name').value.trim(),
+        gender: el('fb-gender').value,
+        age: el('fb-age').value,
+        phone: el('fb-phone').value.trim(),
+        email: el('fb-email').value.trim(),
+        location: el('fb-location').value.trim(),
+        scheme_applied: el('fb-scheme').value.trim(),
+        application_status: el('fb-status').value,
+        scheme_benefit_amount: el('fb-amount').value,
+        usage_frequency: el('fb-frequency').value,
+        feedback_rating: el('fb-rating').value,
+        comments: el('fb-comments').value.trim(),
+        created_at: new Date().toISOString()
+      };
+
+      // basic validation: require at least name + rating
+      if (!payload.name || !payload.feedback_rating) {
+        fbMsg.textContent = 'Please provide your name and a rating (1–5).';
+        fbMsg.className = 'small-msg error';
+        return;
+      }
+
+      fbMsg.textContent = 'Submitting...';
+      fbMsg.className = 'small-msg';
+
+      try {
+        const resp = await fetch('/api/feedback', {
+          method: 'POST',
+          headers: authHeader(),
+          body: JSON.stringify(payload)
+        });
+
+        if (!resp.ok) {
+          const j = await resp.json().catch(()=>({error:'Failed'}));
+          fbMsg.textContent = j.error || 'Failed to submit feedback.';
+          fbMsg.className = 'small-msg error';
+          return;
+        }
+        fbMsg.textContent = 'Thank you — feedback submitted!';
+        fbMsg.className = 'small-msg success';
+        // auto-close after short delay
+        setTimeout(()=> {
+          feedbackBackdrop.classList.remove('show');
+          feedbackBackdrop.setAttribute('aria-hidden','true');
+          clearFeedbackStatus();
+        }, 1200);
+      } catch (err) {
+        console.error('Feedback submit error', err);
+        fbMsg.textContent = 'Network error. Try again later.';
+        fbMsg.className = 'small-msg error';
+      }
+    }
+
+    fbSubmit.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      submitFeedback();
+    });
+
+    // ----------------- Manage account modal logic -----------------
+    const manageBackdrop = el('manageBackdrop');
+    const maCancel = el('maCancel');
+    const maSave = el('maSave');
+    const maMsg = el('maMsg');
+
+    function prefillAccountForm() {
+      // Attempt to fill from token first
+      const token = localStorage.getItem('token');
+      if (!token) return;
+      const p = parseJwt(token);
+      if (!p) return;
+
+      if (p.userId) el('ma-userid').value = p.userId;
+      if (p.username) el('ma-username').value = p.username;
+      // You may not have full details in token; user can update them
+      // If your backend provides /api/user/me, you can call it here to get more fields.
+      // We'll try to fetch /api/user/me if available:
+      fetch('/api/user/me', { headers: authHeader() })
+        .then(r => {
+          if (!r.ok) throw new Error('no /api/user/me');
+          return r.json();
+        })
+        .then(json => {
+          // expected fields: id, username, name, email, phone, gender, age
+          if (json.id) el('ma-userid').value = json.id;
+          if (json.username) el('ma-username').value = json.username;
+          if (json.name) el('ma-name').value = json.name;
+          if (json.email) el('ma-email').value = json.email;
+          if (json.phone) el('ma-phone').value = json.phone;
+          if (json.gender) el('ma-gender').value = json.gender;
+          if (json.age) el('ma-age').value = json.age;
+        })
+        .catch(()=> {
+          // ignore: no /api/user/me available; token info used
+        });
+    }
+
+    btnManageAccount.addEventListener('click', () => {
+      userMenu.classList.remove('show');
+      manageBackdrop.classList.add('show');
+      manageBackdrop.setAttribute('aria-hidden', 'false');
+      prefillAccountForm();
+    });
+
+    maCancel.addEventListener('click', () => {
+      manageBackdrop.classList.remove('show');
+      manageBackdrop.setAttribute('aria-hidden','true');
+      maMsg.style.display = 'none';
+      maMsg.textContent = '';
+    });
+
+    async function saveAccountChanges() {
+      maMsg.style.display = 'none';
+      maMsg.textContent = '';
+
+      const userid = el('ma-userid').value || null;
+      const username = el('ma-username').value.trim();
+      const name = el('ma-name').value.trim();
+      const email = el('ma-email').value.trim();
+      const phone = el('ma-phone').value.trim();
+      const gender = el('ma-gender').value;
+      const age = el('ma-age').value;
+
+      // Basic validations
+      if (!username || !email) {
+        maMsg.textContent = 'Username and email are required.';
+        maMsg.className = 'small-msg error';
+        return;
+      }
+
+      // Prepare payload for update (profile)
+      const profilePayload = { user_id: userid, username, name, email, phone, gender, age };
+
+      try {
+        // Update profile first
+        const resp = await fetch('/api/user/update', {
+          method: 'PUT',
+          headers: authHeader(),
+          body: JSON.stringify(profilePayload)
+        });
+
+        if (!resp.ok) {
+          const j = await resp.json().catch(()=>({error: 'Could not update profile'}));
+          maMsg.textContent = j.error || 'Failed to update profile';
+          maMsg.className = 'small-msg error';
+          return;
+        }
+
+        // If password fields filled → attempt password change
+        const oldpass = el('ma-oldpass').value;
+        const newpass = el('ma-newpass').value;
+        const newpass2 = el('ma-newpass2').value;
+
+        if (oldpass || newpass || newpass2) {
+          if (!oldpass || !newpass || !newpass2) {
+            maMsg.textContent = 'To change password fill all password fields.';
+            maMsg.className = 'small-msg error';
+            return;
+          }
+          if (newpass !== newpass2) {
+            maMsg.textContent = 'New passwords do not match.';
+            maMsg.className = 'small-msg error';
+            return;
+          }
+
+          const pwdResp = await fetch('/api/user/password', {
+            method: 'PUT',
+            headers: authHeader(),
+            body: JSON.stringify({ user_id: userid, oldPassword: oldpass, newPassword: newpass })
+          });
+
+          if (!pwdResp.ok) {
+            const j = await pwdResp.json().catch(()=>({error:'Password change failed'}));
+            maMsg.textContent = j.error || 'Failed to change password';
+            maMsg.className = 'small-msg error';
+            return;
+          }
+        }
+
+        maMsg.textContent = 'Profile updated successfully.';
+        maMsg.className = 'small-msg success';
+
+        // Optionally refresh menu username from response or token
+        setTimeout(()=>{
+          manageBackdrop.classList.remove('show');
+          manageBackdrop.setAttribute('aria-hidden','true');
+          maMsg.style.display = 'none';
+          maMsg.textContent = '';
+          // attempt to refresh token / menu
+          populateMenuFromToken();
+        }, 900);
+      } catch (err) {
+        console.error('Save account error', err);
+        maMsg.textContent = 'Network error. Try again later.';
+        maMsg.className = 'small-msg error';
+      }
+    }
+
+    maSave.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      saveAccountChanges();
+    });
+
+    // ----------------- Logout -----------------
+    btnLogout.addEventListener('click', async () => {
+      // clear token & redirect to login
+      localStorage.removeItem('token');
+      // if you have server-side session clearing endpoint, call it here
+      // e.g. await fetch('/api/logout', { method:'POST', headers: authHeader() });
+      window.location.href = 'log.html';
+    });
+
+    // ----------------- On load: update menu display using server data if available -----------------
+    (function tryRefreshMenuData(){
+      populateMenuFromToken();
+      // optional: try to fetch fresh user data if /api/user/me exists
+      if (localStorage.getItem('token')) {
+        fetch('/api/user/me', { headers: authHeader() })
+          .then(r => {
+            if (!r.ok) throw new Error('no me');
+            return r.json();
+          })
+          .then(json => {
+            if (json.username) el('menuUsername').textContent = json.username;
+            if (json.email) el('menuEmail').textContent = json.email;
+            if (json.username) el('avatarSmall').textContent = json.username.charAt(0).toUpperCase();
+            // also prefill modals
+            prefillAccountForm();
+            prefillFeedbackForm();
+          })
+          .catch(()=>{/*ignore if endpoint missing*/});
+      }
+    })();
+
+    // ----------------- Accessibility: escape closes modals & menu -----------------
+    document.addEventListener('keydown', (ev) => {
+      if (ev.key === 'Escape') {
+        userMenu.classList.remove('show');
+        feedbackBackdrop.classList.remove('show');
+        manageBackdrop.classList.remove('show');
+      }
+    });
+
+    // ----------------- Voice assistant button click (keeps your existing behavior) -----------------
+    el('voiceAssistantBtn').addEventListener('click', () => {
+      // If va.js provides global startVoiceAssistant() call, we try to call it gracefully.
+      if (typeof startVoiceAssistant === 'function') {
+        try { startVoiceAssistant(window.currentLang || 'en'); } catch(e) { console.warn(e); }
+      } else {
+        // fallback: open chatbot iframe for typing
+        chatFrame.classList.add('show');
+      }
+    });
+
+    // ----------------- Small note: if your backend doesn't have /api/feedback or user routes yet:
+    // this front-end assumes these endpoints exist.
+    // /api/feedback (POST) -> accepts JSON feedback object
+    // /api/user/update (PUT) -> accepts user fields
+    // /api/user/password (PUT) -> accepts {user_id, oldPassword, newPassword}
+    // /api/user/me (GET) -> returns current user profile (optional)
+    // -----------------
+  </script>
+
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const userData = JSON.parse(localStorage.getItem('gramasetuUser'));
+  const menuUsername = document.getElementById('menuUsername');
+  const menuEmail = document.getElementById('menuEmail');
+  const avatarSmall = document.getElementById('avatarSmall');
+  const userIcon = document.getElementById('userIcon');
+
+  if (userData && userData.username) {
+    menuUsername.textContent = userData.username;
+    menuEmail.textContent = userData.email || 'Signed in';
+    avatarSmall.textContent = userData.username.charAt(0).toUpperCase();
+    userIcon.textContent = userData.username.charAt(0).toUpperCase();
+  }
+
+  // Toggle user menu
+  const userWrap = document.getElementById('userWrap');
+  const userMenu = document.getElementById('userMenu');
+  userWrap.addEventListener('click', () => {
+    userMenu.classList.toggle('show');
+  });
+
+  // Logout clears data
+  document.getElementById('btnLogout').addEventListener('click', () => {
+    localStorage.removeItem('gramasetuUser');
+    window.location.href = 'log.html';
+  });
+});
+</script>
+
+<!-- 🌟 Manage Account Modal -->
+<div class="modal-backdrop" id="accountModal">
+  <div class="modal">
+    <h2>Manage Account</h2>
+    <div>
+      <label>Username</label>
+      <input id="accountUsername" type="text" placeholder="Enter your username">
+
+      <label>Email</label>
+      <input id="accountEmail" type="email" placeholder="Enter your email">
+
+      <label>Forgot Password</label>
+      <input id="accountNewPass" type="password" placeholder="Enter new password">
+    </div>
+
+    <div class="actions">
+      <button class="btn primary" id="btnSaveAccount">💾 Submit Changes</button>
+      <button class="btn ghost" id="btnCloseAccount">❌ Close</button>
+    </div>
+
+    <div id="accountMsg" class="small-msg"></div>
+  </div>
+</div>
+
+<!-- 🌟 Feedback Modal -->
+<div class="modal-backdrop" id="feedbackModal">
+  <div class="modal">
+    <h2>Submit Feedback</h2>
+    <label>Full Name</label>
+    <input id="fbName" type="text" placeholder="Your name">
+    <label>Email</label>
+    <input id="fbEmail" type="email" placeholder="Your email">
+    <label>Message</label>
+    <textarea id="fbMessage" rows="4" placeholder="Write your feedback here..."></textarea>
+
+    <div class="actions">
+      <button class="btn primary" id="btnSubmitFeedback">📨 Submit</button>
+      <button class="btn ghost" id="btnCloseFeedback">❌ Close</button>
+    </div>
+
+    <div id="feedbackMsg" class="small-msg"></div>
+  </div>
+</div>
+
+</body>
+</html>

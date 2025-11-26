@@ -1,0 +1,315 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login / Register — Gramasetu</title>
+  <style>
+    :root{
+      --bg:#faf6f1;
+      --accent:#c6a94c;
+      --dark:#4b2e2e;
+      --card:#fdfaf6;
+      --muted:#e0d7c6;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .top-right {
+      position: fixed;
+      right: 18px;
+      top: 12px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .lang-toggle{
+      background:var(--accent);
+      color:var(--dark);
+      border:none;
+      padding:8px 12px;
+      border-radius:8px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .logo-small{
+      width:80px;
+      display:block;
+      margin: 12px auto 6px;
+    }
+    .card{
+      width:420px;
+      max-width:96%;
+      background:var(--card);
+      border:2px solid var(--muted);
+      border-radius:12px;
+      padding:18px;
+      box-shadow:0 10px 20px rgba(0,0,0,0.06);
+    }
+    .tabs{
+      display:flex;
+      gap:8px;
+      margin-bottom:12px;
+      justify-content:center;
+    }
+    .tab{
+      padding:10px 18px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:700;
+      color:var(--dark);
+      background:transparent;
+      border:1px solid transparent;
+    }
+    .tab.active{
+      background:var(--accent);
+      color:white;
+      border-color:var(--accent);
+    }
+    form{display:none}
+    form.active{display:block}
+    label{display:block;margin:8px 0 6px;font-size:14px}
+    input, select {
+      width:100%;
+      padding:10px 12px;
+      border-radius:8px;
+      border:1px solid #ddd;
+      font-size:14px;
+      margin-bottom:6px;
+      background:white;
+    }
+    .muted-small{font-size:12px;color:#666;margin-top:6px}
+    .btn{
+      width:100%;
+      padding:12px;
+      border-radius:10px;
+      border:none;
+      background:var(--dark);
+      color:white;
+      font-weight:700;
+      cursor:pointer;
+      margin-top:8px;
+    }
+    .link{
+      display:inline-block;
+      margin-top:6px;
+      color:var(--dark);
+      text-decoration:underline;
+      cursor:pointer;
+      font-size:13px;
+    }
+    .message {
+      margin-top:8px;
+      padding:10px;
+      border-radius:8px;
+      font-size:14px;
+    }
+    .message.error { background:#ffe9e9; color:#9b1b1b; border:1px solid #f0b3b3 }
+    .message.success { background:#eef9ec; color:#1a6b2a; border:1px solid #bfe6c9 }
+    .forgot-box { display:none; margin-top:10px; border:1px dashed var(--muted); padding:10px; border-radius:8px; background:#fff; }
+    @media (max-width:480px){
+      .card{padding:14px}
+      .logo-small{width:80px}
+      .lang-toggle{padding:6px 10px}
+    }
+  </style>
+</head>
+<body>
+  <div class="top-right">
+    <button id="langToggle" class="lang-toggle">ಕನ್ನಡ</button>
+  </div>
+
+  <div class="card" role="main" aria-labelledby="auth-title">
+    <img src="Gramasetu.png" alt="Gramasetu logo" class="logo-small">
+
+    <div class="tabs" role="tablist">
+      <div id="tab-login" class="tab active" role="tab" aria-selected="true">Login</div>
+      <div id="tab-register" class="tab" role="tab" aria-selected="false">Register</div>
+    </div>
+
+    <!-- Login Form -->
+    <form id="loginForm" class="active" aria-hidden="false">
+      <label id="lbl-username">Username or Email/Phone</label>
+      <input id="login-identifier" type="text" placeholder="username/email/phone" />
+
+      <label id="lbl-password">Password</label>
+      <input id="login-password" type="password" placeholder="********" />
+
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div class="muted-small" style="font-size:13px"></div>
+        <span id="forgotLink" class="link">Forgot password?</span>
+      </div>
+
+      <button id="btnLogin" class="btn">Login</button>
+      <div id="loginMsg" class="message" style="display:none"></div>
+
+      <div id="forgotBox" class="forgot-box" aria-hidden="true">
+        <div id="forgotStep1">
+          <label id="lbl-forgot-identifier">Enter your email to receive OTP</label>
+          <input id="forgot-identifier" type="text" placeholder="email@example.com" />
+          <button id="btnSendOtp" class="btn" style="background:var(--accent); color:var(--dark)">Send OTP</button>
+        </div>
+        <div id="forgotStep2" style="display:none; margin-top:8px">
+          <label id="lbl-otp">Enter OTP</label>
+          <input id="forgot-otp" type="text" placeholder="6-digit OTP" />
+          <label id="lbl-newpass">New password</label>
+          <input id="forgot-newpass" type="password" placeholder="new password" />
+          <button id="btnVerifyOtp" class="btn" style="background:var(--dark)">Verify & Reset</button>
+        </div>
+        <div id="forgotMsg" class="message" style="display:none"></div>
+      </div>
+    </form>
+
+    <!-- Register Form -->
+    <form id="registerForm" aria-hidden="true">
+      <label id="lbl-reg-username">Username</label>
+      <input id="reg-username" type="text" placeholder="choose a username" />
+
+      <label id="lbl-reg-email">Email (or phone)</label>
+      <input id="reg-email" type="text" placeholder="email@example.com or phone" />
+
+      <label id="lbl-reg-password">Password</label>
+      <input id="reg-password" type="password" placeholder="create a password" />
+
+      <label id="lbl-reg-password2">Confirm password</label>
+      <input id="reg-password2" type="password" placeholder="confirm password" />
+
+      <button id="btnRegister" class="btn" style="background:var(--accent); color:var(--dark)">Register</button>
+      <div id="registerMsg" class="message" style="display:none"></div>
+    </form>
+  </div>
+
+ <!-- ✅ EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  // ✅ EmailJS setup
+  const EMAILJS_PUBLIC_KEY = "2v7TqDkRrgDGluKBN";
+  const EMAILJS_SERVICE_ID = "service_n3dw25p";
+  const EMAILJS_TEMPLATE_ID = "template_l0z0gtg";
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+
+  const btnSendOtp = document.getElementById('btnSendOtp');
+  const forgotBox = document.getElementById('forgotBox');
+  const forgotLink = document.getElementById('forgotLink');
+  const forgotMsg = document.getElementById('forgotMsg');
+  const forgotStep1 = document.getElementById('forgotStep1');
+  const forgotStep2 = document.getElementById('forgotStep2');
+  const forgotIdentifier = document.getElementById('forgot-identifier');
+  const forgotOtp = document.getElementById('forgot-otp');
+  const forgotNewPass = document.getElementById('forgot-newpass');
+  const btnVerifyOtp = document.getElementById('btnVerifyOtp');
+  const loginMsg = document.getElementById('loginMsg');
+  const registerMsg = document.getElementById('registerMsg');
+
+  const tabLogin = document.getElementById('tab-login');
+  const tabRegister = document.getElementById('tab-register');
+  const loginForm = document.getElementById('loginForm');
+  const registerForm = document.getElementById('registerForm');
+
+  // ✅ Function to show messages
+  function showMessage(el, text, type = 'error') {
+    el.style.display = 'block';
+    el.className = 'message ' + (type === 'error' ? 'error' : 'success');
+    el.textContent = text;
+    setTimeout(() => { el.style.display = 'none'; }, 5000);
+  }
+
+  // ✅ Tab switch logic
+  tabLogin.addEventListener('click', () => {
+    tabLogin.classList.add('active');
+    tabRegister.classList.remove('active');
+    loginForm.classList.add('active');
+    registerForm.classList.remove('active');
+  });
+
+  tabRegister.addEventListener('click', () => {
+    tabRegister.classList.add('active');
+    tabLogin.classList.remove('active');
+    registerForm.classList.add('active');
+    loginForm.classList.remove('active');
+  });
+
+  // ✅ Forgot password logic
+  forgotLink.addEventListener('click', () => {
+    forgotBox.style.display = 'block';
+    forgotStep1.style.display = 'block';
+    forgotStep2.style.display = 'none';
+  });
+
+  btnSendOtp.addEventListener('click', async (ev) => {
+    ev.preventDefault();
+    const userEmail = forgotIdentifier.value.trim();
+    if (!userEmail) {
+      showMessage(forgotMsg, 'Enter a valid email address', 'error');
+      return;
+    }
+
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const expiryTime = new Date(Date.now() + 10 * 60 * 1000).toLocaleTimeString();
+
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        email: userEmail,
+        passcode: otp,
+        time: expiryTime
+      });
+      showMessage(forgotMsg, 'OTP sent successfully!', 'success');
+      forgotStep1.style.display = 'none';
+      forgotStep2.style.display = 'block';
+    } catch (err) {
+      showMessage(forgotMsg, 'Error sending OTP. Check setup.', 'error');
+    }
+  });
+
+  // ✅ Login redirect
+  document.getElementById('btnLogin').addEventListener('click', (ev) => {
+    ev.preventDefault();
+    const user = document.getElementById('login-identifier').value.trim();
+    const pass = document.getElementById('login-password').value.trim();
+
+    if (!user || !pass) {
+      showMessage(loginMsg, 'Please enter username and password', 'error');
+      return;
+    }
+
+    showMessage(loginMsg, 'Login successful! Redirecting...', 'success');
+localStorage.setItem('gramasetuUser', JSON.stringify({ username: user, email: user }));
+setTimeout(() => { window.location.href = 'home.html'; }, 1000);
+
+  });
+
+  // ✅ Register redirect
+  document.getElementById('btnRegister').addEventListener('click', (ev) => {
+    ev.preventDefault();
+    const user = document.getElementById('reg-username').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const pass1 = document.getElementById('reg-password').value.trim();
+    const pass2 = document.getElementById('reg-password2').value.trim();
+
+    if (!user || !email || !pass1 || !pass2) {
+      showMessage(registerMsg, 'Please fill all fields', 'error');
+      return;
+    }
+    if (pass1 !== pass2) {
+      showMessage(registerMsg, 'Passwords do not match', 'error');
+      return;
+    }
+
+    showMessage(registerMsg, 'Registration successful! Redirecting...', 'success');
+localStorage.setItem('gramasetuUser', JSON.stringify({ username: user, email: email }));
+setTimeout(() => { window.location.href = 'home.html'; }, 1000);
+  });
+</script>
+
+</body>
+</html>
