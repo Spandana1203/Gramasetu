@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMGDISHA - Gramasetu</title>
+    <link rel="stylesheet" href="scheme.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="actions">
+        <button class="toggle-btn" onclick="window.location.href='../home.html'">Home</button>
+        <button class="toggle-btn" id="langToggle">ಕನ್ನಡ</button>
+    </div>
+</div>
+
+<!-- ✅ Voice Assistant Button -->
+<button class="voice-btn" id="voiceAssistantBtn">🎤 Voice Assistant</button>
+
+<!-- Content -->
+<div class="content">
+
+<!-- English -->
+<div class="lang en">
+    <h2>Jal Jeevan Mission – Karnataka (Safe Drinking Water Allocation)</h2>
+    <p><b>Description:</b> Part of India's national program to provide Functional Household Tap Connections (FHTC) to every rural household. Focuses on safe and adequate drinking water, health improvement, and reducing water-fetching burden on women and children.</p>
+
+    <h3>Eligibility</h3>
+    <ul>
+        <li>All rural households in Karnataka without functional household tap connections.</li>
+        <li>Priority for SC/ST households, marginalized families, and water-scarce regions.</li>
+        <li>Villages must form Village Water & Sanitation Committees (VWSCs) to manage supply.</li>
+    </ul>
+
+    <h3>Benefits</h3>
+    <ul>
+        <li>Piped water supply to every rural household.</li>
+        <li>Water quality monitoring and removal of contaminants like fluoride, arsenic, and iron.</li>
+        <li>Women's empowerment through participation in water committees.</li>
+        <li>Improved health by reducing waterborne diseases.</li>
+        <li>Time and effort savings for women and children.</li>
+    </ul>
+
+    <h3>How to Apply</h3>
+    <ul>
+        <li>No individual application needed; coverage planned at Gram Panchayat level.</li>
+        <li>Households can register via VWSC or Gram Panchayat office.</li>
+        <li>Track applications through <a href="https://jaljeevanmission.gov.in" target="_blank">official portal</a>.</li>
+        <li>Aadhaar, ration card, and residence proof may be required for connection records.</li>
+    </ul>
+
+    <h3>Additional Details</h3>
+    <ul>
+        <li>Implemented by Ministry of Jal Shakti, Government of India; executed by RDWSS, Karnataka.</li>
+        <li>Community ownership encouraged for long-term sustainability.</li>
+        <li>Regular water testing via district and block laboratories.</li>
+        <li>Mission target: 100% rural tap water connectivity by 2024.</li>
+    </ul>
+</div>
+
+<!-- Kannada -->
+<div class="lang kn" style="display: none;">
+    <h2>ಜಲ್ ಜೀವನ ಮಿಷನ್ – ಕರ್ನಾಟಕ (ರೈತರಿಗೆ ಸುರಕ್ಷಿತ ಕುಡಿಯುವ ನೀರಿನ ವ್ಯವಸ್ಥೆ)</h2>
+    <p><b>ವಿವರಣೆ:</b> ಭಾರತ ಸರ್ಕಾರದ ರಾಷ್ಟ್ರೀಯ ಕಾರ್ಯಕ್ರಮದ ಭಾಗವಾಗಿ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ. ಪ್ರತಿ ಗ್ರಾಮೀಣ ಗೃಹಕ್ಕೆ ಕಾರ್ಯನಿರ್ವಹಿಸುವ ಟ್ಯಾಪ್ ಸಂಪರ್ಕ (FHTC) ಒದಗಿಸಲು, ಸುರಕ್ಷಿತ ಕುಡಿಯುವ ನೀರು, ಆರೋಗ್ಯ ಸುಧಾರಣೆ ಮತ್ತು ಮಹಿಳೆ/ಮಕ್ಕಳ ಮೇಲೆ ನೀರು ತರಬೇಕಾದ ಭಾರ ಕಡಿಮೆ ಮಾಡಲು ಗುರಿ.</p>
+
+    <h3>ಅರ್ಹತೆ</h3>
+    <ul>
+        <li>ಕಾರ್ಯನಿರ್ವಹಿಸುವ ಟ್ಯಾಪ್ ಸಂಪರ್ಕವಿಲ್ಲದ ಎಲ್ಲಾ ಗ್ರಾಮೀಣ ಗೃಹಗಳು.</li>
+        <li>SC/ST ಮನೆಗಳು, ಹಿಂಸಿತ ಕುಟುಂಬಗಳು, ನೀರು ಕೊರತೆಯ ಪ್ರದೇಶಗಳಿಗೆ ಆದ್ಯತೆ.</li>
+        <li>ಗ್ರಾಮ ನೀರು ಮತ್ತು ಸ್ವಚ್ಛತಾ ಸಮಿತಿಗಳು (VWSCs) ನೀರು ಸರಬರಾಜಿನ ನಿರ್ವಹಣೆಗೆ ರೂಪಿಸಬೇಕು.</li>
+    </ul>
+
+    <h3>ಲಾಭಗಳು</h3>
+    <ul>
+        <li>ಪ್ರತೀ ಗ್ರಾಮೀಣ ಗೃಹಕ್ಕೆ ಪೈಪ್ಡ್ ನೀರಿನ ಸರಬರಾಜು.</li>
+        <li>ನೀರಿನ ಗುಣಮಟ್ಟ ನಿರೀಕ್ಷಣೆ, ಫ್ಲೋರೈಡ್, ಅರ್ಸೆನಿಕ್, ಲೋಹದ ಅಳಿಕೆ.</li>
+        <li>ನೀರಿನ ಸಮಿತಿಗಳಲ್ಲಿ ಮಹಿಳೆಯರನ್ನು ಭಾಗವಹಿಸುವ ಮೂಲಕ ಮಹಿಳಾ ಸಬಲೀಕರಣ.</li>
+        <li>ಜಲಸಂಬಂಧಿ ರೋಗ ಕಡಿಮೆ ಮಾಡುವ ಮೂಲಕ ಆರೋಗ್ಯ ಸುಧಾರಣೆ.</li>
+        <li>ಮಹಿಳೆ ಮತ್ತು ಮಕ್ಕಳಿಗೆ ಸಮಯ ಮತ್ತು ಶ್ರಮ ಉಳಿಸುವಿಕೆ.</li>
+    </ul>
+
+    <h3>ಅರ್ಜಿಯ ಪ್ರಕ್ರಿಯೆ</h3>
+    <ul>
+        <li>ಪ್ರತಿ ಕುಟುಂಬ ಅರ್ಜಿ ಸಲ್ಲಿಸುವ ಅಗತ್ಯವಿಲ್ಲ; ಗ್ರಾಮ ಪಂಚಾಯತ್ ಮಟ್ಟದಲ್ಲಿ ಯೋಜನೆ ರೂಪಿಸಲಾಗುತ್ತದೆ.</li>
+        <li>VWSC ಅಥವಾ ಗ್ರಾಮ ಪಂಚಾಯತ್ ಕಚೇರಿ ಮೂಲಕ ನೋಂದಣಿ.</li>
+        <li>ಅಧಿಕೃತ ಪೋರ್ಟಲ್ ಮೂಲಕ ಅರ್ಜಿ ಸ್ಥಿತಿಯನ್ನು ಟ್ರಾಕ್: <a href="https://jaljeevanmission.gov.in" target="_blank">https://jaljeevanmission.gov.in</a></li>
+        <li>ಕುಟುಂಬ ಮಟ್ಟದ ದಾಖಲೆಗಳಿಗೆ ಆಧಾರ್, ರೇಷನ್ ಕಾರ್ಡ್, ನಿವಾಸದ ಪ್ರಮಾಣ ಪತ್ರ ಅಗತ್ಯವಿರಬಹುದು.</li>
+    </ul>
+
+    <h3>ಹೆಚ್ಚಿನ ವಿವರಗಳು</h3>
+    <ul>
+        <li>ಜಾರಿಗೆ ತಂದವರು: ಜಲ್ ಶಕ್ತಿ ಸಚಿವಾಲಯ, ಭಾರತ ಸರ್ಕಾರ; ಕಾರ್ಯಗತಗೊಳಿಸುತ್ತಿದೆ RDWSS, ಕರ್ನಾಟಕ.</li>
+        <li>ದೀರ್ಘಕಾಲಿಕ ಸುಸ್ಥಿರತೆಯಿಗಾಗಿ ಸಮುದಾಯದ ಮಾಲಿಕತ್ವ ಉತ್ತೇಜನೆ.</li>
+        <li>ಜಿಲ್ಲೆ/ಬ್ಲಾಕ್ ಲ್ಯಾಬೊರೇಟರಿಗಳ ಮೂಲಕ ನಿಯಮಿತ ನೀರಿನ ಪರೀಕ್ಷೆ.</li>
+        <li>ಮಿಷನ್ ಗುರಿ: 2024ರೊಳಗೆ ಗ್ರಾಮೀಣ ಕರ್ನಾಟಕದಲ್ಲಿ 100% ಟ್ಯಾಪ್ ನೀರಿನ ಸಂಪರ್ಕ.</li>
+    </ul>
+</div>
+
+</div>
+
+
+
+
+
+
+<!-- Footer -->
+<footer style="background-color: #4b2e2e; color: white; text-align: center; padding: 12px 0; margin-top: 30px;">
+    © Gramasetu
+</footer>
+
+<!-- Scripts -->
+<script src="../va.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguageDisplay() {
+            document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+            const active = document.querySelector('.' + currentLang);
+            if (active) active.style.display = 'block';
+            if (langToggleBtn) langToggleBtn.textContent = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+        }
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'kn' : 'en';
+                localStorage.setItem('lang', currentLang);
+                updateLanguageDisplay();
+            });
+        }
+        updateLanguageDisplay();
+    } catch (e) {}
+
+    try {
+        const vaBtn = document.getElementById('voiceAssistantBtn');
+        if (vaBtn) {
+            vaBtn.addEventListener('click', function () {
+                if (typeof startVoiceAssistant === 'function') {
+                    startVoiceAssistant(localStorage.getItem('lang') || 'en');
+                }
+            });
+        }
+    } catch (e) {}
+
+    try {
+        const icon = document.getElementById('open-chatbot');
+        const frameContainer = document.getElementById('chatbot-frame-container');
+        if (icon && frameContainer) {
+            icon.addEventListener('click', () => {
+                frameContainer.style.display = frameContainer.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+    } catch (e) {}
+});
+</script>
+
+<!-- Chatbot Icon -->
+<div id="open-chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(120% 120% at 80% 20%, #c6a94c 0%, #c6a94c 100%); color: #4b2e2e; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 99999;">💬</div>
+
+<!-- Chatbot Frame -->
+<div id="chatbot-frame-container" style="position: fixed; bottom: 90px; right: 20px; width: 380px; height: 560px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden; z-index: 99999;">
+    <iframe src="../cb-standalone.html" style="width:100%;height:100%;border:none;" allow="microphone; autoplay; clipboard-read" title="Chatbot"></iframe>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NRDWP - Gramasetu</title>
+    <link rel="stylesheet" href="scheme.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="actions">
+        <button class="toggle-btn" onclick="window.location.href='../home.html'">Home</button>
+        <button class="toggle-btn" id="langToggle">ಕನ್ನಡ</button>
+    </div>
+</div>
+
+<!-- ✅ Voice Assistant Button -->
+<button class="voice-btn" id="voiceAssistantBtn">🎤 Voice Assistant</button>
+
+<!-- Content -->
+<div class="content">
+
+<!-- English -->
+<div class="lang en">
+    <h2>National Rural Drinking Water Programme (NRDWP)</h2>
+    <p><b>Description:</b> NRDWP is a central government scheme launched in 2009 to provide safe and adequate drinking water to rural communities across India. It focuses on sustainable, equitable, and safe water supply and promotes community participation in water management.</p>
+
+    <h3>Benefits</h3>
+    <ul>
+        <li>Safe and adequate drinking water to rural households</li>
+        <li>Piped water supply, handpumps, and wells depending on local needs</li>
+        <li>Water quality monitoring and treatment facilities</li>
+        <li>Community participation in water management</li>
+        <li>Capacity building for Panchayats and local institutions</li>
+    </ul>
+
+    <h3>Eligibility</h3>
+    <ul>
+        <li>Rural households in India, especially those in water-scarce areas</li>
+        <li>Priority to BPL families, SC/ST communities, and remote villages lacking potable water</li>
+    </ul>
+
+    <h3>Documents Required</h3>
+    <ul>
+        <li>Proof of residence (ration card, Aadhaar, voter ID)</li>
+        <li>Community representation letter if applying on behalf of a village committee</li>
+        <li>Any prior water quality report (if available)</li>
+    </ul>
+
+    <h3>How to Apply / Access Benefits</h3>
+    <ul>
+        <li>Visit your local Gram Panchayat or Panchayat Raj Department office. <a href="https://panchayat.gov.in/" target="_blank" rel="noopener">panchayat.gov.in</a></li>
+        <li>Submit a request for drinking water supply or infrastructure support</li>
+        <li>Community-based committees (Village Water and Sanitation Committees) assess requirements</li>
+        <li>Projects are implemented under NRDWP guidelines with government funding</li>
+        <li>Maintenance and monitoring is done locally by the Panchayat or Village Water and Sanitation Committee</li>
+    </ul>
+</div>
+
+<!-- Kannada -->
+<div class="lang kn" style="display: none;">
+    <h2>ರಾಷ್ಟ್ರೀಯ ಗ್ರಾಮೀಣ ಕುಡಿಯುವ ನೀರಿನ ಯೋಜನೆ (NRDWP)</h2>
+    <p><b>ವಿವರಣೆ:</b> NRDWP ಕೇಂದ್ರ ಸರ್ಕಾರದ ಯೋಜನೆ, ಇದು 2009ರಲ್ಲಿ ಗ್ರಾಮೀಣ ಪ್ರದೇಶಗಳಲ್ಲಿ ಸುರಕ್ಷಿತ ಹಾಗೂ ಸಾಕಷ್ಟು ಕುಡಿಯುವ ನೀರು ಒದಗಿಸುವ ಉದ್ದೇಶದಿಂದ ಪ್ರಾರಂಭವಾಯಿತು. ಇದು ಸತತ, ಸಮಾನತೆ ಮತ್ತು ಸುರಕ್ಷಿತ ನೀರಿನ ಪೂರೈಕೆ, ಹಾಗೂ ಗ್ರಾಮಸ್ಥರ ಪಾಲ್ಗೊಳ್ಳುವಿಕೆಯನ್ನು ಉತ್ತೇಜಿಸುತ್ತದೆ.</p>
+
+    <h3>ಲಾಭಗಳು</h3>
+    <ul>
+        <li>ಗ್ರಾಮೀಣ ಮನೆಮಂದಿಗೆ ಸುರಕ್ಷಿತ ಮತ್ತು ಸಾಕಷ್ಟು ಕುಡಿಯುವ ನೀರು</li>
+        <li>ಪೈಪ್, ಹ್ಯಾಂಡ್ ಪಂಪ್, ಬಾವಿ – ಸ್ಥಳೀಯ ಅಗತ್ಯಕ್ಕೆ ಅನುಗುಣವಾಗಿ</li>
+        <li>ನೀರಿನ ಗುಣಮಟ್ಟ ತಪಾಸಣೆ ಮತ್ತು ಶುದ್ಧೀಕರಣ ಸೌಲಭ್ಯ</li>
+        <li>ಗ್ರಾಮಸ್ಥರ ಪಾಲ್ಗೊಳ್ಳುವಿಕೆ ಮೂಲಕ ನೀರಿನ ನಿರ್ವಹಣೆ</li>
+        <li>ಪಂಚಾಯತ್‌ಗಳು ಮತ್ತು ಸ್ಥಳೀಯ ಸಂಸ್ಥೆಗಳ ಸಾಮರ್ಥ್ಯ ನಿರ್ಮಾಣ</li>
+    </ul>
+
+    <h3>ಅರ್ಹತೆ</h3>
+    <ul>
+        <li>ಭಾರತದ ಗ್ರಾಮೀಣ ಮನೆಮಂದಿ, ವಿಶೇಷವಾಗಿ ನೀರಿನ ಕೊರತೆಯಿರುವ ಪ್ರದೇಶಗಳಲ್ಲಿ</li>
+        <li>BPL ಕುಟುಂಬಗಳು, SC/ST ಸಮುದಾಯಗಳು, ದೂರದ ಹಳ್ಳಿಗಳಿಗೆ ಆದ್ಯತೆ</li>
+    </ul>
+
+    <h3>ಅಗತ್ಯ ದಾಖಲೆಗಳು</h3>
+    <ul>
+        <li>ವಾಸದ ಸಾಕ್ಷಿ (ರೇಷನ್ ಕಾರ್ಡ್, ಆಧಾರ್, ಮತದಾರ ಗುರುತು ಪತ್ರ)</li>
+        <li>ಸಮುದಾಯದ ಪರವಾಗಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿದರೆ ಗ್ರಾಮ ಸಮಿತಿಯಿಂದ ಶಿಫಾರಸು ಪತ್ರ</li>
+        <li>ಹಳೆಯ ನೀರಿನ ಗುಣಮಟ್ಟ ವರದಿ (ಇದ್ದರೆ)</li>
+    </ul>
+
+    <h3>ಹೇಗೆ ಅರ್ಜಿ ಹಾಕುವುದು / ಲಾಭ ಪಡೆಯುವುದು?</h3>
+    <ul>
+        <li>ನಿಮ್ಮ ಗ್ರಾಮ ಪಂಚಾಯತ್ ಅಥವಾ ಪಂಚಾಯತ್ ರಾಜ್ ಇಲಾಖೆ ಕಚೇರಿಗೆ ಭೇಟಿ ನೀಡಿ. <a href="https://panchayat.gov.in/" target="_blank" rel="noopener">panchayat.gov.in</a></li>
+        <li>ಕುಡಿಯುವ ನೀರಿನ ಪೂರೈಕೆ ಅಥವಾ ಮೂಲಸೌಕರ್ಯಕ್ಕಾಗಿ ವಿನಂತಿ ಸಲ್ಲಿಸಿ</li>
+        <li>ಗ್ರಾಮ ನೀರು ಮತ್ತು ಸ್ವಚ್ಛತಾ ಸಮಿತಿ (VWSC) ಅವಶ್ಯಕತೆ ಪರಿಶೀಲಿಸುತ್ತದೆ</li>
+        <li>ಯೋಜನೆಗಳನ್ನು NRDWP ಮಾರ್ಗಸೂಚಿ ಪ್ರಕಾರ ಜಾರಿಗೆ ತರಲಾಗುತ್ತದೆ</li>
+        <li>ನಿರ್ವಹಣೆ ಮತ್ತು ಮೇಲ್ವಿಚಾರಣೆಯನ್ನು ಗ್ರಾಮ ಪಂಚಾಯತ್ ಅಥವಾ VWSC ಮಾಡುತ್ತದೆ</li>
+    </ul>
+</div>
+
+</div>
+
+<!-- Footer -->
+<footer style="background-color: #4b2e2e; color: white; text-align: center; padding: 12px 0; margin-top: 30px;">
+    © Gramasetu
+</footer>
+
+<!-- Scripts -->
+<script src="../va.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguageDisplay() {
+            document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+            const active = document.querySelector('.' + currentLang);
+            if (active) active.style.display = 'block';
+            if (langToggleBtn) langToggleBtn.textContent = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+        }
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'kn' : 'en';
+                localStorage.setItem('lang', currentLang);
+                updateLanguageDisplay();
+            });
+        }
+        updateLanguageDisplay();
+    } catch (e) {}
+
+    try {
+        const vaBtn = document.getElementById('voiceAssistantBtn');
+        if (vaBtn) {
+            vaBtn.addEventListener('click', function () {
+                if (typeof startVoiceAssistant === 'function') {
+                    startVoiceAssistant(localStorage.getItem('lang') || 'en');
+                }
+            });
+        }
+    } catch (e) {}
+
+    try {
+        const icon = document.getElementById('open-chatbot');
+        const frameContainer = document.getElementById('chatbot-frame-container');
+        if (icon && frameContainer) {
+            icon.addEventListener('click', () => {
+                frameContainer.style.display = frameContainer.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+    } catch (e) {}
+});
+</script>
+
+<!-- Chatbot Icon -->
+<div id="open-chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(120% 120% at 80% 20%, #c6a94c 0%, #c6a94c 100%); color: #4b2e2e; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 99999;">💬</div>
+
+<!-- Chatbot Frame -->
+<div id="chatbot-frame-container" style="position: fixed; bottom: 90px; right: 20px; width: 380px; height: 560px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden; z-index: 99999;">
+    <iframe src="../cb-standalone.html" style="width:100%;height:100%;border:none;" allow="microphone; autoplay; clipboard-read" title="Chatbot"></iframe>
+</div>
+
+</body>
+</html>

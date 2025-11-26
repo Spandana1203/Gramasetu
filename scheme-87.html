@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMGDISHA - Gramasetu</title>
+    <link rel="stylesheet" href="scheme.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="actions">
+        <button class="toggle-btn" onclick="window.location.href='../home.html'">Home</button>
+        <button class="toggle-btn" id="langToggle">ಕನ್ನಡ</button>
+    </div>
+</div>
+
+<!-- ✅ Voice Assistant Button -->
+<button class="voice-btn" id="voiceAssistantBtn">🎤 Voice Assistant</button>
+
+<!-- Content -->
+<div class="content">
+
+<!-- English -->
+<div class="lang en">
+    <h2>Amrith School Infrastructure Project – Karnataka</h2>
+    <p><b>Description:</b> State-level initiative to improve educational facilities in government schools across rural areas, providing safe classrooms, proper sanitation, drinking water, digital tools, and playgrounds.</p>
+
+    <h3>Eligibility</h3>
+    <ul>
+        <li>Government primary and high schools in Karnataka, especially rural and underdeveloped areas.</li>
+        <li>Priority for schools lacking basic infrastructure or in backward districts.</li>
+        <li>Proposals submitted by Gram Panchayats, SDMCs, or Education Department.</li>
+    </ul>
+
+    <h3>Benefits</h3>
+    <ul>
+        <li>Construction and renovation of classrooms, libraries, laboratories.</li>
+        <li>Provision of toilets, drinking water, and electricity.</li>
+        <li>Installation of digital learning tools like smart boards and computer labs.</li>
+        <li>Development of playgrounds and sports facilities.</li>
+        <li>Enhanced quality of education and reduced dropout rates.</li>
+    </ul>
+
+    <h3>How to Apply</h3>
+    <ul>
+        <li>Submit infrastructure requirements via Block Education Officer (BEO) or District Education Officer (DEO).</li>
+        <li>Proposals forwarded to Department of School Education and Literacy, Karnataka for approval.</li>
+        <li>Funds allocated after verification and priority assessment.</li>
+        <li>Community participation encouraged through SDMCs for monitoring and maintenance.</li>
+    </ul>
+
+    <h3>Additional Details</h3>
+    <ul>
+        <li>Implemented by Department of School Education and Literacy, Karnataka Government.</li>
+        <li>Aligned with central schemes like Samagra Shiksha Abhiyan.</li>
+        <li>Funding via state budget, CSR initiatives, and Panchayat contributions.</li>
+        <li>Regular monitoring ensures timely completion and quality standards.</li>
+    </ul>
+</div>
+
+<!-- Kannada -->
+<div class="lang kn" style="display: none;">
+    <h2>ಅಮೃತ್ ಶಾಲಾ ಮೂಲಸೌಕರ್ಯ ಯೋಜನೆ – ಕರ್ನಾಟಕ</h2>
+    <p><b>ವಿವರಣೆ:</b> ಕರ್ನಾಟಕದಲ್ಲಿ ಸರ್ಕಾರಿ ಶಾಲೆಗಳಲ್ಲಿ ಶಿಕ್ಷಣದ ಸೌಲಭ್ಯಗಳನ್ನು ಸುಧಾರಿಸಲು ರೂಪಿಸಲಾದ ರಾಜ್ಯ ಮಟ್ಟದ ಯೋಜನೆ. ಸುರಕ್ಷಿತ ತರಗತಿಗಳು, ಶುದ್ಧ ಶೌಚಾಲಯ, ಕುಡಿಯುವ ನೀರು, ಡಿಜಿಟಲ್ ಕಲಿಕೆ ಸಾಧನಗಳು ಮತ್ತು ಆಟದ ಮೈದಾನಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ.</p>
+
+    <h3>ಅರ್ಹತೆ</h3>
+    <ul>
+        <li>ಕರ್ನಾಟಕದ ಸರ್ಕಾರಿ ಪ್ರಾಥಮಿಕ ಮತ್ತು ಪ್ರೌಢ ಶಾಲೆಗಳು, ವಿಶೇಷವಾಗಿ ಗ್ರಾಮೀಣ ಮತ್ತು ಹಿಂದುಳಿದ ಪ್ರದೇಶಗಳಲ್ಲಿ.</li>
+        <li>ಮೂಲಸೌಕರ್ಯ ಕೊರತೆ ಇರುವ ಅಥವಾ ಹಿಂದುಳಿದ ಜಿಲ್ಲೆಗಳಲ್ಲಿ ಶಾಲೆಗಳಿಗೆ ಪ್ರಾಥಮ್ಯ.</li>
+        <li>ಗ್ರಾಮ ಪಂಚಾಯತ್, SDMC ಅಥವಾ ಶಿಕ್ಷಣ ಇಲಾಖೆಯ ಮೂಲಕ ಪ್ರಸ್ತಾವನೆ ಸಲ್ಲಿಸಿದ ಶಾಲೆಗಳು.</li>
+    </ul>
+
+    <h3>ಲಾಭಗಳು</h3>
+    <ul>
+        <li>ತರಗತಿ ಕೋಣೆಗಳು, ಗ್ರಂಥಾಲಯಗಳು, ಪ್ರಯೋಗಶಾಲೆಗಳ ನಿರ್ಮಾಣ ಮತ್ತು ನವೀಕರಣ.</li>
+        <li>ಶೌಚಾಲಯ, ಕುಡಿಯುವ ನೀರು, ವಿದ್ಯುತ್ ವ್ಯವಸ್ಥೆ ಒದಗಿಸುವುದು.</li>
+        <li>ಸ್ಮಾರ್ಟ್ ಬೋರ್ಡ್ ಮತ್ತು ಕಂಪ್ಯೂಟರ್ ಲ್ಯಾಬ್ ಸ್ಥಾಪನೆ.</li>
+        <li>ಆಟದ ಮೈದಾನಗಳು ಮತ್ತು ಕ್ರೀಡಾ ಸೌಲಭ್ಯಗಳ ಅಭಿವೃದ್ಧಿ.</li>
+        <li>ವಿದ್ಯಾರ್ಥಿಗಳ ಶಿಕ್ಷಣ ಗುಣಮಟ್ಟ ಸುಧಾರಣೆ ಮತ್ತು ಡ್ರಾಪ್‌ಔಟ್ ಕಡಿಮೆ.</li>
+    </ul>
+
+    <h3>ಅರ್ಜಿಯ ಪ್ರಕ್ರಿಯೆ</h3>
+    <ul>
+        <li>ಬ್ಲಾಕ್ ಶಿಕ್ಷಣಾಧಿಕಾರಿ (BEO) ಅಥವಾ ಜಿಲ್ಲೆ ಶಿಕ್ಷಣಾಧಿಕಾರಿ (DEO) ಮೂಲಕ ಮೂಲಸೌಕರ್ಯ ಅಗತ್ಯಗಳನ್ನು ಸಲ್ಲಿಸಿ.</li>
+        <li>ಪ್ರಸ್ತಾವನೆಗಳನ್ನು ಶಾಲಾ ಶಿಕ್ಷಣ ಮತ್ತು ಸಾಕ್ಷರತೆ ಇಲಾಖೆ ಅನುಮೋದನೆಗಾಗಿ ಕಳುಹಿಸಲಾಗುತ್ತದೆ.</li>
+        <li>ಪರಿಶೀಲನೆ ಮತ್ತು ಪ್ರಾಥಮ್ಯ ಮೌಲ್ಯಮಾಪನ ನಂತರ ನಿಧಿ ಹಂಚಿಕೆ.</li>
+        <li>SDMCs ಮೂಲಕ ಸಮುದಾಯ ಪಾಲ್ಗೊಳ್ಳುವಿಕೆ ಮತ್ತು ನಿರ್ವಹಣೆ ಪ್ರೋತ್ಸಾಹ.</li>
+    </ul>
+
+    <h3>ಹೆಚ್ಚಿನ ವಿವರಗಳು</h3>
+    <ul>
+        <li>ಜಾರಿಗೆ: ಶಾಲಾ ಶಿಕ್ಷಣ ಮತ್ತು ಸಾಕ್ಷರತೆ ಇಲಾಖೆ, ಕರ್ನಾಟಕ ಸರ್ಕಾರ.</li>
+        <li>Samagra Shiksha Abhiyan ಮುಂತಾದ ಕೇಂದ್ರ ಯೋಜನೆಗಳೊಂದಿಗೆ ಸಮ್ಮಿಲಿತವಾಗಿದೆ.</li>
+        <li>ನಿಧಿ: ರಾಜ್ಯ ಬಜೆಟ್, CSR ಪ್ರೋತ್ಸಾಹ, ಪಂಚಾಯತ್ ಕೊಡುಗೆಗಳ ಮೂಲಕ.</li>
+        <li>ನಿಯಮಿತ ತಪಾಸಣೆ: ಸಮಯಕ್ಕೆ ನಿರ್ಮಾಣ ಹಾಗೂ ಗುಣಮಟ್ಟದ ಪ್ರಮಾಣ ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಲು.</li>
+    </ul>
+</div>
+
+</div>
+
+
+
+
+
+
+<!-- Footer -->
+<footer style="background-color: #4b2e2e; color: white; text-align: center; padding: 12px 0; margin-top: 30px;">
+    © Gramasetu
+</footer>
+
+<!-- Scripts -->
+<script src="../va.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguageDisplay() {
+            document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+            const active = document.querySelector('.' + currentLang);
+            if (active) active.style.display = 'block';
+            if (langToggleBtn) langToggleBtn.textContent = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+        }
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'kn' : 'en';
+                localStorage.setItem('lang', currentLang);
+                updateLanguageDisplay();
+            });
+        }
+        updateLanguageDisplay();
+    } catch (e) {}
+
+    try {
+        const vaBtn = document.getElementById('voiceAssistantBtn');
+        if (vaBtn) {
+            vaBtn.addEventListener('click', function () {
+                if (typeof startVoiceAssistant === 'function') {
+                    startVoiceAssistant(localStorage.getItem('lang') || 'en');
+                }
+            });
+        }
+    } catch (e) {}
+
+    try {
+        const icon = document.getElementById('open-chatbot');
+        const frameContainer = document.getElementById('chatbot-frame-container');
+        if (icon && frameContainer) {
+            icon.addEventListener('click', () => {
+                frameContainer.style.display = frameContainer.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+    } catch (e) {}
+});
+</script>
+
+<!-- Chatbot Icon -->
+<div id="open-chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(120% 120% at 80% 20%, #c6a94c 0%, #c6a94c 100%); color: #4b2e2e; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 99999;">💬</div>
+
+<!-- Chatbot Frame -->
+<div id="chatbot-frame-container" style="position: fixed; bottom: 90px; right: 20px; width: 380px; height: 560px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden; z-index: 99999;">
+    <iframe src="../cb-standalone.html" style="width:100%;height:100%;border:none;" allow="microphone; autoplay; clipboard-read" title="Chatbot"></iframe>
+</div>
+
+</body>
+</html>

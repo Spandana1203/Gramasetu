@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMGDISHA - Gramasetu</title>
+    <link rel="stylesheet" href="scheme.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="actions">
+        <button class="toggle-btn" onclick="window.location.href='../home.html'">Home</button>
+        <button class="toggle-btn" id="langToggle">ಕನ್ನಡ</button>
+    </div>
+</div>
+
+<!-- ✅ Voice Assistant Button -->
+<button class="voice-btn" id="voiceAssistantBtn">🎤 Voice Assistant</button>
+
+<!-- Content -->
+<div class="content">
+
+<!-- English -->
+<div class="lang en">
+    <h2>Swavalambi Sarathi Scheme (Minority Driver Subsidy) – Karnataka</h2>
+    <p><b>Description:</b> Welfare program supporting unemployed minority youth to purchase vehicles and promote self-employment in transport, helping beneficiaries become financially independent.</p>
+
+    <h3>Eligibility</h3>
+    <ul>
+        <li>Belong to a minority community (Muslims, Christians, Jains, Buddhists, Sikhs, Parsis).</li>
+        <li>Age: 18–45 years.</li>
+        <li>Annual family income ≤ ₹4.5 lakh.</li>
+        <li>Valid driving license for vehicle category applied.</li>
+        <li>Preference: unemployed youth and first-time vehicle owners.</li>
+    </ul>
+
+    <h3>Benefits</h3>
+    <ul>
+        <li>Subsidy up to 50% of vehicle cost (max ₹3 lakh).</li>
+        <li>Encourages self-employment via taxis, autorickshaws, goods carriers, or other commercial vehicles.</li>
+        <li>Reduces financial burden on minority youth in transport sector.</li>
+        <li>Improves livelihood and income generation in rural and urban areas.</li>
+        <li>Promotes entrepreneurship among minority communities.</li>
+    </ul>
+
+    <h3>How to Apply</h3>
+    <ul>
+        <li>Visit: <a href="https://gokdom.karnataka.gov.in" target="_blank">Official Portal</a>.</li>
+        <li>Register with Aadhaar, income certificate, caste/minority certificate, driving license details.</li>
+        <li>Upload Aadhaar, residence proof, income certificate, caste/minority certificate, driving license, bank account details.</li>
+        <li>Submit online application; verification by Minorities Welfare Department, Karnataka.</li>
+        <li>Subsidy released directly to vehicle dealer/bank after loan sanction.</li>
+    </ul>
+
+    <h3>Additional Details</h3>
+    <ul>
+        <li>Implemented by Karnataka Minorities Development Corporation (KMDC).</li>
+        <li>Apply individually or with banks for vehicle loans.</li>
+        <li>Beneficiaries encouraged to register on Ola, Uber, and logistics platforms.</li>
+        <li>Scheme aims to create sustainable self-employment opportunities in transport and service sectors.</li>
+    </ul>
+</div>
+
+<!-- Kannada -->
+<div class="lang kn" style="display: none;">
+    <h2>ಸ್ವಾವಲಂಬಿ ಸಾರಥಿ ಯೋಜನೆ (Swavalambi Sarathi Scheme) – ಕರ್ನಾಟಕ</h2>
+    <p><b>ವಿವರಣೆ:</b> ಉದ್ಯೋಗರಹಿತ ಅಲ್ಪಸಂಖ್ಯಾತ ಯುವಕರಿಗೆ ವಾಹನ ಖರೀದಿ ಸಬ್ಸಿಡಿ ನೀಡುವ ಕಲ್ಯಾಣಾತ್ಮಕ ಯೋಜನೆ. ಸಾರಿಗೆ ಕ್ಷೇತ್ರದಲ್ಲಿ ಸ್ವ ಉದ್ಯೋಗವನ್ನು ಉತ್ತೇಜಿಸಿ, ಲಾಭಭೋಗಿಗಳು ಆರ್ಥಿಕವಾಗಿ ಸ್ವಾವಲಂಬಿಯಾಗಲು ಸಹಾಯ.</p>
+
+    <h3>ಅರ್ಹತೆ</h3>
+    <ul>
+        <li>ಅಲ್ಪಸಂಖ್ಯಾತ ಸಮುದಾಯದ ಸದಸ್ಯರು (ಮುಸ್ಲಿಮ್, ಕ್ರಿಶ್ಚಿಯನ್, ಜೈನ್, ಬುಧ್ಧ, ಸಿಖ್, ಪಾರ್ಸಿ).</li>
+        <li>ವಯಸ್ಸು: 18–45 ವರ್ಷಗಳು.</li>
+        <li>ವಾರ್ಷಿಕ ಕುಟುಂಬ ಆದಾಯ ₹4.5 ಲಕ್ಷಕ್ಕಿಂತ ಹೆಚ್ಚು ಇಲ್ಲ.</li>
+        <li>ಅರ್ಜಿ ಸಲ್ಲಿಸುವ ವಾಹನ ವರ್ಗಕ್ಕೆ ಮಾನ್ಯ ಚಾಲನಾ ಲೈಸೆನ್ಸ್.</li>
+        <li>ಆದ್ಯತೆ: ಉದ್ಯೋಗರಹಿತ ಯುವಕರು ಮತ್ತು ಪ್ರಥಮ ಬಾರಿ ವಾಹನ ಖರೀದಿಸುವವರು.</li>
+    </ul>
+
+    <h3>ಲಾಭಗಳು</h3>
+    <ul>
+        <li>ವಾಹನ ವೆಚ್ಚದ 50% ವರೆಗೆ ಸಬ್ಸಿಡಿ (ಗರಿಷ್ಠ ₹3 ಲಕ್ಷ).</li>
+        <li>ಟ್ಯಾಕ್ಸಿ, ಆಟೋ, ಸರಕು ವಾಹನ ಅಥವಾ ಇತರ ವಾಣಿಜ್ಯ ವಾಹನ ಖರೀದಿಯಿಂದ ಸ್ವ ಉದ್ಯೋಗವನ್ನು ಉತ್ತೇಜಿಸುತ್ತದೆ.</li>
+        <li>ಸಾರಿಗೆ ಕ್ಷೇತ್ರದಲ್ಲಿ ಅಲ್ಪಸಂಖ್ಯಾತ ಯುವಕರ ಆರ್ಥಿಕ ಭಾರ ಕಡಿಮೆ.</li>
+        <li>ಗ್ರಾಮೀಣ ಮತ್ತು ನಗರ ಪ್ರದೇಶಗಳಲ್ಲಿ ಉದ್ಯೋಗ ಮತ್ತು ಆದಾಯವೃದ್ಧಿಗೆ ಸಹಾಯ.</li>
+        <li>ಅಲ್ಪಸಂಖ್ಯಾತ ಸಮುದಾಯಗಳಲ್ಲಿ ಉದ್ಯಮಶೀಲತೆಯನ್ನು ಉತ್ತೇಜಿಸುತ್ತದೆ.</li>
+    </ul>
+
+    <h3>ಅರ್ಜಿಯ ಪ್ರಕ್ರಿಯೆ</h3>
+    <ul>
+        <li>ಅಧಿಕೃತ ಪೋರ್ಟಲ್ ಭೇಟಿ: <a href="https://gokdom.karnataka.gov.in" target="_blank">https://gokdom.karnataka.gov.in</a>.</li>
+        <li>ಆದಾರ್, ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ, ಜಾತಿ/ಅಲ್ಪಸಂಖ್ಯಾತ ಪ್ರಮಾಣಪತ್ರ, ಚಾಲನಾ ಲೈಸೆನ್ಸ್ ವಿವರಗಳೊಂದಿಗೆ ನೋಂದಣಿ.</li>
+        <li>ಆನ್‌ಲೈನ್ ಅರ್ಜಿಗೆ ಅಗತ್ಯ ದಾಖಲೆಗಳನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿರಿ.</li>
+        <li>ಅರ್ಜಿ ಪರಿಶೀಲನೆ: ಅಲ್ಪಸಂಖ್ಯಾತ ಕಲ್ಯಾಣ ಇಲಾಖೆ, ಕರ್ನಾಟಕ.</li>
+        <li>ಸಾಲ ಮಂಜೂರಾದ ನಂತರ ಸಬ್ಸಿಡಿ ನೇರವಾಗಿ ವಾಹನ ಡೀಲರ್/ಬ್ಯಾಂಕ್‌ಗೆ ಬಿಡುಗಡೆ.</li>
+    </ul>
+
+    <h3>ಹೆಚ್ಚಿನ ವಿವರಗಳು</h3>
+    <ul>
+        <li>ಜಾರಿಗೆ: ಕರ್ನಾಟಕ ಅಲ್ಪಸಂಖ್ಯಾತರ ಅಭಿವೃದ್ಧಿ ನಿಗಮ (KMDC).</li>
+        <li>ಅರ್ಜಿ ವೈಯಕ್ತಿಕ ಅಥವಾ ಬ್ಯಾಂಕ್ ಸಹಯೋಗದಲ್ಲಿ ಸಲ್ಲಿಸಬಹುದು.</li>
+        <li>ಲಾಭಭೋಗಿಗಳು Ola, Uber, ಲಾಜಿಸ್ಟಿಕ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳಿಗೆ ನೋಂದಾಯಿಸಬಹುದು.</li>
+        <li>ಯೋಜನೆಯು ಸಾರಿಗೆ ಮತ್ತು ಸೇವಾ ಕ್ಷೇತ್ರದಲ್ಲಿ ಸ್ಥಿರ ಸ್ವ ಉದ್ಯೋಗದ ಅವಕಾಶ ಸೃಷ್ಟಿಸಲು ಗುರಿ ಹೊಂದಿದೆ.</li>
+    </ul>
+</div>
+
+</div>
+
+
+
+
+
+
+<!-- Footer -->
+<footer style="background-color: #4b2e2e; color: white; text-align: center; padding: 12px 0; margin-top: 30px;">
+    © Gramasetu
+</footer>
+
+<!-- Scripts -->
+<script src="../va.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguageDisplay() {
+            document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+            const active = document.querySelector('.' + currentLang);
+            if (active) active.style.display = 'block';
+            if (langToggleBtn) langToggleBtn.textContent = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+        }
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'kn' : 'en';
+                localStorage.setItem('lang', currentLang);
+                updateLanguageDisplay();
+            });
+        }
+        updateLanguageDisplay();
+    } catch (e) {}
+
+    try {
+        const vaBtn = document.getElementById('voiceAssistantBtn');
+        if (vaBtn) {
+            vaBtn.addEventListener('click', function () {
+                if (typeof startVoiceAssistant === 'function') {
+                    startVoiceAssistant(localStorage.getItem('lang') || 'en');
+                }
+            });
+        }
+    } catch (e) {}
+
+    try {
+        const icon = document.getElementById('open-chatbot');
+        const frameContainer = document.getElementById('chatbot-frame-container');
+        if (icon && frameContainer) {
+            icon.addEventListener('click', () => {
+                frameContainer.style.display = frameContainer.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+    } catch (e) {}
+});
+</script>
+
+<!-- Chatbot Icon -->
+<div id="open-chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(120% 120% at 80% 20%, #c6a94c 0%, #c6a94c 100%); color: #4b2e2e; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 99999;">💬</div>
+
+<!-- Chatbot Frame -->
+<div id="chatbot-frame-container" style="position: fixed; bottom: 90px; right: 20px; width: 380px; height: 560px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden; z-index: 99999;">
+    <iframe src="../cb-standalone.html" style="width:100%;height:100%;border:none;" allow="microphone; autoplay; clipboard-read" title="Chatbot"></iframe>
+</div>
+
+</body>
+</html>

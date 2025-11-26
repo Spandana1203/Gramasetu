@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMGDISHA - Gramasetu</title>
+    <link rel="stylesheet" href="scheme.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="actions">
+        <button class="toggle-btn" onclick="window.location.href='../home.html'">Home</button>
+        <button class="toggle-btn" id="langToggle">ಕನ್ನಡ</button>
+    </div>
+</div>
+
+<!-- ✅ Voice Assistant Button -->
+<button class="voice-btn" id="voiceAssistantBtn">🎤 Voice Assistant</button>
+
+<!-- Content -->
+<div class="content">
+
+<!-- English -->
+<div class="lang en">
+    <h2>Labour Card Scholarship</h2>
+    <p><b>Description:</b> The Karnataka Building and Other Construction Workers Welfare Board provides scholarships to children of registered construction workers to support their education.</p>
+
+    <h3>Eligibility</h3>
+    <ul>
+        <li>Parent must be a registered construction worker under KBOCWWB.</li>
+        <li>Student must be enrolled in school, PUC, or higher education.</li>
+        <li>Family income should be within welfare board guidelines.</li>
+    </ul>
+
+    <h3>Benefits</h3>
+    <ul>
+        <li>Scholarship ranges from ₹2,000 for school students to ₹11,000 for professional courses.</li>
+        <li>Encourages children of labourers to continue education.</li>
+        <li>Covers tuition and exam fees.</li>
+    </ul>
+
+    <h3>Documents Required</h3>
+    <ul>
+        <li>Aadhaar Card</li>
+        <li>Labour Card (parent registered under KBOCWWB)</li>
+        <li>Student’s marks card</li>
+        <li>School/college bonafide certificate</li>
+        <li>Bank account details</li>
+    </ul>
+
+    <h3>How to Apply</h3>
+    <p>Visit <a href="https://kbocwwb.karnataka.gov.in/education" target="_blank">KBOCWWB Education Portal</a>. Log in with Labour ID, fill student details, upload marks card, and submit application. Track status online.</p>
+</div>
+
+<!-- Kannada -->
+<div class="lang kn" style="display: none;">
+    <h2>ಲೇಬರ್ ಕಾರ್ಡ್ ವಿದ್ಯಾರ್ಥಿ ಅನುದಾನ</h2>
+    <p><b>ವಿವರಣೆ:</b> ಈ ಯೋಜನೆ ನೋಂದಾಯಿತ ಕಟ್ಟಡ ಕಾರ್ಮಿಕರ ಮಕ್ಕಳಿಗೆ ಶಿಕ್ಷಣದ ಸಹಾಯ ನೀಡಲು ರೂಪಿಸಲಾಗಿದೆ. ಮಕ್ಕಳು ಶಾಲೆ, PUC ಅಥವಾ ಉನ್ನತ ಶಿಕ್ಷಣ ಪಡೆಯಲು ಈ ಯೋಜನೆಯಿಂದ ಅನುಕೂಲ ಪಡೆಯುತ್ತಾರೆ.</p>
+
+    <h3>ಅರ್ಹತೆ</h3>
+    <ul>
+        <li>ಪೋಷಕರು KBOCWWB ನಲ್ಲಿ ನೋಂದಾಯಿತ ಕಾರ್ಮಿಕರು ಆಗಿರಬೇಕು.</li>
+        <li>ವಿದ್ಯಾರ್ಥಿ ಶಾಲೆ, PUC ಅಥವಾ ಉನ್ನತ ಶಿಕ್ಷಣದಲ್ಲಿ ನೋಂದಾಯಿತವಾಗಿರಬೇಕು.</li>
+        <li>ಕುಟುಂಬದ ವಾರ್ಷಿಕ ಆದಾಯ ಕಲ್ಯಾಣ ಮಂಡಳಿಯ ಮಾರ್ಗದರ್ಶಕಾಂಶದೊಳಗೆ ಇರಬೇಕು.</li>
+    </ul>
+
+    <h3>ಲಾಭಗಳು</h3>
+    <ul>
+        <li>ಶಾಲಾ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ₹2,000, ಪ್ರೊಫೆಷನಲ್ ಕೋರ್ಸ್‌ಗಳಿಗೆ ₹11,000 ಅನುದಾನ.</li>
+        <li>ಕಾರ್ಮಿಕ ಮಕ್ಕಳ ಶಿಕ್ಷಣ ಮುಂದುವರಿಸಲು ಪ್ರೋತ್ಸಾಹ.</li>
+        <li>ಶುಲ್ಕ ಮತ್ತು ಪರೀಕ್ಷಾ ಶುಲ್ಕಗಳಿಗೆ ನೆರವು.</li>
+    </ul>
+
+    <h3>ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</h3>
+    <ul>
+        <li>ಆಧಾರ್ ಕಾರ್ಡ್</li>
+        <li>ಲೇಬರ್ ಕಾರ್ಡ್ (ಪೋಷಕರ ನೋಂದಣಿ KBOCWWB)</li>
+        <li>ವಿದ್ಯಾರ್ಥಿಯ ಮಾರ್ಕ್ಸ್ ಕಾರ್ಡ್</li>
+        <li>ಶಾಲೆ/ಕಾಲೇಜು ಬೋನಫೈಡ್ ಪ್ರಮಾಣ ಪತ್ರ</li>
+        <li>ಬ್ಯಾಂಕ್ ಖಾತೆ ವಿವರಗಳು</li>
+    </ul>
+
+    <h3>ಅರ್ಜಿಯ ಪ್ರಕ್ರಿಯೆ</h3>
+    <p>https://kbocwwb.karnataka.gov.in/education ಗೆ ಭೇಟಿ ನೀಡಿ. ಲೇಬರ್ ID ಬಳಸಿ ಲಾಗಿನ್ ಮಾಡಿ, ವಿದ್ಯಾರ್ಥಿ ವಿವರಗಳನ್ನು ನಮೂದಿಸಿ ಮತ್ತು ಮಾರ್ಕ್ಸ್ ಕಾರ್ಡ್ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ. ಅರ್ಜಿ ಸಲ್ಲಿಸಿ ಮತ್ತು ಸ್ಥಿತಿ ಟ್ರ್ಯಾಕ್ ಮಾಡಿ.</p>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer style="background-color: #4b2e2e; color: white; text-align: center; padding: 12px 0; margin-top: 30px;">
+    © Gramasetu
+</footer>
+
+<!-- Scripts -->
+<script src="../va.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguageDisplay() {
+            document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+            const active = document.querySelector('.' + currentLang);
+            if (active) active.style.display = 'block';
+            if (langToggleBtn) langToggleBtn.textContent = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+        }
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'kn' : 'en';
+                localStorage.setItem('lang', currentLang);
+                updateLanguageDisplay();
+            });
+        }
+        updateLanguageDisplay();
+    } catch (e) {}
+
+    try {
+        const vaBtn = document.getElementById('voiceAssistantBtn');
+        if (vaBtn) {
+            vaBtn.addEventListener('click', function () {
+                if (typeof startVoiceAssistant === 'function') {
+                    startVoiceAssistant(localStorage.getItem('lang') || 'en');
+                }
+            });
+        }
+    } catch (e) {}
+
+    try {
+        const icon = document.getElementById('open-chatbot');
+        const frameContainer = document.getElementById('chatbot-frame-container');
+        if (icon && frameContainer) {
+            icon.addEventListener('click', () => {
+                frameContainer.style.display = frameContainer.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+    } catch (e) {}
+});
+</script>
+
+<!-- Chatbot Icon -->
+<div id="open-chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(120% 120% at 80% 20%, #c6a94c 0%, #c6a94c 100%); color: #4b2e2e; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 99999;">💬</div>
+
+<!-- Chatbot Frame -->
+<div id="chatbot-frame-container" style="position: fixed; bottom: 90px; right: 20px; width: 380px; height: 560px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden; z-index: 99999;">
+    <iframe src="../cb-standalone.html" style="width:100%;height:100%;border:none;" allow="microphone; autoplay; clipboard-read" title="Chatbot"></iframe>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMGDISHA - Gramasetu</title>
+    <link rel="stylesheet" href="scheme.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <div class="actions">
+        <button class="toggle-btn" onclick="window.location.href='../home.html'">Home</button>
+        <button class="toggle-btn" id="langToggle">ಕನ್ನಡ</button>
+    </div>
+</div>
+
+<!-- ✅ Voice Assistant Button -->
+<button class="voice-btn" id="voiceAssistantBtn">🎤 Voice Assistant</button>
+
+<!-- Content -->
+<div class="content">
+
+<!-- English -->
+<div class="lang en">
+    <h2>Karnataka Handloom Development Programme</h2>
+    <p><b>Description:</b> The scheme promotes Karnataka's traditional handloom industry while supporting weavers and artisans with financial assistance, modern tools, training, and market access. It helps adopt modern technology, ensures sustainable raw materials, and creates market linkages nationally and internationally.</p>
+
+    <h3>Eligibility</h3>
+    <ul>
+        <li>Registered handloom weaver or artisan in Karnataka.</li>
+        <li>Permanent resident of Karnataka.</li>
+        <li>Proof of occupation as weaver/artisan.</li>
+        <li>Priority to SC/ST, women, and economically weaker handloom workers.</li>
+        <li>Age 18–60 years (as per guidelines).</li>
+    </ul>
+
+    <h3>Benefits</h3>
+    <ul>
+        <li>Financial assistance/subsidy for looms, raw materials, and equipment.</li>
+        <li>Support for modernization and adoption of new technology.</li>
+        <li>Training in modern design, dyeing, weaving, and marketing.</li>
+        <li>Cluster development initiatives for strong handloom communities.</li>
+        <li>Market access through exhibitions, fairs, and online platforms.</li>
+        <li>Assistance for branding and certification of handloom products.</li>
+        <li>Special incentives for women weavers.</li>
+    </ul>
+
+    <h3>Documents Required</h3>
+    <ul>
+        <li>Aadhaar card (linked with bank account).</li>
+        <li>Weaver ID or proof of handloom activity (Handloom Dept./association).</li>
+        <li>Residence proof (ration card, voter ID, electricity bill, etc.).</li>
+        <li>Caste & income certificate (if applicable).</li>
+        <li>Bank passbook copy (Aadhaar-seeded).</li>
+        <li>Passport-size photographs.</li>
+        <li>Business proposal/requirement list (for subsidy/loan schemes).</li>
+    </ul>
+
+    <h3>How to Apply</h3>
+    <ol>
+        <li>Visit <a href="https://textiles.karnataka.gov.in" target="_blank">Department of Handlooms & Textiles</a> website.</li>
+        <li>Register as a weaver or log in.</li>
+        <li>Select desired handloom development scheme (loom subsidy, raw material, training, etc.).</li>
+        <li>Fill applicant and occupational details.</li>
+        <li>Upload required documents.</li>
+        <li>Complete Aadhaar OTP verification and submit.</li>
+        <li>District Handloom Officer verifies; approved beneficiaries receive DBT or in-kind assistance.</li>
+    </ol>
+
+    <h3>Importance</h3>
+    <ul>
+        <li>Preserves traditional weavers’ livelihoods.</li>
+        <li>Helps artisans compete in modern markets.</li>
+        <li>Promotes “Make in Karnataka” and strengthens rural economies.</li>
+        <li>Empowers women and marginalized communities in weaving sector.</li>
+        <li>Preserves Karnataka’s centuries-old textile and cultural traditions.</li>
+    </ul>
+</div>
+
+<!-- Kannada -->
+<div class="lang kn" style="display: none;">
+    <h2>ಕರ್ನಾಟಕ ಹ್ಯಾಂಡ್ಲೂಮ್ ಅಭಿವೃದ್ಧಿ ಕಾರ್ಯಕ್ರಮ</h2>
+    <p><b>ವಿವರಣೆ:</b> ಹ್ಯಾಂಡ್ಲೂಮ್ ಕೈಗಾರಿಕೆಯನ್ನು ಉಳಿಸಿ, ಉತ್ತೇಜಿಸುವ ಯೋಜನೆ. ಹಸ್ತಕಲೆಗಾರರಿಗೆ ಹಣಕಾಸು ನೆರವು, ಹೊಸ ತಂತ್ರಜ್ಞಾನ, ತರಬೇತಿ, ಮಾರ್ಕೆಟಿಂಗ್ ಅವಕಾಶಗಳನ್ನು ಒದಗಿಸುತ್ತದೆ. ಆಧುನಿಕ ತಂತ್ರಜ್ಞಾನ ಅಳವಡಿಸಲು, ನಿರಂತರ ಕಚ್ಚಾ ಸಾಮಗ್ರಿ ಲಭ್ಯತೆ ಖಚಿತಪಡಿಸಲು ಮತ್ತು ಉತ್ಪನ್ನಗಳು ರಾಷ್ಟ್ರೀಯ/ಅಂತಾರಾಷ್ಟ್ರೀಯ ಮಾರುಕಟ್ಟೆಗೆ ತಲುಪಲು ಸಹಾಯ.</p>
+
+    <h3>ಅರ್ಹತೆ</h3>
+    <ul>
+        <li>ನೋಂದಾಯಿತ ಹ್ಯಾಂಡ್ಲೂಮ್ ಹಸ್ತಕಲೆಗಾರ/ಕಲೆಗಾರ.</li>
+        <li>ಕರ್ನಾಟಕದ ಶಾಶ್ವತ ನಿವಾಸಿ.</li>
+        <li>ಉದ್ಯೋಗದ ಪ್ರಮಾಣಪತ್ರ.</li>
+        <li>SC/ST, ಮಹಿಳೆಯರು, ಆರ್ಥಿಕವಾಗಿ ದುರ್ಬಲ ಹ್ಯಾಂಡ್ಲೂಮ್ ಕಾರ್ಮಿಕರಿಗೆ ಆದ್ಯತೆ.</li>
+        <li>ವಯಸ್ಸು: 18–60 ವರ್ಷ.</li>
+    </ul>
+
+    <h3>ಲಾಭಗಳು</h3>
+    <ul>
+        <li>ಲೂಮ್, ಕಚ್ಚಾ ವಸ್ತು, ಉಪಕರಣಗಳ ಖರೀದಿಗೆ ಹಣಕಾಸು/ಸಬ್ಸಿಡಿ.</li>
+        <li>ಲೂಮ್ модер್ನೈಸೇಶನ್ ಮತ್ತು ಹೊಸ ತಂತ್ರಜ್ಞಾನ ಅಳವಡಿಸಲು ಸಹಾಯ.</li>
+        <li>ಆಧುನಿಕ ವಿನ್ಯಾಸ, ಬಣ್ಣಹಚ್ಚು, ನೇಟು, ಮಾರ್ಕೆಟಿಂಗ್ ತರಬೇತಿ.</li>
+        <li>ಬಲಿಷ್ಠ ಹ್ಯಾಂಡ್ಲೂಮ್ ಸಮುದಾಯಕ್ಕಾಗಿ ಕ್ಲಸ್ಟರ್ ಅಭಿವೃದ್ಧಿ.</li>
+        <li>ಪ್ರದರ್ಶನ, ಮೇಳ, ಆನ್‌ಲೈನ್ ಮೂಲಕ ಮಾರುಕಟ್ಟೆ ಪ್ರವೇಶ.</li>
+        <li>ಬ್ರಾಂಡಿಂಗ್ ಮತ್ತು ಪ್ರಮಾಣಪತ್ರಕ್ಕೆ ಸಹಾಯ.</li>
+        <li>ಮಹಿಳಾ ಹಸ್ತಕಲೆಗಾರರಿಗೆ ವಿಶೇಷ ಉತ್ತೇಜನ.</li>
+    </ul>
+
+    <h3>ಬೇಕಾಗುವ ದಾಖಲೆಗಳು</h3>
+    <ul>
+        <li>ಆಧಾರ್ ಕಾರ್ಡ್ (ಬ್ಯಾಂಕ್ ಖಾತೆಗೆ ಲಿಂಕ್).</li>
+        <li>Weaver ID / ಹ್ಯಾಂಡ್ಲೂಮ್ ಚಟುವಟಿಕೆ ಪ್ರಮಾಣಪತ್ರ.</li>
+        <li>ನಿವಾಸದ ದಾಖಲೆ (ರೇಷನ್ ಕಾರ್ಡ್, ಮತದಾರ ID, ವಿದ್ಯುತ್ ಬಿಲ್).</li>
+        <li>ಜಾತಿ & ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ (ಅಗತ್ಯವಿದ್ದಲ್ಲಿ).</li>
+        <li>ಬ್ಯಾಂಕ್ ಖಾತೆ ಪ್ರತಿಲಿಪಿ (ಆಧಾರ್-ಸೀಡ್).</li>
+        <li>ಪಾಸ್‌ಪೋರ್ಟ್ ಗಾತ್ರದ ಫೋಟೋಗಳು.</li>
+        <li>ವ್ಯವಹಾರ/ಆವಶ್ಯಕತೆ ಪಟ್ಟಿಗಳು (ಸಬ್ಸಿಡಿ/ಸಾಲ ಯೋಜನೆ).</li>
+    </ul>
+
+    <h3>ಅರ್ಜಿಯ ಪ್ರಕ್ರಿಯೆ</h3>
+    <ol>
+        <li><a href="https://textiles.karnataka.gov.in" target="_blank">ಹ್ಯಾಂಡ್ಲೂಮ್ಸ್ & ಟೆಕ್ಸ್ಟೈಲ್ಸ್ ವೆಬ್‌ಸೈಟ್</a> ಗೆ ಭೇಟಿ ನೀಡಿ.</li>
+        <li>Weaver ಆಗಿ ನೋಂದಣಿ ಅಥವಾ ಲಾಗಿನ್ ಮಾಡಿ.</li>
+        <li>ಆಯ್ಕೆಯಾದ ಹ್ಯಾಂಡ್ಲೂಮ್ ಅಭಿವೃದ್ಧಿ ಯೋಜನೆ ಆಯ್ಕೆಮಾಡಿ.</li>
+        <li>ಅರ್ಜಿದಾರರ ಮತ್ತು ಉದ್ಯೋಗ ವಿವರ ಭರ್ತಿ ಮಾಡಿ.</li>
+        <li>ಅಗತ್ಯ ದಾಖಲೆ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ.</li>
+        <li>ಆಧಾರ್ OTP ಪರಿಶೀಲನೆ ಮಾಡಿ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ.</li>
+        <li>ಜಿಲ್ಲೆ ಹ್ಯಾಂಡ್ಲೂಮ್ ಅಧಿಕಾರಿಗಳಿಂದ ಪರಿಶೀಲನೆ; DBT ಅಥವಾ ಸರಕಾ ಸಹಾಯ ಲಭ್ಯ.</li>
+    </ol>
+
+    <h3>ಪ್ರಮುಖತೆ / ಆಕರ್ಷಣೆ</h3>
+    <ul>
+        <li>ಹಸ್ತಕಲೆಗಾರರ ಉದ್ಯೋಗವನ್ನು ಸುರಕ್ಷಿತಗೊಳಿಸುತ್ತದೆ.</li>
+        <li>ಆಧುನಿಕ ಮಾರುಕಟ್ಟೆಗಳಲ್ಲಿ ಸ್ಪರ್ಧೆಗೆ ಸಹಾಯ.</li>
+        <li>“Make in Karnataka” ಪ್ರಚಾರ ಮತ್ತು ಗ್ರಾಮೀಣ ಆರ್ಥಿಕತೆ ಬಲಪಡಿಸುತ್ತದೆ.</li>
+        <li>ಹಸ್ತಕಲೆ ಕ್ಷೇತ್ರದಲ್ಲಿ ಮಹಿಳಾ ಮತ್ತು ಹಿಂದುಳಿದ ಸಮುದಾಯ ಶಕ್ತಿ ಪ್ರಚಾರ.</li>
+        <li>ಕರ್ನಾಟಕದ ಶತಮಾನ ಹಳೆಯ ವಸ್ತ್ರ & ಸಾಂಸ್ಕೃತಿಕ ಪರಂಪರೆ ಉಳಿಸುತ್ತದೆ.</li>
+    </ul>
+</div>
+
+</div>
+<!-- Footer -->
+<footer style="background-color: #4b2e2e; color: white; text-align: center; padding: 12px 0; margin-top: 30px;">
+    © Gramasetu
+</footer>
+
+<!-- Scripts -->
+<script src="../va.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    try {
+        const langToggleBtn = document.getElementById('langToggle');
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguageDisplay() {
+            document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+            const active = document.querySelector('.' + currentLang);
+            if (active) active.style.display = 'block';
+            if (langToggleBtn) langToggleBtn.textContent = currentLang === 'en' ? 'ಕನ್ನಡ' : 'English';
+        }
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', function () {
+                currentLang = currentLang === 'en' ? 'kn' : 'en';
+                localStorage.setItem('lang', currentLang);
+                updateLanguageDisplay();
+            });
+        }
+        updateLanguageDisplay();
+    } catch (e) {}
+
+    try {
+        const vaBtn = document.getElementById('voiceAssistantBtn');
+        if (vaBtn) {
+            vaBtn.addEventListener('click', function () {
+                if (typeof startVoiceAssistant === 'function') {
+                    startVoiceAssistant(localStorage.getItem('lang') || 'en');
+                }
+            });
+        }
+    } catch (e) {}
+
+    try {
+        const icon = document.getElementById('open-chatbot');
+        const frameContainer = document.getElementById('chatbot-frame-container');
+        if (icon && frameContainer) {
+            icon.addEventListener('click', () => {
+                frameContainer.style.display = frameContainer.style.display === 'none' ? 'block' : 'none';
+            });
+        }
+    } catch (e) {}
+});
+</script>
+
+<!-- Chatbot Icon -->
+<div id="open-chatbot" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(120% 120% at 80% 20%, #c6a94c 0%, #c6a94c 100%); color: #4b2e2e; display: flex; align-items: center; justify-content: center; font-size: 28px; cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.5); z-index: 99999;">💬</div>
+
+<!-- Chatbot Frame -->
+<div id="chatbot-frame-container" style="position: fixed; bottom: 90px; right: 20px; width: 380px; height: 560px; display: none; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border-radius: 20px; overflow: hidden; z-index: 99999;">
+    <iframe src="../cb-standalone.html" style="width:100%;height:100%;border:none;" allow="microphone; autoplay; clipboard-read" title="Chatbot"></iframe>
+</div>
+
+</body>
+</html>
